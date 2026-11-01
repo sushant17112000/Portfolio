@@ -1,0 +1,395 @@
+<title>Sushant Bhat Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one long scroll in five labelled bays, like a bank ledger: numbers in mono, names in display, cobalt for structure, marigold for impact */
+:root{
+  --paper:#F4F6FA; --card:#FFFFFF; --ink:#0F1B2D; --muted:#56637A; --line:#D8DEE8;
+  --cobalt:#2346D6; --cobalt-soft:#E6EBFC; --marigold:#C98A0B; --marigold-soft:#FBF0D6;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0B111C; --card:#121A28; --ink:#E6EBF3; --muted:#95A1B7; --line:#243049;
+  --cobalt:#839CFF; --cobalt-soft:#1A2547; --marigold:#F1B93E; --marigold-soft:#33280F; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0B111C; --card:#121A28; --ink:#E6EBF3; --muted:#95A1B7; --line:#243049;
+  --cobalt:#839CFF; --cobalt-soft:#1A2547; --marigold:#F1B93E; --marigold-soft:#33280F; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;
+  padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+.wrap{max-width:1080px;margin:0 auto}
+a{color:var(--cobalt)}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.1}
+p{margin:0}
+.mono{font-family:var(--mono)}
+
+/* nav */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:20px;padding-block:12px;overflow-x:auto;scrollbar-width:none}
+nav .mark{font-family:var(--display);font-weight:800;font-size:18px;white-space:nowrap;margin-right:auto;color:var(--ink);text-decoration:none}
+nav a.l{font-family:var(--mono);font-size:13px;color:var(--muted);text-decoration:none;white-space:nowrap}
+nav a.l:hover{color:var(--ink)}
+
+/* hero */
+.hero{padding-block:72px 48px;display:grid;gap:28px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.hero h1{font-size:clamp(44px,8vw,96px);font-weight:800;letter-spacing:-.02em}
+.hero h1 span{color:var(--cobalt)}
+.hero .lede{font-size:clamp(18px,2.2vw,22px);max-width:40ch;color:var(--ink)}
+.hero .lede em{font-style:normal;background:linear-gradient(transparent 62%,var(--marigold-soft) 62%)}
+.ledger{display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--ink);margin-top:12px}
+.ledger div{padding:16px 16px 4px 0;border-right:1px solid var(--line);min-width:0}
+.ledger div+div{padding-left:16px}
+.ledger div:last-child{border-right:0}
+.ledger b{display:block;font-family:var(--display);font-size:clamp(30px,4vw,44px);font-weight:800;color:var(--marigold);font-variant-numeric:tabular-nums;line-height:1.1}
+.ledger span{font-size:14px;color:var(--muted)}
+
+/* sections */
+section{padding-block:56px;border-top:1px solid var(--line)}
+.sh{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:28px}
+.sh .no{font-family:var(--mono);font-size:13px;color:var(--cobalt)}
+.sh h2{font-size:clamp(28px,4vw,40px);font-weight:600}
+.sh p{flex-basis:100%;color:var(--muted);max-width:60ch}
+
+/* work */
+.legend{display:flex;gap:20px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin:-12px 0 24px}
+.meter{display:inline-flex;gap:3px;vertical-align:middle;margin-right:6px}
+.meter i{width:9px;height:9px;border-radius:50%;border:1.5px solid var(--cobalt)}
+.meter i.on{background:var(--cobalt)}
+.work{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.wcard{background:var(--card);border:1px solid var(--line);border-radius:10px;display:flex;flex-direction:column;min-width:0}
+.wcard .top{padding:20px 20px 0;display:flex;flex-direction:column;gap:12px;flex:1}
+.own{font-family:var(--mono);font-size:12px;color:var(--cobalt);display:flex;align-items:center}
+.wcard h3{font-size:22px;font-weight:600}
+.impact{display:flex;align-items:baseline;gap:10px;padding:14px 0;border-top:1px dashed var(--line)}
+.impact b{font-family:var(--display);font-size:36px;font-weight:800;color:var(--marigold);line-height:1}
+.impact span{font-size:14px;color:var(--muted)}
+.wcard p.sum{font-size:15px;color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-family:var(--mono);font-size:11.5px;padding:3px 8px;border-radius:4px;background:var(--cobalt-soft);color:var(--cobalt)}
+details{border-top:1px solid var(--line);margin-top:16px}
+summary{list-style:none;cursor:pointer;padding:14px 20px;font-family:var(--mono);font-size:13px;color:var(--ink);display:flex;justify-content:space-between}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--cobalt);transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+.dbody{padding:0 20px 20px;display:grid;gap:12px;font-size:14.5px}
+.dbody dt{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.dbody dd{margin:2px 0 0}
+
+/* builds */
+.builds{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.bcard{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.bcard .row{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.status{font-family:var(--mono);font-size:12px;display:inline-flex;align-items:center;gap:6px;color:var(--muted)}
+.status::before{content:"";width:8px;height:8px;border-radius:50%;background:#2F9E6B}
+.bcard h3{font-size:24px;font-weight:600}
+.pipe{display:flex;align-items:center;gap:0;overflow-x:auto;padding:10px 0 4px}
+.node{flex:0 0 auto;font-family:var(--mono);font-size:12px;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper);white-space:nowrap}
+.node.hot{border-color:var(--cobalt);color:var(--cobalt)}
+.wire{flex:1 0 22px;height:2px;background:var(--line);position:relative;overflow:hidden;min-width:22px}
+.wire::after{content:"";position:absolute;top:0;left:-30%;width:30%;height:100%;background:var(--marigold)}
+@media (prefers-reduced-motion:no-preference){.wire::after{animation:flow 1.8s linear infinite}.wire:nth-of-type(4)::after{animation-delay:.45s}.wire:nth-of-type(6)::after{animation-delay:.9s}.wire:nth-of-type(8)::after{animation-delay:1.35s}}
+@keyframes flow{to{left:100%}}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.facts div{border-left:2px solid var(--marigold);padding-left:10px}
+.facts b{display:block;font-family:var(--display);font-size:22px;font-weight:800;font-variant-numeric:tabular-nums}
+.facts span{font-size:13px;color:var(--muted)}
+.repo{font-family:var(--mono);font-size:13px;text-decoration:none;align-self:flex-start;border:1px solid var(--cobalt);padding:7px 12px;border-radius:6px}
+.repo:hover{background:var(--cobalt-soft)}
+
+/* papers */
+.papers{display:grid;gap:16px}
+.paper{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:24px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:28px;align-items:center}
+.paper h3{font-size:24px;font-weight:600;margin:6px 0 10px}
+.paper p{font-size:15px;color:var(--muted);max-width:52ch}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;counter-reset:s}
+.step{border:1px solid var(--line);border-radius:8px;padding:12px;display:flex;flex-direction:column;gap:8px;background:var(--paper);min-width:0}
+.step svg{width:26px;height:26px;stroke:var(--cobalt);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.step .k{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.step .v{font-size:13.5px;line-height:1.4}
+@media (prefers-reduced-motion:no-preference){
+  .strip .step{animation:lit 6s ease-in-out infinite}
+  .strip .step:nth-child(2){animation-delay:1.5s}.strip .step:nth-child(3){animation-delay:3s}.strip .step:nth-child(4){animation-delay:4.5s}
+}
+@keyframes lit{0%,22%,100%{border-color:var(--line)}6%,16%{border-color:var(--marigold);transform:translateY(-3px)}}
+
+/* thesis */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.filters button{font-family:var(--mono);font-size:12.5px;padding:6px 12px;border-radius:20px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.thesis{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.idea{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:10px;min-width:0;transition:transform .2s,border-color .2s}
+.idea:hover{transform:translateY(-3px);border-color:var(--cobalt)}
+.idea .row{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.prio{font-family:var(--mono);font-size:11.5px;font-weight:500;padding:3px 8px;border-radius:4px}
+.prio.p1{background:var(--marigold);color:#1B1203}
+.prio.p2{background:var(--marigold-soft);color:var(--marigold)}
+.prio.p3{border:1px solid var(--line);color:var(--muted)}
+.idea svg{width:30px;height:30px;stroke:var(--ink);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.idea h3{font-size:18px;font-weight:600;line-height:1.25}
+.idea p{font-size:14px;color:var(--muted)}
+.idea .tag{align-self:flex-start;margin-top:auto}
+
+/* decks */
+.decks{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.deck{border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden;min-width:0}
+.slide{aspect-ratio:16/9;max-width:100%;background:var(--cobalt-soft);display:flex;flex-direction:column;justify-content:flex-end;padding:16px;position:relative}
+.slide::before{content:"";position:absolute;top:16px;left:16px;width:40%;height:6px;border-radius:3px;background:var(--cobalt);opacity:.6}
+.slide::after{content:"";position:absolute;top:30px;left:16px;width:25%;height:6px;border-radius:3px;background:var(--marigold)}
+.slide b{font-family:var(--display);font-size:20px;font-weight:600;color:var(--ink);line-height:1.2}
+.deck .meta{padding:12px 16px;font-family:var(--mono);font-size:12px;color:var(--muted);display:flex;justify-content:space-between}
+.awards{margin-top:28px;border:1px dashed var(--line);border-radius:10px;padding:18px;display:flex;gap:12px;align-items:center;color:var(--muted);font-size:14.5px}
+.awards svg{flex:0 0 auto;width:26px;height:26px;stroke:var(--marigold);fill:none;stroke-width:1.7}
+
+footer{border-top:2px solid var(--ink);padding-block:28px 48px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+footer a{font-family:var(--mono)}
+
+@media (max-width:880px){
+  .work,.thesis,.decks{grid-template-columns:1fr 1fr}
+  .builds{grid-template-columns:1fr}
+  .paper{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  .work,.thesis,.decks{grid-template-columns:1fr}
+  .ledger{grid-template-columns:1fr 1fr}
+  .ledger div:nth-child(2){border-right:0}
+  .ledger div:nth-child(3){padding-left:0}
+  .ledger div:nth-child(n+3){border-top:1px solid var(--line)}
+  .strip{grid-template-columns:1fr 1fr}
+  .facts{grid-template-columns:1fr 1fr 1fr}
+  .hero{padding-block:44px 32px}
+}
+</style>
+
+<nav aria-label="Sections">
+  <div class="wrap">
+    <a class="mark" href="#top">Sushant Bhat</a>
+    <a class="l" href="#work">Work</a>
+    <a class="l" href="#builds">Builds</a>
+    <a class="l" href="#papers">White papers</a>
+    <a class="l" href="#thesis">Thesis</a>
+    <a class="l" href="#decks">Decks</a>
+  </div>
+</nav>
+
+<main class="wrap" id="top">
+  <header class="hero">
+    <p class="eyebrow">Business Solution &amp; Digital Transformation Manager · Bandhan Bank · CX and Data Analytics</p>
+    <h1>Sushant <span>Bhat</span></h1>
+    <p class="lede">I take banking problems from the first BRD to go-live: <em>strategy, architecture, vendors, UAT and the leadership room</em>, and I stay until it ships.</p>
+    <div class="ledger" aria-label="Impact at a glance">
+      <div><b>61%</b><span>drop in IVR call disconnects</span></div>
+      <div><b>11</b><span>source systems mapped into one CX data platform</span></div>
+      <div><b>10&nbsp;×&nbsp;15</b><span>banks × service requests answered on WhatsApp</span></div>
+      <div><b>8</b><span>job portals scanned and scored daily by my agent</span></div>
+    </div>
+  </header>
+
+  <section id="work" aria-labelledby="work-h">
+    <div class="sh"><span class="no">01</span><h2 id="work-h">Work projects</h2>
+      <p>Enterprise initiatives at Bandhan Bank, rated by how much of the outcome I owned.</p></div>
+    <div class="legend">
+      <span><span class="meter"><i class="on"></i><i class="on"></i><i class="on"></i></span>Originated: idea to go-live</span>
+      <span><span class="meter"><i class="on"></i><i class="on"></i><i></i></span>Led: owned delivery end to end</span>
+    </div>
+    <div class="work">
+      <article class="wcard">
+        <div class="top">
+          <span class="own"><span class="meter"><i class="on"></i><i class="on"></i><i class="on"></i></span>Originated</span>
+          <h3>SPECTRUM</h3>
+          <p class="sum">System for Predictive Experience &amp; Customer Touchpoint Repository for Unified Metrics. The bank's CX data lakehouse.</p>
+          <div class="impact"><b>11</b><span>siloed sources onto one customer identity</span></div>
+          <div class="tags"><span class="tag">Data lakehouse</span><span class="tag">CX analytics</span><span class="tag">ML roadmap</span></div>
+        </div>
+        <details>
+          <summary>Open case</summary>
+          <dl class="dbody">
+            <div><dt>Problem</dt><dd>Customer data sat in separate systems with no shared identity, no common CX measure, and service that only reacted after complaints.</dd></div>
+            <div><dt>What I owned</dt><dd>Originated the platform, wrote the BRD, designed a tiered lake with a data quality gate (block, quarantine, warn), sized the warehouse at ~3 TB and own go-live approval.</dd></div>
+            <div><dt>Where it goes</dt><dd>Phase 1 answers "what is happening" with alerts and dashboards. Phase 2 answers "what happens next" with churn, complaint and channel-shift models.</dd></div>
+          </dl>
+        </details>
+      </article>
+
+      <article class="wcard">
+        <div class="top">
+          <span class="own"><span class="meter"><i class="on"></i><i class="on"></i><i></i></span>Led</span>
+          <h3>IVR Revamp</h3>
+          <p class="sum">Rebuilt the contact centre's IVR journeys so callers reach an answer instead of hanging up.</p>
+          <div class="impact"><b>61%</b><span>reduction in disconnect rate</span></div>
+          <div class="tags"><span class="tag">Contact centre</span><span class="tag">Voice CX</span></div>
+        </div>
+        <details>
+          <summary>Open case</summary>
+          <dl class="dbody">
+            <div><dt>Problem</dt><dd>Callers were dropping out of long, confusing menu trees before resolution.</dd></div>
+            <div><dt>What I owned</dt><dd>Requirements, journey redesign, vendor coordination, UAT and hypercare after launch.</dd></div>
+            <div><dt>Result</dt><dd>Disconnects fell 61%, keeping more customers on a self-serve path.</dd></div>
+          </dl>
+        </details>
+      </article>
+
+      <article class="wcard">
+        <div class="top">
+          <span class="own"><span class="meter"><i class="on"></i><i class="on"></i><i></i></span>Led</span>
+          <h3>Grievance Redressal</h3>
+          <p class="sum">An enterprise-wide system for logging, routing and closing customer complaints within regulatory timelines.</p>
+          <div class="impact"><b>Bank-wide</b><span>rollout</span></div>
+          <div class="tags"><span class="tag">Complaints</span><span class="tag">Regulatory CX</span></div>
+        </div>
+        <details>
+          <summary>Open case</summary>
+          <dl class="dbody">
+            <div><dt>Problem</dt><dd>Complaints needed one traceable path from first contact to closure.</dd></div>
+            <div><dt>What I owned</dt><dd>BRD authorship, cross-team alignment with CX and IT, UAT and hypercare.</dd></div>
+            <div><dt>Result</dt><dd>Impact figure being added.</dd></div>
+          </dl>
+        </details>
+      </article>
+    </div>
+  </section>
+
+  <section id="builds" aria-labelledby="builds-h">
+    <div class="sh"><span class="no">02</span><h2 id="builds-h">Builds</h2>
+      <p>Things I wrote and shipped myself, code on GitHub.</p></div>
+    <div class="builds">
+      <article class="bcard">
+        <div class="row"><h3>AI Job Search Agent</h3><span class="status">Runs daily · 7 PM IST</span></div>
+        <p>Reads my CV, scrapes eight job portals in parallel, has an LLM score every listing from 0 to 100, and commits a colour-coded report to the repo. No servers, no manual step.</p>
+        <div class="pipe" aria-label="Pipeline: CV, scrape, score, rank, report">
+          <span class="node">CV</span><span class="wire"></span><span class="node">8 scrapers</span><span class="wire"></span><span class="node hot">LLM score</span><span class="wire"></span><span class="node">Top 100</span><span class="wire"></span><span class="node">Excel report</span>
+        </div>
+        <div class="facts">
+          <div><b>8</b><span>portals</span></div>
+          <div><b>0–100</b><span>fit score</span></div>
+          <div><b>≥60</b><span>cut-off</span></div>
+        </div>
+        <div class="tags"><span class="tag">Python asyncio</span><span class="tag">Playwright</span><span class="tag">Llama 3.3 on Groq</span><span class="tag">GitHub Actions</span></div>
+        <a class="repo" href="https://github.com/sushant17112000/ai-job-agent" target="_blank" rel="noopener">View repo ↗</a>
+      </article>
+
+      <article class="bcard">
+        <div class="row"><h3>SAATHI</h3><span class="status">Live · pilot</span></div>
+        <p>A WhatsApp bot for the question every branch visitor asks: what do I need to bring? Pick a bank and a service, get the documents, and learn whether it can be done online.</p>
+        <div class="pipe" aria-label="Conversation: choose bank, choose service, documents, online or branch">
+          <span class="node">Hi</span><span class="wire"></span><span class="node">Pick bank</span><span class="wire"></span><span class="node">Pick service</span><span class="wire"></span><span class="node hot">Documents</span><span class="wire"></span><span class="node">Online or branch</span>
+        </div>
+        <div class="facts">
+          <div><b>10</b><span>banks</span></div>
+          <div><b>15</b><span>service types</span></div>
+          <div><b>4</b><span>chat states</span></div>
+        </div>
+        <div class="tags"><span class="tag">FastAPI</span><span class="tag">SQLite</span><span class="tag">WhatsApp Cloud API</span></div>
+        <a class="repo" href="https://github.com/sushant17112000" target="_blank" rel="noopener">View on GitHub ↗</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="papers" aria-labelledby="papers-h">
+    <div class="sh"><span class="no">03</span><h2 id="papers-h">White papers</h2>
+      <p>Each paper in four moves. Read the strip left to right and you have the argument.</p></div>
+    <div class="papers">
+      <article class="paper">
+        <div><span class="tag">Digital banking · UX</span><h3>ADAPT</h3>
+          <p>A mobile banking app with 200+ features loses users who need five. ADAPT reshapes the home screen around each customer's own habits, borrowing what fintechs already taught people to expect.</p></div>
+        <div class="strip">
+          <div class="step"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M9 7h6M9 11h6M9 15h6M9 19h2"/></svg><span class="k">Problem</span><span class="v">Long steps, crowded menus</span></div>
+          <div class="step"><svg viewBox="0 0 24 24"><path d="M3 20h18M6 16v-4M11 16V8M16 16v-6M20 16V4"/></svg><span class="k">Insight</span><span class="v">Most use a handful of features</span></div>
+          <div class="step"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><path d="M17 14v6M14 17h6"/></svg><span class="k">Solution</span><span class="v">Personalised home screen</span></div>
+          <div class="step"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><span class="k">Impact</span><span class="v">Higher usage and retention</span></div>
+        </div>
+      </article>
+
+      <article class="paper">
+        <div><span class="tag">GenAI · Operations</span><h3>Copilot tiers for banking</h3>
+          <p>Not every task needs the same AI. The paper defines four copilot tiers and maps each department's use cases to the tier that fits, with KPIs to prove it in a pilot.</p></div>
+        <div class="strip">
+          <div class="step"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg><span class="k">Problem</span><span class="v">One-size AI rollouts stall</span></div>
+          <div class="step"><svg viewBox="0 0 24 24"><path d="M4 18h16M6 14h12M8 10h8M10 6h4"/></svg><span class="k">Model</span><span class="v">Four copilot tiers</span></div>
+          <div class="step"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 10v10"/></svg><span class="k">Mapping</span><span class="v">Use cases by department</span></div>
+          <div class="step"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg><span class="k">Proof</span><span class="v">KPI-led pilots</span></div>
+        </div>
+      </article>
+
+      <article class="paper">
+        <div><span class="tag">AI strategy · BFSI</span><h3>Moving the Overton Window on AI in Indian banking</h3>
+          <p>Indian banks don't lack AI tools. They lack permission. This paper charts how ideas move from unthinkable to policy, and how a CX data platform makes the next step acceptable.</p></div>
+        <div class="strip">
+          <div class="step"><svg viewBox="0 0 24 24"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg><span class="k">Problem</span><span class="v">AI seen as risky</span></div>
+          <div class="step"><svg viewBox="0 0 24 24"><rect x="2" y="9" width="20" height="6" rx="3"/><rect x="9" y="9" width="7" height="6" rx="2"/></svg><span class="k">Frame</span><span class="v">The Overton Window</span></div>
+          <div class="step"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg><span class="k">Enabler</span><span class="v">Governed CX data</span></div>
+          <div class="step"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span class="k">Path</span><span class="v">Phased adoption</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="thesis" aria-labelledby="thesis-h">
+    <div class="sh"><span class="no">04</span><h2 id="thesis-h">Thesis</h2>
+      <p>What I want to build and write next. P1 is what I'm on now.</p></div>
+    <div class="filters" role="group" aria-label="Filter by domain" id="filters"></div>
+    <div class="thesis" id="ideas"></div>
+  </section>
+
+  <section id="decks" aria-labelledby="decks-h">
+    <div class="sh"><span class="no">05</span><h2 id="decks-h">Decks &amp; awards</h2>
+      <p>Leadership presentations. Bank decks are shared as sanitised versions on request.</p></div>
+    <div class="decks">
+      <div class="deck"><div class="slide"><b>SPECTRUM: status, Phase 1, Phase 2</b></div><div class="meta"><span>Leadership</span><span>CX data</span></div></div>
+      <div class="deck"><div class="slide"><b>On-device language models for frontline tablets</b></div><div class="meta"><span>8 slides</span><span>Edge AI</span></div></div>
+      <div class="deck"><div class="slide"><b>The 20 km rule: who digital onboarding leaves out</b></div><div class="meta"><span>Interactive</span><span>Coverage</span></div></div>
+    </div>
+    <div class="awards"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/></svg><span>Awards are being added.</span></div>
+  </section>
+
+  <footer>
+    <span>Sushant Bhat · Digital transformation, banking CX and data</span>
+    <a href="https://github.com/sushant17112000" target="_blank" rel="noopener">github.com/sushant17112000</a>
+  </footer>
+</main>
+
+<script>
+const ICONS={
+  agent:'<path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/>',
+  voice:'<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v3"/>',
+  wave:'<path d="M3 12h2l2-6 3 12 3-9 2 5 2-2h4"/>',
+  pin:'<path d="M12 21s-7-6-7-11a7 7 0 0114 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/>',
+  road:'<path d="M8 3L4 21M16 3l4 18M12 5v2M12 11v2M12 17v2"/>',
+  net:'<circle cx="5" cy="12" r="2"/><circle cx="12" cy="5" r="2"/><circle cx="19" cy="12" r="2"/><circle cx="12" cy="19" r="2"/><path d="M7 11l3.5-4.5M13.5 6.5L17 11M17 13l-3.5 4.5M10.5 17.5L7 13"/>',
+  code:'<path d="M8 8l-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/>',
+  plane:'<path d="M2 15l20-7-8 13-2-6z"/>',
+  film:'<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/>'
+};
+const IDEAS=[
+  {p:1,d:"AI governance",i:"agent",t:"Know Your Agent (KYA)",x:"KYC verifies people. As AI agents start acting for customers, banks need the same: identify, verify and govern every agent that touches an account."},
+  {p:1,d:"AI governance",i:"voice",t:"Governance for voice AI agents",x:"Architecture, compliance and security rules so a bank can deploy voice bots that customers trust and regulators accept."},
+  {p:1,d:"Banking analytics",i:"pin",t:"Branch Location Selection Engine",x:"A model that ranks where the next branch should open, using demographic, geographic and business signals instead of gut feel."},
+  {p:2,d:"CX strategy",i:"wave",t:"Voice AI is banking's next shift",x:"Most customers still call. Voice agents will move service the way mobile apps moved transactions."},
+  {p:2,d:"CX strategy",i:"net",t:"Six degrees in banking CX",x:"Every customer is a few links from another. Mapping those links turns service and referrals into a network play."},
+  {p:2,d:"AI strategy",i:"code",t:"Why banks should run open-source models",x:"Cost, control and data residency argue for open models in-house over renting every capability from a vendor."},
+  {p:3,d:"Operations",i:"plane",t:"What airlines can teach bank ops",x:"Airlines run tight turnarounds without losing the passenger. Their playbook maps onto branch and back-office efficiency."},
+  {p:3,d:"Civic data",i:"road",t:"Traffic pattern analysis",x:"Form a hypothesis on city traffic flow, test it with data, and submit the proposal to the government."},
+  {p:3,d:"Consumer product",i:"film",t:"Crosscut",x:"A film database built for cinephiles, with structured two-person written debates on the films themselves."}
+];
+const ideasEl=document.getElementById('ideas'), fEl=document.getElementById('filters');
+function draw(domain){
+  ideasEl.innerHTML=IDEAS.filter(o=>!domain||o.d===domain).sort((a,b)=>a.p-b.p).map(o=>
+    `<article class="idea"><div class="row"><svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[o.i]}</svg><span class="prio p${o.p}">P${o.p}</span></div>
+     <h3>${o.t}</h3><p>${o.x}</p><span class="tag">${o.d}</span></article>`).join('');
+}
+const domains=[...new Set(IDEAS.map(o=>o.d))];
+fEl.innerHTML=['All',...domains].map((d,k)=>`<button type="button" id="f-${k}" aria-pressed="${k===0}" data-d="${k===0?'':d}">${d}</button>`).join('');
+fEl.addEventListener('click',e=>{
+  const b=e.target.closest('button'); if(!b) return;
+  fEl.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));
+  draw(b.dataset.d);
+});
+draw('');
+</script>
