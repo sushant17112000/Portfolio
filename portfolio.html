@@ -1,22 +1,18 @@
 <title>Sushant Bhat Portfolio</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Kalam:wght@400;700&display=swap">
 <style>
-/* Layout: one long scroll in five labelled bays, like a bank ledger: numbers in mono, names in display, cobalt for structure, marigold for impact */
+/* Layout: a white sketchbook ledger. Hand-drawn stick figures act out each section; numbers in mono, names in display, cobalt for structure, marigold for impact */
 :root{
-  --paper:#F4F6FA; --card:#FFFFFF; --ink:#0F1B2D; --muted:#56637A; --line:#D8DEE8;
-  --cobalt:#2346D6; --cobalt-soft:#E6EBFC; --marigold:#C98A0B; --marigold-soft:#FBF0D6;
+  --paper:#FFFFFF; --card:#FFFFFF; --wash:#F6F7FA; --ink:#14181F; --muted:#5A6272; --line:#E3E6EC;
+  --cobalt:#2346D6; --cobalt-soft:#ECF0FD; --marigold:#C98A0B; --marigold-soft:#FCF2DB;
   --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
   --body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
   --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --hand:"Kalam", "Comic Sans MS", "Segoe Print", cursive;
+  color-scheme:light;
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --paper:#0B111C; --card:#121A28; --ink:#E6EBF3; --muted:#95A1B7; --line:#243049;
-  --cobalt:#839CFF; --cobalt-soft:#1A2547; --marigold:#F1B93E; --marigold-soft:#33280F; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --paper:#0B111C; --card:#121A28; --ink:#E6EBF3; --muted:#95A1B7; --line:#243049;
-  --cobalt:#839CFF; --cobalt-soft:#1A2547; --marigold:#F1B93E; --marigold-soft:#33280F; color-scheme:dark}
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -91,7 +87,7 @@ details[open] summary::after{transform:rotate(45deg)}
 .status::before{content:"";width:8px;height:8px;border-radius:50%;background:#2F9E6B}
 .bcard h3{font-size:24px;font-weight:600}
 .pipe{display:flex;align-items:center;gap:0;overflow-x:auto;padding:10px 0 4px}
-.node{flex:0 0 auto;font-family:var(--mono);font-size:12px;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper);white-space:nowrap}
+.node{flex:0 0 auto;font-family:var(--mono);font-size:12px;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--wash);white-space:nowrap}
 .node.hot{border-color:var(--cobalt);color:var(--cobalt)}
 .wire{flex:1 0 22px;height:2px;background:var(--line);position:relative;overflow:hidden;min-width:22px}
 .wire::after{content:"";position:absolute;top:0;left:-30%;width:30%;height:100%;background:var(--marigold)}
@@ -110,7 +106,7 @@ details[open] summary::after{transform:rotate(45deg)}
 .paper h3{font-size:24px;font-weight:600;margin:6px 0 10px}
 .paper p{font-size:15px;color:var(--muted);max-width:52ch}
 .strip{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;counter-reset:s}
-.step{border:1px solid var(--line);border-radius:8px;padding:12px;display:flex;flex-direction:column;gap:8px;background:var(--paper);min-width:0}
+.step{border:1px solid var(--line);border-radius:8px;padding:12px;display:flex;flex-direction:column;gap:8px;background:var(--wash);min-width:0}
 .step svg{width:26px;height:26px;stroke:var(--cobalt);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .step .k{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
 .step .v{font-size:13.5px;line-height:1.4}
@@ -148,15 +144,52 @@ details[open] summary::after{transform:rotate(45deg)}
 .awards{margin-top:28px;border:1px dashed var(--line);border-radius:10px;padding:18px;display:flex;gap:12px;align-items:center;color:var(--muted);font-size:14.5px}
 .awards svg{flex:0 0 auto;width:26px;height:26px;stroke:var(--marigold);fill:none;stroke-width:1.7}
 
+
+/* sketches */
+.sk{fill:none;stroke:var(--ink);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.sk .fillm{fill:var(--marigold-soft)}
+.sk .acc{stroke:var(--marigold)}
+.sk .blu{stroke:var(--cobalt)}
+.sk text{font-family:var(--hand);font-size:13px;fill:var(--ink);stroke:none}
+.limb{transform-box:view-box}
+.doodle{width:150px;height:auto;flex:0 0 auto;margin-left:auto;align-self:center}
+.hero{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);align-items:center}
+.hero .full{grid-column:1/-1}
+.hero .scene{width:100%;max-width:380px;justify-self:end}
+.note{font-family:var(--hand);font-size:17px;color:var(--marigold);margin-top:6px}
+@media (prefers-reduced-motion:no-preference){
+  .swing{animation:swing 2.4s ease-in-out infinite}
+  .swing-fast{animation:swing 1s ease-in-out infinite}
+  .tapA{animation:tap .5s ease-in-out infinite}
+  .tapB{animation:tap .5s ease-in-out infinite .25s}
+  .grow{transform-box:fill-box;transform-origin:50% 100%;animation:grow 3s ease-in-out infinite}
+  .grow.d2{animation-delay:.4s}.grow.d3{animation-delay:.8s}
+  .blink{animation:blink 1.2s steps(2) infinite}
+  .flash{animation:flash 2.4s ease-in-out infinite}
+  .bob{animation:bob 2.4s ease-in-out infinite}
+  .draw{stroke-dasharray:1;animation:draw 6s ease-in-out infinite}
+  .draw.d2{animation-delay:.6s}.draw.d3{animation-delay:1.2s}.draw.d4{animation-delay:1.8s}.draw.d5{animation-delay:2.4s}
+}
+@keyframes swing{0%,100%{transform:rotate(-9deg)}50%{transform:rotate(11deg)}}
+@keyframes tap{0%,100%{transform:translateY(0)}50%{transform:translateY(3px)}}
+@keyframes grow{0%,100%{transform:scaleY(.45)}50%{transform:scaleY(1)}}
+@keyframes blink{0%{opacity:1}100%{opacity:.15}}
+@keyframes flash{0%,100%{opacity:.35}50%{opacity:1}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes draw{0%{stroke-dashoffset:1}22%,86%{stroke-dashoffset:0}100%{stroke-dashoffset:1}}
+
 footer{border-top:2px solid var(--ink);padding-block:28px 48px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
 footer a{font-family:var(--mono)}
 
 @media (max-width:880px){
+  .hero{grid-template-columns:1fr}
+  .hero .scene{justify-self:start;max-width:320px}
   .work,.thesis,.decks{grid-template-columns:1fr 1fr}
   .builds{grid-template-columns:1fr}
   .paper{grid-template-columns:1fr}
 }
 @media (max-width:600px){
+  .doodle{width:110px}
   .work,.thesis,.decks{grid-template-columns:1fr}
   .ledger{grid-template-columns:1fr 1fr}
   .ledger div:nth-child(2){border-right:0}
@@ -181,10 +214,35 @@ footer a{font-family:var(--mono)}
 
 <main class="wrap" id="top">
   <header class="hero">
-    <p class="eyebrow">Business Solution &amp; Digital Transformation Manager · Bandhan Bank · CX and Data Analytics</p>
+    <div><p class="eyebrow">Business Solution &amp; Digital Transformation Manager · Bandhan Bank · CX and Data Analytics</p>
     <h1>Sushant <span>Bhat</span></h1>
     <p class="lede">I take banking problems from the first BRD to go-live: <em>strategy, architecture, vendors, UAT and the leadership room</em>, and I stay until it ships.</p>
-    <div class="ledger" aria-label="Impact at a glance">
+      <p class="note">↳ that's me on the right, mid-BRD</p></div>
+    <svg class="sk scene" viewBox="0 0 340 230" role="img" aria-label="Stick figure drawing a BRD to build to go-live flow on a whiteboard">
+      <rect x="18" y="20" width="214" height="140" rx="4"/>
+      <path d="M48 160 L40 214 M202 160 L210 214"/>
+      <rect class="draw" pathLength="1" x="34" y="58" width="50" height="30" rx="3"/>
+      <path class="draw d2" pathLength="1" d="M86 73 L104 73 M98 68 L104 73 L98 78"/>
+      <rect class="draw d3" pathLength="1" x="106" y="58" width="50" height="30" rx="3"/>
+      <path class="draw d4" pathLength="1" d="M158 73 L176 73 M170 68 L176 73 L170 78"/>
+      <rect class="draw d5 fillm" pathLength="1" x="178" y="58" width="44" height="30" rx="3"/>
+      <text x="59" y="78" text-anchor="middle">BRD</text>
+      <text x="131" y="78" text-anchor="middle">build</text>
+      <text x="200" y="78" text-anchor="middle">live!</text>
+      <path class="acc draw d5" pathLength="1" d="M40 112 q18 -9 36 0 t36 0 t36 0 t36 0 t36 0"/>
+      <text x="125" y="140" text-anchor="middle">UAT · vendors · leadership</text>
+      <path d="M238 214 L330 214"/>
+      <g class="bob">
+        <circle cx="282" cy="96" r="12"/>
+        <path d="M278 94 h.01 M287 94 h.01 M278 101 q4.5 3.5 9 0"/>
+      </g>
+      <path d="M282 108 L283 160 M283 160 L270 212 M283 160 L297 212"/>
+      <g class="limb swing" style="transform-origin:282px 122px"><path d="M282 122 L258 110 L246 104"/><path class="blu" d="M246 104 L238 99"/></g>
+      <path d="M282 122 L298 142"/>
+      <rect x="295" y="140" width="10" height="12" rx="2"/>
+      <path class="acc" d="M298 136 q2 -4 0 -7 M302 136 q2 -4 0 -7"/>
+    </svg>
+    <div class="ledger full" aria-label="Impact at a glance">
       <div><b>61%</b><span>drop in IVR call disconnects</span></div>
       <div><b>11</b><span>source systems mapped into one CX data platform</span></div>
       <div><b>10&nbsp;×&nbsp;15</b><span>banks × service requests answered on WhatsApp</span></div>
@@ -194,6 +252,12 @@ footer a{font-family:var(--mono)}
 
   <section id="work" aria-labelledby="work-h">
     <div class="sh"><span class="no">01</span><h2 id="work-h">Work projects</h2>
+      <svg class="sk doodle" viewBox="0 0 150 100" aria-hidden="true">
+        <path d="M60 90 L144 90"/>
+        <rect class="grow fillm" x="72" y="56" width="16" height="34"/><rect class="grow d2 fillm" x="96" y="40" width="16" height="50"/><rect class="grow d3 fillm" x="120" y="20" width="16" height="70"/>
+        <circle cx="34" cy="38" r="8"/><path d="M34 46 L34 70 M34 70 L25 90 M34 70 L43 90 M34 54 L24 66"/>
+        <g class="limb swing" style="transform-origin:34px 54px"><path d="M34 54 L60 42"/></g>
+      </svg>
       <p>Enterprise initiatives at Bandhan Bank, rated by how much of the outcome I owned.</p></div>
     <div class="legend">
       <span><span class="meter"><i class="on"></i><i class="on"></i><i class="on"></i></span>Originated: idea to go-live</span>
@@ -258,6 +322,13 @@ footer a{font-family:var(--mono)}
 
   <section id="builds" aria-labelledby="builds-h">
     <div class="sh"><span class="no">02</span><h2 id="builds-h">Builds</h2>
+      <svg class="sk doodle" viewBox="0 0 150 100" aria-hidden="true">
+        <path d="M24 72 L50 72 M28 72 L28 92 M46 72 L46 92"/>
+        <circle cx="38" cy="36" r="8"/><path d="M38 44 L38 68 M38 68 L62 70 L62 92"/>
+        <g class="tapA"><path d="M38 52 L66 66"/></g><g class="tapB"><path d="M38 54 L62 70"/></g>
+        <path d="M58 72 L140 72"/><path d="M76 72 L84 40 L128 40 L122 72"/>
+        <path class="blu blink" d="M92 50 L110 50"/><path class="acc" d="M90 58 L116 58"/><path d="M94 64 L106 64"/>
+      </svg>
       <p>Things I wrote and shipped myself, code on GitHub.</p></div>
     <div class="builds">
       <article class="bcard">
@@ -294,6 +365,13 @@ footer a{font-family:var(--mono)}
 
   <section id="papers" aria-labelledby="papers-h">
     <div class="sh"><span class="no">03</span><h2 id="papers-h">White papers</h2>
+      <svg class="sk doodle" viewBox="0 0 150 100" aria-hidden="true">
+        <path d="M50 84 L144 84"/>
+        <path d="M86 82 L92 26 L134 30 L130 82 Z" class="fillm"/>
+        <path class="draw" pathLength="1" d="M98 40 L124 42"/><path class="draw d2" pathLength="1" d="M97 50 L126 52"/><path class="draw d3" pathLength="1" d="M96 60 L118 61"/><path class="acc draw d4" pathLength="1" d="M96 70 q8 -6 16 0 t12 0"/>
+        <circle cx="38" cy="36" r="8"/><path d="M38 44 L38 68 M38 68 L29 92 M38 68 L47 92 M38 52 L28 64"/>
+        <g class="limb swing-fast" style="transform-origin:38px 52px"><path d="M38 52 L76 54"/><path class="blu" d="M76 54 L86 50"/></g>
+      </svg>
       <p>Each paper in four moves. Read the strip left to right and you have the argument.</p></div>
     <div class="papers">
       <article class="paper">
@@ -333,6 +411,13 @@ footer a{font-family:var(--mono)}
 
   <section id="thesis" aria-labelledby="thesis-h">
     <div class="sh"><span class="no">04</span><h2 id="thesis-h">Thesis</h2>
+      <svg class="sk doodle" viewBox="0 0 150 100" aria-hidden="true">
+        <circle class="flash fillm" cx="98" cy="22" r="11"/><path d="M93 34 L103 34 M94 38 L102 38"/>
+        <path class="acc flash" d="M98 4 L98 0 M80 12 L76 9 M116 12 L120 9 M78 26 L74 27 M118 26 L122 27"/>
+        <circle cx="64" cy="46" r="8"/><path d="M60 45 h.01 M68 45 h.01 M61 50 q3 3 6 0"/>
+        <path d="M64 54 L64 76 M64 76 L55 96 M64 76 L73 96 M64 60 L52 72"/>
+        <g class="limb swing" style="transform-origin:64px 60px"><path d="M64 60 L84 40"/></g>
+      </svg>
       <p>What I want to build and write next. P1 is what I'm on now.</p></div>
     <div class="filters" role="group" aria-label="Filter by domain" id="filters"></div>
     <div class="thesis" id="ideas"></div>
@@ -340,6 +425,12 @@ footer a{font-family:var(--mono)}
 
   <section id="decks" aria-labelledby="decks-h">
     <div class="sh"><span class="no">05</span><h2 id="decks-h">Decks &amp; awards</h2>
+      <svg class="sk doodle" viewBox="0 0 150 100" aria-hidden="true">
+        <rect x="76" y="14" width="64" height="44" rx="3"/><path d="M84 58 L78 94 M132 58 L138 94 M108 58 L108 66"/>
+        <path class="blu draw" pathLength="1" d="M84 48 L98 38 L110 42 L130 24"/><path class="acc" d="M124 24 L130 24 L130 30"/>
+        <circle cx="36" cy="40" r="8"/><path d="M36 48 L36 72 M36 72 L27 94 M36 72 L45 94 M36 56 L26 70"/>
+        <g class="limb swing" style="transform-origin:36px 56px"><path d="M36 56 L60 46"/><path class="acc" d="M60 46 L90 34"/></g>
+      </svg>
       <p>Leadership presentations. Bank decks are shared as sanitised versions on request.</p></div>
     <div class="decks">
       <div class="deck"><div class="slide"><b>SPECTRUM: status, Phase 1, Phase 2</b></div><div class="meta"><span>Leadership</span><span>CX data</span></div></div>
