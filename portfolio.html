@@ -59,7 +59,9 @@ section{padding-block:56px;border-top:1px solid var(--line)}
 .meter{display:inline-flex;gap:3px;vertical-align:middle;margin-right:6px}
 .meter i{width:9px;height:9px;border-radius:50%;border:1.5px solid var(--cobalt)}
 .meter i.on{background:var(--cobalt)}
-.work{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.work{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.wcard .facts{padding-bottom:4px}
+.impact b{white-space:nowrap}
 .wcard{background:var(--card);border:1px solid var(--line);border-radius:10px;display:flex;flex-direction:column;min-width:0}
 .wcard .top{padding:20px 20px 0;display:flex;flex-direction:column;gap:12px;flex:1}
 .own{font-family:var(--mono);font-size:12px;color:var(--cobalt);display:flex;align-items:center}
@@ -178,13 +180,21 @@ details[open] summary::after{transform:rotate(45deg)}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
 @keyframes draw{0%{stroke-dashoffset:1}22%,86%{stroke-dashoffset:0}100%{stroke-dashoffset:1}}
 
+.awards-row{margin-top:28px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.award{border-top:2px solid var(--ink);padding-top:14px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.award svg{width:28px;height:28px;stroke:var(--marigold);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;margin-bottom:6px}
+.award b{font-family:var(--display);font-size:20px;font-weight:600}
+.award span{font-size:14px;color:var(--muted)}
+.award em{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--cobalt)}
+@media (max-width:880px){.awards-row{grid-template-columns:1fr 1fr}}
+.contact{display:flex;flex-wrap:wrap;gap:8px 20px}
 footer{border-top:2px solid var(--ink);padding-block:28px 48px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
 footer a{font-family:var(--mono)}
 
 @media (max-width:880px){
   .hero{grid-template-columns:1fr}
   .hero .scene{justify-self:start;max-width:320px}
-  .work,.thesis,.decks{grid-template-columns:1fr 1fr}
+  .thesis,.decks{grid-template-columns:1fr 1fr}
   .builds{grid-template-columns:1fr}
   .paper{grid-template-columns:1fr}
 }
@@ -214,7 +224,7 @@ footer a{font-family:var(--mono)}
 
 <main class="wrap" id="top">
   <header class="hero">
-    <div><p class="eyebrow">Digital Transformation · Bandhan Bank</p>
+    <div><p class="eyebrow">Digital Transformation · Product · Banking</p>
     <h1>Sushant <span>Bhat</span></h1>
     <p class="lede">I take banking problems <em>from BRD to go-live</em>.</p>
       <p class="note">↳ me, mid-BRD</p></div>
@@ -243,10 +253,10 @@ footer a{font-family:var(--mono)}
       <path class="acc" d="M298 136 q2 -4 0 -7 M302 136 q2 -4 0 -7"/>
     </svg>
     <div class="ledger full" aria-label="Impact at a glance">
-      <div><b>61%</b><span>fewer IVR drop-offs</span></div>
-      <div><b>11</b><span>sources, one CX platform</span></div>
-      <div><b>10&nbsp;×&nbsp;15</b><span>banks × services on WhatsApp</span></div>
-      <div><b>8</b><span>job portals scored daily</span></div>
+      <div><b>₹17.7L</b><span>yearly savings projected</span></div>
+      <div><b>61%</b><span>fewer IVR disconnects</span></div>
+      <div><b>50×</b><span>self-service containment</span></div>
+      <div><b>11+</b><span>sources, one CX platform</span></div>
     </div>
   </header>
 
@@ -261,6 +271,7 @@ footer a{font-family:var(--mono)}
     <div class="legend">
       <span><span class="meter"><i class="on"></i><i class="on"></i><i class="on"></i></span>Originated</span>
       <span><span class="meter"><i class="on"></i><i class="on"></i><i></i></span>Led</span>
+      <span><span class="meter"><i class="on"></i><i></i><i></i></span>Contributed</span>
     </div>
     <div class="work">
       <article class="wcard">
@@ -268,51 +279,71 @@ footer a{font-family:var(--mono)}
           <span class="own"><span class="meter"><i class="on"></i><i class="on"></i><i class="on"></i></span>Originated</span>
           <h3>SPECTRUM</h3>
           <p class="sum">CX data lakehouse</p>
-          <div class="impact"><b>11</b><span>sources, one customer view</span></div>
+          <div class="impact"><b>₹17.7L</b><span>a year, projected savings</span></div>
+          <div class="facts"><div><b>11+</b><span>sources</span></div><div><b>6,400</b><span>call-centre hrs saved</span></div><div><b>~6,000</b><span>complaints avoided</span></div></div>
           <div class="tags"><span class="tag">Data lakehouse</span><span class="tag">CX analytics</span><span class="tag">ML roadmap</span></div>
         </div>
         <details>
           <summary>Details</summary>
           <dl class="dbody">
             <div><dt>Problem</dt><dd>Siloed customer data, reactive service.</dd></div>
-            <div><dt>Owned</dt><dd>Idea, BRD, architecture, ~3 TB sizing, go-live.</dd></div>
-            <div><dt>Next</dt><dd>Alerts now, churn and complaint models next.</dd></div>
+            <div><dt>Owned</dt><dd>Idea, system design, leadership buy-in.</dd></div>
+            <div><dt>Built</dt><dd>Bronze, silver, gold lake into an Oracle warehouse.</dd></div>
+            <div><dt>Next</dt><dd>Churn, complaint and channel-shift prediction.</dd></div>
           </dl>
         </details>
       </article>
-
       <article class="wcard">
         <div class="top">
           <span class="own"><span class="meter"><i class="on"></i><i class="on"></i><i></i></span>Led</span>
           <h3>IVR Revamp</h3>
-          <p class="sum">Contact centre journeys</p>
+          <p class="sum">Contact centre transformation</p>
           <div class="impact"><b>61%</b><span>fewer disconnects</span></div>
+          <div class="facts"><div><b>50×</b><span>self-service calls</span></div><div><b>40→5%</b><span>API error rate</span></div><div><b>RMN</b><span>auth at first contact</span></div></div>
           <div class="tags"><span class="tag">Contact centre</span><span class="tag">Voice CX</span></div>
         </div>
         <details>
           <summary>Details</summary>
           <dl class="dbody">
-            <div><dt>Problem</dt><dd>Callers quitting long menus.</dd></div>
-            <div><dt>Owned</dt><dd>BRD, redesign, vendor, UAT, hypercare.</dd></div>
-            
+            <div><dt>Problem</dt><dd>Callers dropped at authentication.</dd></div>
+            <div><dt>Owned</dt><dd>Strategy, BRD, UAT, delivery.</dd></div>
+            <div><dt>Built</dt><dd>Language choice, dynamic menus, CSAT loop.</dd></div>
           </dl>
         </details>
       </article>
-
       <article class="wcard">
         <div class="top">
           <span class="own"><span class="meter"><i class="on"></i><i class="on"></i><i></i></span>Led</span>
           <h3>Grievance Redressal</h3>
-          <p class="sum">Complaint tracking, bank-wide</p>
-          <div class="impact"><b>Bank-wide</b><span>rollout</span></div>
-          <div class="tags"><span class="tag">Complaints</span><span class="tag">Regulatory CX</span></div>
+          <p class="sum">Complaint automation, bank-wide</p>
+          <div class="impact"><b>Manual→Auto</b><span>complaint handling</span></div>
+          <div class="facts"><div><b>4</b><span>escalation levels</span></div><div><b>CRM</b><span>API integration</span></div><div><b>OTP</b><span>authentication</span></div></div>
+          <div class="tags"><span class="tag">Complaints</span><span class="tag">CRM</span><span class="tag">Process design</span></div>
         </div>
         <details>
           <summary>Details</summary>
           <dl class="dbody">
-            <div><dt>Problem</dt><dd>No single path from complaint to closure.</dd></div>
-            <div><dt>Owned</dt><dd>BRD, CX and IT alignment, UAT, hypercare.</dd></div>
-            
+            <div><dt>Problem</dt><dd>Complaints handled by hand.</dd></div>
+            <div><dt>Owned</dt><dd>Strategy and BRD as a trainee in a new CX team; UAT and hypercare.</dd></div>
+            <div><dt>Built</dt><dd>Smart routing with auto-filled fields for faster TAT.</dd></div>
+          </dl>
+        </details>
+      </article>
+      <article class="wcard">
+        <div class="top">
+          <span class="own"><span class="meter"><i class="on"></i><i></i><i></i></span>Contributed</span>
+          <h3>RBI Sandbox: V-KYC</h3>
+          <p class="sum">AI-based unassisted video KYC</p>
+          <div class="impact"><b>24×7</b><span>onboarding, no live agent</span></div>
+          <div class="facts"><div><b>RBI</b><span>sandbox testing</span></div><div><b>CUG</b><span>to production</span></div><div><b>E2E</b><span>journeys tested</span></div></div>
+          <div class="tags"><span class="tag">Regulatory</span><span class="tag">AI onboarding</span><span class="tag">Digital savings</span></div>
+        </div>
+        <details>
+          <summary>Details</summary>
+          <dl class="dbody">
+            <div><dt>Problem</dt><dd>Account opening needed a live agent.</dd></div>
+            <div><dt>Role</dt><dd>Sandbox, CUG and production testing.</dd></div>
+            <div><dt>Worked with</dt><dd>RBI, vendor, audit and leadership.</dd></div>
           </dl>
         </details>
       </article>
@@ -421,24 +452,34 @@ footer a{font-family:var(--mono)}
   </section>
 
   <section id="decks" aria-labelledby="decks-h">
-    <div class="sh"><span class="no">05</span><h2 id="decks-h">Decks</h2>
+    <div class="sh"><span class="no">05</span><h2 id="decks-h">Decks &amp; awards</h2>
       <svg class="sk doodle" viewBox="0 0 150 100" aria-hidden="true">
         <rect x="76" y="14" width="64" height="44" rx="3"/><path d="M84 58 L78 94 M132 58 L138 94 M108 58 L108 66"/>
         <path class="blu draw" pathLength="1" d="M84 48 L98 38 L110 42 L130 24"/><path class="acc" d="M124 24 L130 24 L130 30"/>
         <circle cx="36" cy="40" r="8"/><path d="M36 48 L36 72 M36 72 L27 94 M36 72 L45 94 M36 56 L26 70"/>
         <g class="limb swing" style="transform-origin:36px 56px"><path d="M36 56 L60 46"/><path class="acc" d="M60 46 L90 34"/></g>
       </svg>
-      <p>Shared on request.</p></div>
+      <p>Decks shared on request.</p></div>
     <div class="decks">
       <div class="deck"><div class="slide"><b>SPECTRUM roadmap</b></div><div class="meta"><span>Leadership</span><span>CX data</span></div></div>
       <div class="deck"><div class="slide"><b>On-device AI for frontline</b></div><div class="meta"><span>8 slides</span><span>Edge AI</span></div></div>
       <div class="deck"><div class="slide"><b>The 20 km rule</b></div><div class="meta"><span>Interactive</span><span>Coverage</span></div></div>
     </div>
+    <div class="awards-row" aria-label="Awards">
+      <div class="award"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h10v5a5 5 0 01-10 0z"/><path d="M7 6H4v1a3 3 0 003 3M17 6h3v1a3 3 0 01-3 3M12 14v4M8 21h8"/></svg><b>1st Place</b><span>Masters Union DataHustle</span><em>2023</em></div>
+      <div class="award"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/></svg><b>1st Runner Up</b><span>SCMRHD Fidlatica 7.0</span><em>2023</em></div>
+      <div class="award"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4M9 12h7M9 16h5"/></svg><b>Published</b><span>Cancer detection research, IRJMETS</span><em>2022</em></div>
+      <div class="award"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.6 6 .6-4.5 4 1.3 6-5.4-3.2-5.4 3.2 1.3-6-4.5-4 6-.6z"/></svg><b>National Finalist</b><span>ABFRL Show Stopper</span><em>2022</em></div>
+    </div>
   </section>
 
   <footer>
-    <span>Sushant Bhat</span>
-    <a href="https://github.com/sushant17112000" target="_blank" rel="noopener">github.com/sushant17112000</a>
+    <span>Sushant Bhat · bhatsushant03@gmail.com</span>
+    <span class="contact">
+      <a href="https://linkedin.com/in/sushant-bhat-parabolic" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="https://github.com/sushant17112000" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="https://incentiveandresult.substack.com" target="_blank" rel="noopener">Substack ↗</a>
+    </span>
   </footer>
 </main>
 
