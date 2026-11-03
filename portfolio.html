@@ -236,6 +236,57 @@ details[open] summary::after{transform:rotate(45deg)}
 .v-pro section .sh h2::before{content:"";position:absolute;left:0;top:.42em;width:9px;height:9px;border-radius:50%;background:var(--cobalt);box-shadow:0 0 0 4px var(--cobalt-soft)}
 .v-pro .award{border-top:2px solid var(--cobalt)}
 .v-pro .award svg{stroke:var(--cobalt)}
+.cta{margin:16px 20px 20px;align-self:flex-start;font:inherit;font-family:var(--mono);font-size:13px;color:#fff;background:var(--cobalt);border:0;border-radius:999px;padding:9px 16px;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.cta:hover{transform:translateY(-1px);box-shadow:0 4px 0 #1A33A3}
+.cta span{display:inline-block;transition:transform .15s}.cta:hover span{transform:translateX(3px)}
+dialog.case{border:0;padding:0;width:min(1200px,calc(100vw - 24px));height:calc(100dvh - 24px);max-height:calc(100dvh - 24px);border-radius:16px;background:var(--card);color:var(--ink);box-shadow:0 20px 60px rgba(15,27,45,.25)}
+dialog.case::backdrop{background:rgba(15,27,45,.55)}
+.case-in{padding:28px clamp(18px,4vw,48px) 40px;display:flex;flex-direction:column;gap:16px;overflow:auto;height:100%}
+.case-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;position:sticky;top:-28px;background:var(--card);padding:6px 0 12px;border-bottom:1px solid #DCE3FA;z-index:1}
+.case-kicker{font-family:var(--mono);font-size:12px;color:var(--cobalt)}
+.case-top h2{font-size:clamp(26px,4vw,36px);font-weight:600}
+.case-x{font:inherit;font-family:var(--mono);font-size:13px;border:1.5px solid var(--ink);background:var(--card);color:var(--ink);border-radius:999px;padding:7px 14px;cursor:pointer;white-space:nowrap}
+.case-x:hover{background:var(--ink);color:#fff}
+.case-ba{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.case-ba div{border-radius:10px;padding:14px 16px;font-size:15px}
+.case-ba div b{display:block;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+.case-ba .was{background:#FFF1EE}.case-ba .was b{color:#B4432A}
+.case-ba .now{background:var(--cobalt-soft)}.case-ba .now b{color:var(--cobalt)}
+.case-h{font-family:var(--display);font-size:18px;font-weight:600;margin-top:10px}
+.flow{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;align-items:stretch;gap:10px 0}
+.flow li{display:flex;align-items:stretch}
+.flow .fn{width:150px;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:4px;background:var(--card)}
+.flow .fn em{font-style:normal;font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.flow .fn b{font-size:14px;font-weight:600;line-height:1.3}
+.flow .fn span{font-size:12.5px;color:var(--muted);line-height:1.35}
+.flow .in .fn{border-color:#C9B3F2;background:#F6F1FF}
+.flow .proc .fn{border-color:#B9C6F5;background:#F3F6FF}
+.flow .gate .fn{border-color:#F1C46B;background:#FFF8E6}
+.flow .out .fn{border-color:#9FD9C6;background:#EEFAF5}
+.flow .alt .fn{border-style:dashed}
+.flow .ar{width:30px;display:flex;align-items:center;justify-content:center;color:var(--cobalt);font-size:18px}
+.flow li:last-child .ar{display:none}
+@media (prefers-reduced-motion:no-preference){
+  dialog[open] .flow li{animation:pop .4s ease-out both;animation-delay:calc(var(--i)*90ms)}
+  dialog[open] .flow .ar{animation:nudge 1.6s ease-in-out infinite}
+}
+@keyframes pop{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(3px)}}
+.case-out{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.case-out div{border-top:2px solid var(--cobalt);padding-top:10px}
+.case-out b{display:block;font-family:var(--display);font-size:26px;font-weight:800;color:var(--marigold);line-height:1.1}
+.case-out span{font-size:14px;color:var(--muted)}
+.legend-flow{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--muted)}
+.legend-flow i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+@media (max-width:640px){
+  .case-ba{grid-template-columns:1fr}
+  .flow{flex-direction:column;flex-wrap:nowrap}
+  .flow li{flex-direction:column;align-items:stretch}
+  .flow .fn{width:100%}
+  .flow .ar{width:auto;height:24px}
+  .flow .ar::before{content:"↓"}.flow .ar{font-size:0}.flow .ar::before{font-size:18px}
+  .case-x span{display:none}
+}
 footer{border-top:2px solid var(--ink);padding-block:28px 48px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
 footer a{font-family:var(--mono)}
 
@@ -359,7 +410,6 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
   <header class="sky" aria-label="Career milestones drawn as a constellation, connected from now back to 2018">
     <svg class="sky-svg" id="sky-svg" aria-hidden="true"></svg>
     <div class="sky-labels" id="sky-labels"></div>
-    <p class="sky-cap"><span>Connecting the dots, looking backwards</span></p>
   </header>
 
   <section id="work" aria-labelledby="work-h">
@@ -379,17 +429,8 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
           <p class="role"><span>My role</span>Strategy · Project coordination · System design &amp; architecture</p>
           <div class="impact"><b>₹17.7L</b><span>a year, projected savings</span></div>
           <div class="facts"><div><b>11+</b><span>sources</span></div><div><b>6,400</b><span>call-centre hrs saved</span></div><div><b>~6,000</b><span>complaints avoided</span></div></div>
-          <div class="tags"><span class="tag">Data lakehouse</span><span class="tag">CX analytics</span><span class="tag">ML roadmap</span></div>
         </div>
-        <details>
-          <summary>Details</summary>
-          <dl class="dbody">
-            <div><dt>Problem</dt><dd>Siloed customer data, reactive service.</dd></div>
-            <div><dt>Owned</dt><dd>Idea, system design, leadership buy-in.</dd></div>
-            <div><dt>Built</dt><dd>Bronze, silver, gold lake into an Oracle warehouse.</dd></div>
-            <div><dt>Next</dt><dd>Churn, complaint and channel-shift prediction.</dd></div>
-          </dl>
-        </details>
+        <button type="button" class="cta" data-case="spectrum">View project <span aria-hidden="true">→</span></button>
       </article>
       <article class="wcard">
         <div class="top">
@@ -399,16 +440,8 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
           <p class="role"><span>My role</span>Strategy · BRD · UAT · Project management</p>
           <div class="impact"><b>61%</b><span>fewer disconnects</span></div>
           <div class="facts"><div><b>50×</b><span>self-service calls</span></div><div><b>40→5%</b><span>API error rate</span></div><div><b>RMN</b><span>auth at first contact</span></div></div>
-          <div class="tags"><span class="tag">Contact centre</span><span class="tag">Voice CX</span></div>
         </div>
-        <details>
-          <summary>Details</summary>
-          <dl class="dbody">
-            <div><dt>Problem</dt><dd>Callers dropped at authentication.</dd></div>
-            <div><dt>Owned</dt><dd>Strategy, BRD, UAT, delivery.</dd></div>
-            <div><dt>Built</dt><dd>Language choice, dynamic menus, CSAT loop.</dd></div>
-          </dl>
-        </details>
+        <button type="button" class="cta" data-case="ivr">View project <span aria-hidden="true">→</span></button>
       </article>
       <article class="wcard">
         <div class="top">
@@ -418,16 +451,8 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
           <p class="role"><span>My role</span>Strategy · Project coordination</p>
           <div class="impact"><b>Manual→Auto</b><span>complaint handling</span></div>
           <div class="facts"><div><b>4</b><span>escalation levels</span></div><div><b>CRM</b><span>API integration</span></div><div><b>OTP</b><span>authentication</span></div></div>
-          <div class="tags"><span class="tag">Complaints</span><span class="tag">CRM</span><span class="tag">Process design</span></div>
         </div>
-        <details>
-          <summary>Details</summary>
-          <dl class="dbody">
-            <div><dt>Problem</dt><dd>Complaints handled by hand.</dd></div>
-            <div><dt>Owned</dt><dd>Strategy and BRD as a trainee in a new CX team; UAT and hypercare.</dd></div>
-            <div><dt>Built</dt><dd>Smart routing with auto-filled fields for faster TAT.</dd></div>
-          </dl>
-        </details>
+        <button type="button" class="cta" data-case="grievance">View project <span aria-hidden="true">→</span></button>
       </article>
       <article class="wcard">
         <div class="top">
@@ -437,16 +462,8 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
           <p class="role"><span>My role</span>Project coordination · UAT testing · Collaboration</p>
           <div class="impact"><b>24×7</b><span>onboarding, no live agent</span></div>
           <div class="facts"><div><b>RBI</b><span>sandbox testing</span></div><div><b>CUG</b><span>to production</span></div><div><b>E2E</b><span>journeys tested</span></div></div>
-          <div class="tags"><span class="tag">Regulatory</span><span class="tag">AI onboarding</span><span class="tag">Digital savings</span></div>
         </div>
-        <details>
-          <summary>Details</summary>
-          <dl class="dbody">
-            <div><dt>Problem</dt><dd>Account opening needed a live agent.</dd></div>
-            <div><dt>Role</dt><dd>Sandbox, CUG and production testing.</dd></div>
-            <div><dt>Worked with</dt><dd>RBI, vendor, audit and leadership.</dd></div>
-          </dl>
-        </details>
+        <button type="button" class="cta" data-case="vkyc">View project <span aria-hidden="true">→</span></button>
       </article>
     </div>
   </section>
@@ -612,6 +629,20 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
     </span>
   </footer>
 </main>
+
+<dialog class="case" id="case" aria-labelledby="case-title">
+  <div class="case-in">
+    <div class="case-top">
+      <div><span class="case-kicker" id="case-kicker"></span><h2 id="case-title"></h2></div>
+      <button type="button" class="case-x" id="case-x" aria-label="Close project">✕ <span>Close</span></button>
+    </div>
+    <div class="case-ba" id="case-ba"></div>
+    <h3 class="case-h">How it works</h3>
+    <ol class="flow" id="case-flow"></ol>
+    <h3 class="case-h">Outcome</h3>
+    <div class="case-out" id="case-out"></div>
+  </div>
+</dialog>
 </div>
 <script>
 const ICONS={
@@ -734,5 +765,47 @@ route();
   let rt;window.addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(build,150)});
   const obs=new MutationObserver(build);obs.observe(document.getElementById('app'),{attributes:true,attributeFilter:['data-view']});
   build();
+})();
+
+(function(){
+  const CASES={
+    spectrum:{k:"Originated · Enterprise-level",t:"SPECTRUM",
+      was:"CX data sat in 11+ separate systems with no shared customer identity. Service only reacted after a complaint.",
+      now:"One CX lakehouse that resolves identity, checks data quality and feeds a warehouse, alerts and leadership dashboards.",
+      flow:[["in","Input","11+ source systems","Contact centre, digital, CRM"],["proc","Step 1","Identity resolution","Every record tied to one customer"],["proc","Bronze","Raw zone","Data lands as-is on HDFS"],["gate","Gate","Data quality checks","Block, quarantine or warn"],["proc","Silver → Gold","Curated layers","Cleaned, standardised, aggregated"],["proc","Warehouse","Oracle CX warehouse","One source of truth"],["out","Phase 1","Alerts and dashboards","Proactive CX for leadership"],["out alt","Phase 2","Predictive ML","Churn, complaint, channel shift"]],
+      out:[["₹17.7L","a year, projected savings (₹11.8–23.7L range)"],["~6,400","contact-centre hours saved"],["5,280","analyst hours saved"],["~6,000","complaints avoided a year"]]},
+    ivr:{k:"Led · Enterprise-level",t:"IVR Revamp",
+      was:"Callers dropped off at authentication and got lost in long, fixed menus before reaching an answer.",
+      now:"Callers are recognised by their registered mobile number up front, then routed through short, dynamic menus.",
+      flow:[["in","Start","Customer calls","Contact centre IVR"],["gate","Step 1","RMN authentication","No friction at first contact"],["proc","Step 2","Language choice","Caller picks their language"],["proc","Step 3","Dynamic menu routing","Menu shaped to the caller"],["out","Resolve","Self-service","Answered without an agent"],["out alt","Or","Agent handover","Only when needed"],["proc","Close","CSAT feedback","Loop back into the design"]],
+      out:[["61%","fewer disconnects"],["50×","self-service calls (4 → 207 a day)"],["40% → 5%","API error rate"]]},
+    grievance:{k:"Led · Enterprise-level",t:"Grievance Redressal",
+      was:"Complaints were handled by hand in a newly formed CX team, with no single trail from first contact to closure.",
+      now:"Complaints are logged through the CRM, verified by OTP, routed automatically and escalated on a 4-level matrix.",
+      flow:[["in","Start","Complaint raised","Branch, call or digital"],["gate","Step 1","OTP authentication","Verify the customer"],["proc","Step 2","Logged in CRM","Talisma via API"],["proc","Step 3","Smart routing","Auto-filled fields, auto-assigned"],["out","Resolve","Resolved within TAT","Customer closed out"],["gate alt","If TAT breached","4-level escalation","Up the matrix until fixed"],["out","Close","Closure and governance","Tracked for compliance"]],
+      out:[["Manual → Auto","end-to-end complaint handling"],["4","escalation levels"],["1","point of contact across IT, Ops, CX and Marketing"]]},
+    vkyc:{k:"Contributed · Enterprise-level",t:"RBI Sandbox: V-KYC",
+      was:"Opening a digital savings account needed a live agent on the video KYC call, which limited hours and scale.",
+      now:"AI-based, unassisted video KYC tested in RBI's interoperable sandbox, taking onboarding 24×7.",
+      flow:[["in","Start","Customer applies","Digital savings account"],["proc","Step 1","AI video KYC","No live agent needed"],["gate","Test 1","RBI sandbox","Interoperable sandbox testing"],["gate","Test 2","CUG testing","Closed user group"],["gate","Test 3","Production testing","Success and failure paths"],["out","Ready","Rollout readiness","With RBI, vendor, audit, leadership"]],
+      out:[["24×7","onboarding with no live agent"],["E2E","journeys validated, success and failure"],["4","groups coordinated: RBI, vendor, audit, leadership"]]}
+  };
+  const dlg=document.getElementById('case'); if(!dlg) return;
+  const $=id=>document.getElementById(id); let opener=null;
+  function open(k){
+    const c=CASES[k]; if(!c) return;
+    $('case-kicker').textContent=c.k; $('case-title').textContent=c.t;
+    $('case-ba').innerHTML=`<div class="was"><b>Before</b>${c.was}</div><div class="now"><b>After</b>${c.now}</div>`;
+    $('case-flow').innerHTML=c.flow.map(([cls,e,b,sp],i)=>`<li class="${cls}" style="--i:${i}"><div class="fn"><em>${e}</em><b>${b}</b><span>${sp}</span></div><span class="ar" aria-hidden="true">→</span></li>`).join('');
+    $('case-out').innerHTML=c.out.map(([b,sp])=>`<div><b>${b}</b><span>${sp}</span></div>`).join('');
+    dlg.querySelector('.case-in').scrollTop=0;
+    document.documentElement.style.overflow='hidden';
+    dlg.showModal();
+  }
+  function close(){dlg.close();}
+  dlg.addEventListener('close',()=>{document.documentElement.style.overflow='';if(opener)opener.focus();});
+  $('case-x').addEventListener('click',close);
+  dlg.addEventListener('click',e=>{if(e.target===dlg)close();});
+  document.addEventListener('click',e=>{const b=e.target.closest('.cta[data-case]');if(b){opener=b;open(b.dataset.case);}});
 })();
 </script>
