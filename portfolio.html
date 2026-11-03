@@ -298,6 +298,8 @@ dialog.case.blue .flow .fn{border-color:#B9C6F5;background:#F3F6FF}
 dialog.case.blue .flow li:nth-child(odd) .fn{background:#E9EEFF}
 dialog.case.blue .flow li:last-child .fn{background:var(--cobalt);border-color:var(--cobalt)}
 dialog.case.blue .flow li:last-child .fn em,dialog.case.blue .flow li:last-child .fn b,dialog.case.blue .flow li:last-child .fn span{color:#fff}
+.scope{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin:-10px 0 24px;font-size:15px;color:var(--muted)}
+.scope span{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:var(--cobalt);border-radius:4px;padding:3px 9px}
 footer{border-top:2px solid var(--ink);padding-block:28px 48px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
 footer a{font-family:var(--mono)}
 
@@ -426,10 +428,11 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
   <section id="work" aria-labelledby="work-h">
     <div class="sh"><h2 id="work-h">Work projects</h2>
       <svg class="mini" viewBox="0 0 150 80" aria-hidden="true"><line class="cl" pathLength="1" style="--d:0.0s" x1="136" y1="40" x2="102" y2="18"/><line class="cl" pathLength="1" style="--d:0.35s" x1="102" y1="18" x2="70" y2="50"/><line class="cl" pathLength="1" style="--d:0.7s" x1="70" y1="50" x2="40" y2="28"/><line class="cl" pathLength="1" style="--d:1.0499999999999998s" x1="40" y1="28" x2="12" y2="60"/><circle class="cs" style="--c:#2346D6;--d:0.0s" cx="12" cy="60" r="3"/><circle class="cs" style="--c:#E0A21B;--d:0.3s" cx="40" cy="28" r="3"/><circle class="cs" style="--c:#D6457A;--d:0.6s" cx="70" cy="50" r="3"/><circle class="cs" style="--c:#12968A;--d:0.8999999999999999s" cx="102" cy="18" r="3"/><circle class="cs" style="--c:#6C4FD8;--d:1.2s" cx="136" cy="40" r="4"/></svg></div>
+    <p class="scope"><span>Enterprise-wide</span>Every project here was delivered across the whole bank, not a single team or branch.</p>
     <div class="work">
       <article class="wcard">
         <div class="top">
-          <div class="chead"><div class="cleft"><span class="own"><span class="meter"><i class="on"></i><i class="on"></i><i class="on"></i></span>Originated</span><span class="ent">Enterprise-level</span></div><div class="collab"><span class="ck">Collaborated with</span><ul><li>Data Science</li><li>Data Lake team</li><li>CX team</li><li>Business</li><li>IT</li></ul></div></div>
+          <div class="chead"><div class="cleft"><span class="own"><span class="meter"><i class="on"></i><i class="on"></i><i class="on"></i></span>Originated</span></div><div class="collab"><span class="ck">Collaborated with</span><ul><li>Data Science</li><li>Data Lake team</li><li>CX team</li><li>Business</li><li>IT</li></ul></div></div>
           <h3>SPECTRUM</h3>
           <p class="sum">CX data lakehouse</p>
           <p class="role"><span>My role</span>Strategy · Project coordination · System design &amp; architecture</p>
@@ -439,7 +442,7 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
       </article>
       <article class="wcard">
         <div class="top">
-          <div class="chead"><div class="cleft"><span class="own"><span class="meter"><i class="on"></i><i class="on"></i><i></i></span>Led</span><span class="ent">Enterprise-level</span></div><div class="collab"><span class="ck">Collaborated with</span><ul><li>Business</li><li>Marketing</li><li>IT</li><li>Contact Centre</li></ul></div></div>
+          <div class="chead"><div class="cleft"><span class="own"><span class="meter"><i class="on"></i><i class="on"></i><i></i></span>Led</span></div><div class="collab"><span class="ck">Collaborated with</span><ul><li>Business</li><li>Marketing</li><li>IT</li><li>Contact Centre</li></ul></div></div>
           <h3>IVR Revamp</h3>
           <p class="sum">Contact centre transformation</p>
           <p class="role"><span>My role</span>Strategy · BRD · UAT · Project management</p>
@@ -449,7 +452,7 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
       </article>
       <article class="wcard">
         <div class="top">
-          <div class="chead"><div class="cleft"><span class="own"><span class="meter"><i class="on"></i><i class="on"></i><i></i></span>Led</span><span class="ent">Enterprise-level</span></div><div class="collab"><span class="ck">Collaborated with</span><ul><li>IT</li><li>Operations</li><li>CX</li><li>Marketing</li></ul></div></div>
+          <div class="chead"><div class="cleft"><span class="own"><span class="meter"><i class="on"></i><i class="on"></i><i></i></span>Led</span></div><div class="collab"><span class="ck">Collaborated with</span><ul><li>IT</li><li>Operations</li><li>CX</li><li>Marketing</li></ul></div></div>
           <h3>Grievance Redressal</h3>
           <p class="sum">Complaint automation, bank-wide</p>
           <p class="role"><span>My role</span>Strategy · Project coordination</p>
@@ -459,7 +462,7 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
       </article>
       <article class="wcard">
         <div class="top">
-          <div class="chead"><div class="cleft"><span class="own"><span class="meter"><i class="on"></i><i></i><i></i></span>Contributed</span><span class="ent">Enterprise-level</span></div><div class="collab"><span class="ck">Collaborated with</span><ul><li>RBI</li><li>Vendor</li><li>Audit</li><li>Leadership</li></ul></div></div>
+          <div class="chead"><div class="cleft"><span class="own"><span class="meter"><i class="on"></i><i></i><i></i></span>Contributed</span></div><div class="collab"><span class="ck">Collaborated with</span><ul><li>RBI</li><li>Vendor</li><li>Audit</li><li>Leadership</li></ul></div></div>
           <h3>RBI Sandbox: V-KYC</h3>
           <p class="sum">AI-based unassisted video KYC</p>
           <p class="role"><span>My role</span>Project coordination · UAT testing · Collaboration</p>
@@ -784,22 +787,22 @@ route();
 
 (function(){
   const CASES={
-    spectrum:{k:"Originated · Enterprise-level",t:"SPECTRUM",
+    spectrum:{k:"Originated · Enterprise-wide",t:"SPECTRUM",
       was:"CX data sat in 11+ separate systems with no shared customer identity. Service only reacted after a complaint.",
       now:"One CX lakehouse that resolves identity, checks data quality and feeds a warehouse, alerts and leadership dashboards.",
       flow:[["in","Input","11+ source systems","Contact centre, digital, CRM"],["proc","Step 1","Identity resolution","Every record tied to one customer"],["proc","Bronze","Raw zone","Data lands as-is on HDFS"],["gate","Gate","Data quality checks","Block, quarantine or warn"],["proc","Silver → Gold","Curated layers","Cleaned, standardised, aggregated"],["proc","Warehouse","Oracle CX warehouse","One source of truth"],["out","Phase 1","Alerts and dashboards","Proactive CX for leadership"],["out alt","Phase 2","Predictive ML","Churn, complaint, channel shift"]],
       out:[["₹17.7L","a year, projected savings (₹11.8–23.7L range)"],["~6,400","contact-centre hours saved"],["5,280","analyst hours saved"],["~6,000","complaints avoided a year"]]},
-    ivr:{k:"Led · Enterprise-level",t:"IVR Revamp",
+    ivr:{k:"Led · Enterprise-wide",t:"IVR Revamp",
       was:"Callers dropped off at authentication and got lost in long, fixed menus before reaching an answer.",
       now:"Callers are recognised by their registered mobile number up front, then routed through short, dynamic menus.",
       flow:[["in","Start","Customer calls","Contact centre IVR"],["gate","Step 1","RMN authentication","No friction at first contact"],["proc","Step 2","Language choice","Caller picks their language"],["proc","Step 3","Dynamic menu routing","Menu shaped to the caller"],["out","Resolve","Self-service","Answered without an agent"],["out alt","Or","Agent handover","Only when needed"],["proc","Close","CSAT feedback","Loop back into the design"]],
       out:[["61%","fewer disconnects"],["50×","self-service calls (4 → 207 a day)"],["40% → 5%","API error rate"]]},
-    grievance:{k:"Led · Enterprise-level",t:"Grievance Redressal",
+    grievance:{k:"Led · Enterprise-wide",t:"Grievance Redressal",
       was:"Complaints were handled by hand in a newly formed CX team, with no single trail from first contact to closure.",
       now:"Complaints are logged through the CRM, verified by OTP, routed automatically and escalated on a 4-level matrix.",
       flow:[["in","Start","Complaint raised","Branch, call or digital"],["gate","Step 1","OTP authentication","Verify the customer"],["proc","Step 2","Logged in CRM","Talisma via API"],["proc","Step 3","Smart routing","Auto-filled fields, auto-assigned"],["out","Resolve","Resolved within TAT","Customer closed out"],["gate alt","If TAT breached","4-level escalation","Up the matrix until fixed"],["out","Close","Closure and governance","Tracked for compliance"]],
       out:[["Manual → Auto","end-to-end complaint handling"],["4","escalation levels"],["1","point of contact across IT, Ops, CX and Marketing"]]},
-    vkyc:{k:"Contributed · Enterprise-level",t:"RBI Sandbox: V-KYC",
+    vkyc:{k:"Contributed · Enterprise-wide",t:"RBI Sandbox: V-KYC",
       was:"Opening a digital savings account needed a live agent on the video KYC call, which limited hours and scale.",
       now:"AI-based, unassisted video KYC tested in RBI's interoperable sandbox, taking onboarding 24×7.",
       flow:[["in","Start","Customer applies","Digital savings account"],["proc","Step 1","AI video KYC","No live agent needed"],["gate","Test 1","RBI sandbox","Interoperable sandbox testing"],["gate","Test 2","CUG testing","Closed user group"],["gate","Test 3","Production testing","Success and failure paths"],["out","Ready","Rollout readiness","With RBI, vendor, audit, leadership"]],
