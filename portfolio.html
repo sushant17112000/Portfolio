@@ -287,6 +287,12 @@ dialog.case::backdrop{background:rgba(15,27,45,.55)}
   .flow .ar::before{content:"↓"}.flow .ar{font-size:0}.flow .ar::before{font-size:18px}
   .case-x span{display:none}
 }
+.paper .cta{margin:14px 0 0}
+.case-line{font-size:clamp(17px,2vw,20px);max-width:60ch;color:var(--ink)}
+dialog.case.blue .flow .fn{border-color:#B9C6F5;background:#F3F6FF}
+dialog.case.blue .flow li:nth-child(odd) .fn{background:#E9EEFF}
+dialog.case.blue .flow li:last-child .fn{background:var(--cobalt);border-color:var(--cobalt)}
+dialog.case.blue .flow li:last-child .fn em,dialog.case.blue .flow li:last-child .fn b,dialog.case.blue .flow li:last-child .fn span{color:#fff}
 footer{border-top:2px solid var(--ink);padding-block:28px 48px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
 footer a{font-family:var(--mono)}
 
@@ -474,7 +480,8 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
     <div class="papers">
       <article class="paper">
         <div><span class="tag">Digital banking · UX</span><h3>ADAPT</h3>
-          <p>200+ features. Most users need five.</p></div>
+          <p>200+ features. Most users need five.</p>
+          <button type="button" class="cta" data-paper="adapt">View paper <span aria-hidden="true">→</span></button></div>
         <div class="strip">
           <div class="step"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M9 7h6M9 11h6M9 15h6M9 19h2"/></svg><span class="k">Problem</span><span class="v">Long steps, crowded menus</span></div>
           <div class="step"><svg viewBox="0 0 24 24"><path d="M3 20h18M6 16v-4M11 16V8M16 16v-6M20 16V4"/></svg><span class="k">Insight</span><span class="v">Most use a handful of features</span></div>
@@ -485,7 +492,8 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
 
       <article class="paper">
         <div><span class="tag">GenAI · Operations</span><h3>Copilot tiers for banking</h3>
-          <p>The right AI tier for each task.</p></div>
+          <p>The right AI tier for each task.</p>
+          <button type="button" class="cta" data-paper="copilot">View paper <span aria-hidden="true">→</span></button></div>
         <div class="strip">
           <div class="step"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg><span class="k">Problem</span><span class="v">One-size AI rollouts stall</span></div>
           <div class="step"><svg viewBox="0 0 24 24"><path d="M4 18h16M6 14h12M8 10h8M10 6h4"/></svg><span class="k">Model</span><span class="v">Four copilot tiers</span></div>
@@ -496,7 +504,8 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
 
       <article class="paper">
         <div><span class="tag">Digital onboarding · Access</span><h3>NEO coverage gap</h3>
-          <p>A digital account, limited by distance to a branch.</p></div>
+          <p>A digital account, limited by distance to a branch.</p>
+          <button type="button" class="cta" data-paper="neo">View paper <span aria-hidden="true">→</span></button></div>
         <div class="strip">
           <div class="step"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6-7-11a7 7 0 0114 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span class="k">Problem</span><span class="v">20 km branch rule</span></div>
           <div class="step"><svg viewBox="0 0 24 24"><circle cx="9" cy="12" r="6"/><circle cx="17" cy="12" r="4" stroke-dasharray="2 2"/></svg><span class="k">Insight</span><span class="v">Rule blocks digital sign-ups</span></div>
@@ -636,10 +645,11 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
       <div><span class="case-kicker" id="case-kicker"></span><h2 id="case-title"></h2></div>
       <button type="button" class="case-x" id="case-x" aria-label="Close project">✕ <span>Close</span></button>
     </div>
+    <p class="case-line" id="case-line"></p>
     <div class="case-ba" id="case-ba"></div>
-    <h3 class="case-h">How it works</h3>
+    <h3 class="case-h" id="case-flow-h">How it works</h3>
     <ol class="flow" id="case-flow"></ol>
-    <h3 class="case-h">Outcome</h3>
+    <h3 class="case-h" id="case-out-h">Outcome</h3>
     <div class="case-out" id="case-out"></div>
   </div>
 </dialog>
@@ -790,14 +800,26 @@ route();
       flow:[["in","Start","Customer applies","Digital savings account"],["proc","Step 1","AI video KYC","No live agent needed"],["gate","Test 1","RBI sandbox","Interoperable sandbox testing"],["gate","Test 2","CUG testing","Closed user group"],["gate","Test 3","Production testing","Success and failure paths"],["out","Ready","Rollout readiness","With RBI, vendor, audit, leadership"]],
       out:[["24×7","onboarding with no live agent"],["E2E","journeys validated, success and failure"],["4","groups coordinated: RBI, vendor, audit, leadership"]]}
   };
+  const PAPERS={
+    adapt:{k:"White paper · Digital banking UX",t:"ADAPT",line:"A banking app that reshapes itself around each customer, so the five features they use come first.",
+      flow:[["","Today","200+ features","Long steps, crowded menus"],["","Reality","Most use about 5","The rest is noise"],["","Learn","Track each user's habits","Usage patterns, on device"],["","Adapt","Personalised home screen","Edge AI reorders the app"],["","Borrow","Fintech-style habits","What users already expect"],["","Result","Higher usage and retention","Fewer drop-offs"]]},
+    copilot:{k:"White paper · GenAI operations",t:"Copilot tiers for banking",line:"Not every task needs the same AI. Match each bank task to the right tier of copilot, then prove it with KPIs.",
+      flow:[["","Start","Tasks across departments","Ops, CX, risk, sales"],["","Sort","By complexity and risk","Simple lookups to judgement calls"],["","Model","Four copilot tiers","From assist to autonomous"],["","Map","Use case → tier","Department by department"],["","Prove","KPI-led pilots","Baseline, target, review"],["","Result","Scale what works","AI where it pays off"]]},
+    neo:{k:"White paper · Digital onboarding",t:"NEO coverage gap",line:"NEO is a fully digital account, yet a 20 km branch rule decides who can open it. This paper maps who gets left out.",
+      flow:[["","Product","NEO, fully digital","No branch visit needed"],["","Rule","Pincode within 20 km","Of a Bandhan branch"],["","Map","~2,000 branches","20 km circle around each"],["","Find","Uncovered areas","Where sign-ups are blocked"],["","Result","Case to drop the clause","Presented to leadership"]]}
+  };
   const dlg=document.getElementById('case'); if(!dlg) return;
   const $=id=>document.getElementById(id); let opener=null;
   function open(k){
-    const c=CASES[k]; if(!c) return;
+    const paper=PAPERS[k], c=CASES[k]||paper; if(!c) return;
+    dlg.classList.toggle('blue',!!paper);
     $('case-kicker').textContent=c.k; $('case-title').textContent=c.t;
-    $('case-ba').innerHTML=`<div class="was"><b>Before</b>${c.was}</div><div class="now"><b>After</b>${c.now}</div>`;
+    $('case-line').hidden=!paper; $('case-flow-h').textContent=paper?'The argument':'How it works'; $('case-line').textContent=paper?c.line:'';
+    $('case-ba').hidden=!!paper; $('case-out').hidden=!!paper; $('case-out-h').hidden=!!paper;
+    $('case-x').setAttribute('aria-label',paper?'Close paper':'Close project');
+    $('case-ba').innerHTML=paper?'':`<div class="was"><b>Before</b>${c.was}</div><div class="now"><b>After</b>${c.now}</div>`;
     $('case-flow').innerHTML=c.flow.map(([cls,e,b,sp],i)=>`<li class="${cls}" style="--i:${i}"><div class="fn"><em>${e}</em><b>${b}</b><span>${sp}</span></div><span class="ar" aria-hidden="true">→</span></li>`).join('');
-    $('case-out').innerHTML=c.out.map(([b,sp])=>`<div><b>${b}</b><span>${sp}</span></div>`).join('');
+    $('case-out').innerHTML=(c.out||[]).map(([b,sp])=>`<div><b>${b}</b><span>${sp}</span></div>`).join('');
     dlg.querySelector('.case-in').scrollTop=0;
     document.documentElement.style.overflow='hidden';
     dlg.showModal();
@@ -806,6 +828,6 @@ route();
   dlg.addEventListener('close',()=>{document.documentElement.style.overflow='';if(opener)opener.focus();});
   $('case-x').addEventListener('click',close);
   dlg.addEventListener('click',e=>{if(e.target===dlg)close();});
-  document.addEventListener('click',e=>{const b=e.target.closest('.cta[data-case]');if(b){opener=b;open(b.dataset.case);}});
+  document.addEventListener('click',e=>{const b=e.target.closest('.cta[data-case],.cta[data-paper]');if(b){opener=b;open(b.dataset.case||b.dataset.paper);}});
 })();
 </script>
