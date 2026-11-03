@@ -11,6 +11,7 @@
   --body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
   --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
   --hand:"Kalam", "Comic Sans MS", "Segoe Print", cursive;
+  --green:#1E7A4F; --coral:#E0603A; --dot:#DDE2EA; --sticky-y:#FFF1A8; --sticky-p:#FFD9D0; --sticky-g:#D5F1E1;
   color-scheme:light;
 }
 
@@ -209,20 +210,105 @@ footer a{font-family:var(--mono)}
   .facts{grid-template-columns:1fr 1fr 1fr}
   .hero{padding-block:44px 32px}
 }
+
+/* views */
+.view{display:none}
+#app[data-view="pro"] .v-pro, #app[data-view="personal"] .v-personal{display:block}
+#app[data-view="pro"] .links .v-pro, #app[data-view="personal"] .links .v-personal{display:inline-flex}
+.links .v-pro,.links .v-personal{display:none;gap:18px}
+nav .navrow{display:flex;align-items:center;gap:16px;padding-block:10px;flex-wrap:wrap}
+nav button{font:inherit;background:none;border:0;padding:0;cursor:pointer;color:inherit}
+nav .mark{font-family:var(--display);font-weight:800;font-size:18px;color:var(--ink)}
+.links{margin-left:auto}
+.links button{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.links button:hover{color:var(--ink)}
+.switch{display:inline-flex;border:1.5px solid var(--ink);border-radius:999px;padding:3px;gap:2px}
+.switch button{font-family:var(--mono);font-size:12.5px;padding:6px 14px;border-radius:999px;color:var(--ink);transition:background .2s,color .2s}
+.switch button[aria-pressed="true"]{background:var(--cobalt);color:#fff}
+#app[data-view="personal"] .switch button[aria-pressed="true"]{background:var(--green);color:#fff}
+.sub{font-family:var(--display);font-size:20px;font-weight:600;margin:36px 0 14px}
+.sub small{font-family:var(--mono);font-size:12px;font-weight:400;color:var(--muted);margin-left:8px}
+.also-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.also-list li{display:grid;grid-template-columns:84px minmax(0,220px) minmax(0,1fr);gap:14px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--line)}
+.also-list b{font-weight:600}
+.also-list span:last-child{color:var(--muted);font-size:15px}
+.st{font-family:var(--mono);font-size:11.5px;padding:2px 8px;border-radius:4px;justify-self:start;white-space:nowrap}
+.st.live{background:#E3F4EA;color:#1C6B43}
+.st.done{background:var(--cobalt-soft);color:var(--cobalt)}
+.st.plan{border:1px solid var(--line);color:var(--muted)}
+.path{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);position:relative}
+.path::before{content:"";position:absolute;left:0;right:0;top:7px;height:2px;background:var(--line)}
+.path li{position:relative;padding:26px 16px 0 0;display:flex;flex-direction:column;gap:4px;min-width:0}
+.path li::before{content:"";position:absolute;top:0;left:0;width:12px;height:12px;border-radius:50%;background:var(--card);border:2px solid var(--ink)}
+.path li.now::before{background:var(--marigold);border-color:var(--marigold)}
+.path em{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--cobalt)}
+.path b{font-family:var(--display);font-weight:600;font-size:17px;line-height:1.25}
+.path span{font-size:14px;color:var(--muted)}
+.cross{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;width:100%;margin-top:56px;padding:22px 24px;border:1.5px dashed var(--ink);border-radius:12px;background:var(--card);cursor:pointer;font:inherit;color:var(--ink);text-align:left}
+.cross b{font-family:var(--display);font-size:20px;font-weight:600}
+.cross span{color:var(--muted);font-size:15px}
+.cross:hover{border-style:solid}
+.v-pro .cross b{color:var(--green)}
+.v-personal .cross b{color:var(--cobalt)}
+
+/* personal look: graph-paper notebook, green ink, hand-lettered heads */
+body:has(#app[data-view="personal"]){background-color:var(--paper);background-image:radial-gradient(var(--dot) 1.1px,transparent 1.1px);background-size:22px 22px}
+#app[data-view="personal"] nav{background:var(--paper)}
+.v-personal h1.hand,.v-personal .sh h2{font-family:var(--hand);font-weight:700;letter-spacing:0}
+.v-personal h1.hand{font-size:clamp(52px,9vw,104px);color:var(--ink);line-height:1}
+.v-personal .sh h2{font-size:clamp(34px,5vw,46px)}
+.v-personal .sh h2::after{content:"";display:block;height:8px;margin-top:2px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 8'%3E%3Cpath d='M2 5 Q30 1 60 4 T118 3' fill='none' stroke='%231E7A4F' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat left/120px 8px}
+.v-personal .ledger{border-top-color:var(--green)}
+.v-personal .ledger b{color:var(--green);font-family:var(--hand)}
+.v-personal .bcard{border:1.5px solid var(--ink);border-radius:4px;box-shadow:4px 4px 0 var(--ink)}
+.v-personal .tag{background:#E3F4EA;color:var(--green)}
+.v-personal .repo{border-color:var(--green);color:var(--green)}
+.v-personal .repo:hover{background:#E3F4EA}
+.v-personal .wire::after{background:var(--coral)}
+.v-personal .node.hot{border-color:var(--green);color:var(--green)}
+.v-personal .facts div{border-left-color:var(--coral)}
+.note.green{color:var(--green)}
+.sk .grn{stroke:var(--green)}
+.sk .cor{stroke:var(--coral)}
+.sk .fillg{fill:#F2FAF5}
+@media (prefers-reduced-motion:no-preference){.spin{transform-box:view-box;animation:spin 4s linear infinite}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.v-personal .filters button[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#fff}
+.filters small{opacity:.7;margin-left:2px}
+.wall{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:22px 18px;padding-top:8px}
+.note-card{position:relative;padding:20px 16px 18px;display:flex;flex-direction:column;gap:8px;transform:rotate(var(--r));transition:transform .2s;box-shadow:0 1px 0 rgba(20,24,31,.08),2px 6px 12px rgba(20,24,31,.08);min-width:0}
+.note-card:hover{transform:rotate(0) translateY(-4px)}
+.note-card.build{background:var(--sticky-y)}
+.note-card.write{background:var(--sticky-p)}
+.note-card.learn{background:var(--sticky-g)}
+.note-card .pin{position:absolute;top:-7px;left:50%;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:var(--coral);box-shadow:0 2px 0 rgba(0,0,0,.18)}
+.note-card .row{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.note-card .kind{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink);opacity:.7}
+.note-card .st{background:rgba(255,255,255,.6);color:var(--ink);border:0}
+.note-card svg{width:28px;height:28px;stroke:var(--ink);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.note-card h3{font-family:var(--hand);font-weight:700;font-size:21px;line-height:1.15}
+.note-card p{font-size:14px;color:var(--ink);opacity:.8}
+@media (max-width:880px){.path{grid-template-columns:1fr 1fr;row-gap:28px}.also-list li{grid-template-columns:76px minmax(0,1fr)}.also-list span:last-child{grid-column:2}}
+@media (max-width:600px){.links{margin-left:0;width:100%}.path{grid-template-columns:1fr}.path::before{display:none}}
 </style>
 
-<nav aria-label="Sections">
-  <div class="wrap">
-    <a class="mark" href="#top">Sushant Bhat</a>
-    <a class="l" href="#work">Work</a>
-    <a class="l" href="#builds">Builds</a>
-    <a class="l" href="#papers">White papers</a>
-    <a class="l" href="#thesis">Thesis</a>
-    <a class="l" href="#decks">Decks</a>
+<div id="app" data-view="pro">
+<nav aria-label="Main">
+  <div class="wrap navrow">
+    <button type="button" class="mark" data-top>Sushant Bhat</button>
+    <div class="switch" role="group" aria-label="Choose a view">
+      <button type="button" id="sw-pro" data-go="pro" aria-pressed="true">Professional</button>
+      <button type="button" id="sw-personal" data-go="personal" aria-pressed="false">Personal</button>
+    </div>
+    <div class="links">
+      <span class="v-pro"><button type="button" data-to="work">Work</button><button type="button" data-to="papers">Papers</button><button type="button" data-to="decks">Awards</button><button type="button" data-to="path">Path</button></span>
+      <span class="v-personal"><button type="button" data-to="builds">Shipped</button><button type="button" data-to="thesis">The wall</button></span>
+    </div>
   </div>
 </nav>
 
 <main class="wrap" id="top">
+  <div class="view v-pro">
   <header class="hero">
     <div><p class="eyebrow">Digital Transformation · Product · Banking</p>
     <h1>Sushant <span>Bhat</span></h1>
@@ -261,7 +347,7 @@ footer a{font-family:var(--mono)}
   </header>
 
   <section id="work" aria-labelledby="work-h">
-    <div class="sh"><span class="no">01</span><h2 id="work-h">Work projects</h2>
+    <div class="sh"><h2 id="work-h">Work projects</h2>
       <svg class="sk doodle" viewBox="0 0 150 100" aria-hidden="true">
         <path d="M60 90 L144 90"/>
         <rect class="grow fillm" x="72" y="56" width="16" height="34"/><rect class="grow d2 fillm" x="96" y="40" width="16" height="50"/><rect class="grow d3 fillm" x="120" y="20" width="16" height="70"/>
@@ -348,52 +434,21 @@ footer a{font-family:var(--mono)}
         </details>
       </article>
     </div>
-  </section>
-
-  <section id="builds" aria-labelledby="builds-h">
-    <div class="sh"><span class="no">02</span><h2 id="builds-h">Builds</h2>
-      <svg class="sk doodle" viewBox="0 0 150 100" aria-hidden="true">
-        <path d="M24 72 L50 72 M28 72 L28 92 M46 72 L46 92"/>
-        <circle cx="38" cy="36" r="8"/><path d="M38 44 L38 68 M38 68 L62 70 L62 92"/>
-        <g class="tapA"><path d="M38 52 L66 66"/></g><g class="tapB"><path d="M38 54 L62 70"/></g>
-        <path d="M58 72 L140 72"/><path d="M76 72 L84 40 L128 40 L122 72"/>
-        <path class="blu blink" d="M92 50 L110 50"/><path class="acc" d="M90 58 L116 58"/><path d="M94 64 L106 64"/>
-      </svg></div>
-    <div class="builds">
-      <article class="bcard">
-        <div class="row"><h3>AI Job Search Agent</h3><span class="status">Runs daily · 7 PM IST</span></div>
-        <p>My job hunt, on autopilot.</p>
-        <div class="pipe" aria-label="Pipeline: CV, scrape, score, rank, report">
-          <span class="node">CV</span><span class="wire"></span><span class="node">8 scrapers</span><span class="wire"></span><span class="node hot">LLM score</span><span class="wire"></span><span class="node">Top 100</span><span class="wire"></span><span class="node">Excel report</span>
-        </div>
-        <div class="facts">
-          <div><b>8</b><span>portals</span></div>
-          <div><b>0–100</b><span>fit score</span></div>
-          <div><b>≥60</b><span>cut-off</span></div>
-        </div>
-        <div class="tags"><span class="tag">Python</span><span class="tag">Playwright</span><span class="tag">LLM</span><span class="tag">GitHub Actions</span></div>
-        <a class="repo" href="https://github.com/sushant17112000/ai-job-agent" target="_blank" rel="noopener">View repo ↗</a>
-      </article>
-
-      <article class="bcard">
-        <div class="row"><h3>SAATHI</h3><span class="status">Live · pilot</span></div>
-        <p>"What do I bring to the branch?" Answered on WhatsApp.</p>
-        <div class="pipe" aria-label="Conversation: choose bank, choose service, documents, online or branch">
-          <span class="node">Hi</span><span class="wire"></span><span class="node">Pick bank</span><span class="wire"></span><span class="node">Pick service</span><span class="wire"></span><span class="node hot">Documents</span><span class="wire"></span><span class="node">Online or branch</span>
-        </div>
-        <div class="facts">
-          <div><b>10</b><span>banks</span></div>
-          <div><b>15</b><span>service types</span></div>
-          <div><b>4</b><span>chat states</span></div>
-        </div>
-        <div class="tags"><span class="tag">FastAPI</span><span class="tag">SQLite</span><span class="tag">WhatsApp Cloud API</span></div>
-        <a class="repo" href="https://github.com/sushant17112000" target="_blank" rel="noopener">View on GitHub ↗</a>
-      </article>
+  
+    <div class="also">
+      <h3 class="sub">Also at Bandhan</h3>
+      <ul class="also-list">
+        <li><span class="st done">Done</span><b>NEO coverage gap</b><span>Mapped how a 20 km branch rule blocks fully digital sign-ups.</span></li>
+        <li><span class="st live">Active</span><b>ARAMBH on-device AI</b><span>Offline language models for 2,000–5,000 frontline tablets.</span></li>
+        <li><span class="st live">Active</span><b>DPI strategy</b><span>India's DPI rails, DigiPin included, mapped to bank systems.</span></li>
+        <li><span class="st live">Active</span><b>Customer segmentation</b><span>Segment research on peer banks, sources verified row by row.</span></li>
+        <li><span class="st plan">Planned</span><b>Paper Club</b><span>A research-paper reading habit across teams.</span></li>
+      </ul>
     </div>
   </section>
 
   <section id="papers" aria-labelledby="papers-h">
-    <div class="sh"><span class="no">03</span><h2 id="papers-h">White papers</h2>
+    <div class="sh"><h2 id="papers-h">White papers</h2>
       <svg class="sk doodle" viewBox="0 0 150 100" aria-hidden="true">
         <path d="M50 84 L144 84"/>
         <path d="M86 82 L92 26 L134 30 L130 82 Z" class="fillm"/>
@@ -437,8 +492,115 @@ footer a{font-family:var(--mono)}
     </div>
   </section>
 
+  <section id="decks" aria-labelledby="decks-h">
+    <div class="sh"><h2 id="decks-h">Awards &amp; decks</h2>
+      <svg class="sk doodle" viewBox="0 0 150 100" aria-hidden="true">
+        <rect x="76" y="14" width="64" height="44" rx="3"/><path d="M84 58 L78 94 M132 58 L138 94 M108 58 L108 66"/>
+        <path class="blu draw" pathLength="1" d="M84 48 L98 38 L110 42 L130 24"/><path class="acc" d="M124 24 L130 24 L130 30"/>
+        <circle cx="36" cy="40" r="8"/><path d="M36 48 L36 72 M36 72 L27 94 M36 72 L45 94 M36 56 L26 70"/>
+        <g class="limb swing" style="transform-origin:36px 56px"><path d="M36 56 L60 46"/><path class="acc" d="M60 46 L90 34"/></g>
+      </svg>
+      </div>
+    <div class="awards-row" aria-label="Awards">
+      <div class="award"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h10v5a5 5 0 01-10 0z"/><path d="M7 6H4v1a3 3 0 003 3M17 6h3v1a3 3 0 01-3 3M12 14v4M8 21h8"/></svg><b>1st Place</b><span>Masters Union DataHustle</span><em>2023</em></div>
+      <div class="award"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/></svg><b>1st Runner Up</b><span>SCMRHD Fidlatica 7.0</span><em>2023</em></div>
+      <div class="award"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4M9 12h7M9 16h5"/></svg><b>Published</b><span>Cancer detection research, IRJMETS</span><em>2022</em></div>
+      <div class="award"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.6 6 .6-4.5 4 1.3 6-5.4-3.2-5.4 3.2 1.3-6-4.5-4 6-.6z"/></svg><b>National Finalist</b><span>ABFRL Show Stopper</span><em>2022</em></div>
+    </div>
+    <h3 class="sub">Leadership decks <small>shared on request</small></h3>
+    <div class="decks">
+      <div class="deck"><div class="slide"><b>SPECTRUM roadmap</b></div><div class="meta"><span>Leadership</span><span>CX data</span></div></div>
+      <div class="deck"><div class="slide"><b>On-device AI for frontline</b></div><div class="meta"><span>8 slides</span><span>Edge AI</span></div></div>
+      <div class="deck"><div class="slide"><b>The 20 km rule</b></div><div class="meta"><span>Interactive</span><span>Coverage</span></div></div>
+    </div>
+    </section>
+  
+  <section id="path" aria-labelledby="path-h">
+    <div class="sh"><h2 id="path-h">Path</h2></div>
+    <ol class="path">
+      <li><em>2018–22</em><b>B.E. Information Science</b><span>BMS College of Engineering, Bengaluru</span></li>
+      <li><em>2022–24</em><b>PGDM Marketing</b><span>IMT Ghaziabad</span></li>
+      <li><em>2023</em><b>Product Marketing Intern</b><span>Attryb Tech</span></li>
+      <li class="now"><em>2024–now</em><b>Business Solution &amp; Digital Transformation Manager</b><span>Bandhan Bank</span></li>
+    </ol>
+  </section>
+  
+  <button type="button" class="cross" data-go="personal"><span>Built after hours: AI agents, WhatsApp bots, and ideas in progress.</span><b>See my personal side →</b></button>
+  </div>
+
+  <div class="view v-personal">
+  <header class="hero phero">
+    <div><p class="eyebrow">Personal · after hours</p>
+    <h1 class="hand">Side quests</h1>
+    <p class="lede">What I build, write and learn outside the bank.</p>
+      <p class="note green">↳ still me, different hours</p></div>
+    <svg class="sk scene" viewBox="0 0 340 230" role="img" aria-label="Stick figure at a laptop under a lamp, with a gear turning in a thought bubble">
+      <path d="M40 214 L330 214"/>
+      <path d="M150 150 L320 150 M168 150 L162 214 M302 150 L308 214"/>
+      <path d="M196 150 L204 112 L262 112 L256 150"/>
+      <path class="grn blink" d="M214 124 L238 124"/><path class="cor" d="M212 133 L246 133"/>
+      <path d="M296 150 L296 92 L276 80"/><path class="cor" d="M266 76 L288 86 L280 96 Z"/>
+      <path class="cor flash" d="M268 102 L262 112 M282 104 L284 114"/>
+      <g class="bob"><circle cx="110" cy="100" r="12"/><path d="M106 98 h.01 M115 98 h.01 M106 105 q4.5 3 9 0"/></g>
+      <path d="M110 112 L112 164 M112 164 L150 166 L150 214 M112 164 L96 214"/>
+      <g class="tapA"><path d="M110 126 L150 138 L196 140"/></g><g class="tapB"><path d="M110 128 L148 144"/></g>
+      <path d="M70 160 L130 160 M78 160 L78 214"/>
+      <circle cx="74" cy="64" r="3"/><circle cx="62" cy="48" r="5"/>
+      <path d="M30 30 q-4 -22 22 -22 q12 -16 34 -4 q24 -6 26 16 q16 10 0 24 q-6 14 -30 10 q-18 10 -34 0 q-22 4 -18 -24z" class="fillg"/>
+      <g class="spin" style="transform-origin:72px 22px"><circle cx="72" cy="22" r="8"/><path d="M72 9 L72 13 M72 31 L72 35 M59 22 L63 22 M81 22 L85 22 M63 13 L66 16 M78 28 L81 31 M63 31 L66 28 M78 16 L81 13"/></g>
+    </svg>
+    <div class="ledger full pledger" aria-label="Personal work at a glance">
+      <div><b>2</b><span>shipped builds</span></div>
+      <div><b>3</b><span>builds in the pipeline</span></div>
+      <div><b>7</b><span>essays queued</span></div>
+      <div><b>5</b><span>topics I'm learning</span></div>
+    </div>
+  </header>
+
+  <section id="builds" aria-labelledby="builds-h">
+    <div class="sh"><h2 id="builds-h">Shipped</h2>
+      <svg class="sk doodle" viewBox="0 0 150 100" aria-hidden="true">
+        <path d="M24 72 L50 72 M28 72 L28 92 M46 72 L46 92"/>
+        <circle cx="38" cy="36" r="8"/><path d="M38 44 L38 68 M38 68 L62 70 L62 92"/>
+        <g class="tapA"><path d="M38 52 L66 66"/></g><g class="tapB"><path d="M38 54 L62 70"/></g>
+        <path d="M58 72 L140 72"/><path d="M76 72 L84 40 L128 40 L122 72"/>
+        <path class="blu blink" d="M92 50 L110 50"/><path class="acc" d="M90 58 L116 58"/><path d="M94 64 L106 64"/>
+      </svg></div>
+    <div class="builds">
+      <article class="bcard">
+        <div class="row"><h3>AI Job Search Agent</h3><span class="status">Runs daily · 7 PM IST</span></div>
+        <p>My job hunt, on autopilot.</p>
+        <div class="pipe" aria-label="Pipeline: CV, scrape, score, rank, report">
+          <span class="node">CV</span><span class="wire"></span><span class="node">8 scrapers</span><span class="wire"></span><span class="node hot">LLM score</span><span class="wire"></span><span class="node">Top 100</span><span class="wire"></span><span class="node">Excel report</span>
+        </div>
+        <div class="facts">
+          <div><b>8</b><span>portals</span></div>
+          <div><b>0–100</b><span>fit score</span></div>
+          <div><b>≥60</b><span>cut-off</span></div>
+        </div>
+        <div class="tags"><span class="tag">Python</span><span class="tag">Playwright</span><span class="tag">LLM</span><span class="tag">GitHub Actions</span></div>
+        <a class="repo" href="https://github.com/sushant17112000/ai-job-agent" target="_blank" rel="noopener">View repo ↗</a>
+      </article>
+
+      <article class="bcard">
+        <div class="row"><h3>SAATHI</h3><span class="status">Live · pilot</span></div>
+        <p>"What do I bring to the branch?" Answered on WhatsApp.</p>
+        <div class="pipe" aria-label="Conversation: choose bank, choose service, documents, online or branch">
+          <span class="node">Hi</span><span class="wire"></span><span class="node">Pick bank</span><span class="wire"></span><span class="node">Pick service</span><span class="wire"></span><span class="node hot">Documents</span><span class="wire"></span><span class="node">Online or branch</span>
+        </div>
+        <div class="facts">
+          <div><b>10</b><span>banks</span></div>
+          <div><b>15</b><span>service types</span></div>
+          <div><b>4</b><span>chat states</span></div>
+        </div>
+        <div class="tags"><span class="tag">FastAPI</span><span class="tag">SQLite</span><span class="tag">WhatsApp Cloud API</span></div>
+        <a class="repo" href="https://github.com/sushant17112000" target="_blank" rel="noopener">View on GitHub ↗</a>
+      </article>
+    </div>
+  </section>
+  
   <section id="thesis" aria-labelledby="thesis-h">
-    <div class="sh"><span class="no">04</span><h2 id="thesis-h">Thesis</h2>
+    <div class="sh"><h2 id="thesis-h">The wall</h2>
       <svg class="sk doodle" viewBox="0 0 150 100" aria-hidden="true">
         <circle class="flash fillm" cx="98" cy="22" r="11"/><path d="M93 34 L103 34 M94 38 L102 38"/>
         <path class="acc flash" d="M98 4 L98 0 M80 12 L76 9 M116 12 L120 9 M78 26 L74 27 M118 26 L122 27"/>
@@ -446,32 +608,13 @@ footer a{font-family:var(--mono)}
         <path d="M64 54 L64 76 M64 76 L55 96 M64 76 L73 96 M64 60 L52 72"/>
         <g class="limb swing" style="transform-origin:64px 60px"><path d="M64 60 L84 40"/></g>
       </svg>
-      <p>What I'm building next. P1 = now.</p></div>
-    <div class="filters" role="group" aria-label="Filter by domain" id="filters"></div>
-    <div class="thesis" id="ideas"></div>
+      <p>Ideas I'm chasing. Yellow = build, pink = write, green = learn.</p></div>
+    <div class="filters" role="group" aria-label="Filter the wall" id="filters"></div>
+    <div class="wall" id="ideas"></div>
   </section>
-
-  <section id="decks" aria-labelledby="decks-h">
-    <div class="sh"><span class="no">05</span><h2 id="decks-h">Decks &amp; awards</h2>
-      <svg class="sk doodle" viewBox="0 0 150 100" aria-hidden="true">
-        <rect x="76" y="14" width="64" height="44" rx="3"/><path d="M84 58 L78 94 M132 58 L138 94 M108 58 L108 66"/>
-        <path class="blu draw" pathLength="1" d="M84 48 L98 38 L110 42 L130 24"/><path class="acc" d="M124 24 L130 24 L130 30"/>
-        <circle cx="36" cy="40" r="8"/><path d="M36 48 L36 72 M36 72 L27 94 M36 72 L45 94 M36 56 L26 70"/>
-        <g class="limb swing" style="transform-origin:36px 56px"><path d="M36 56 L60 46"/><path class="acc" d="M60 46 L90 34"/></g>
-      </svg>
-      <p>Decks shared on request.</p></div>
-    <div class="decks">
-      <div class="deck"><div class="slide"><b>SPECTRUM roadmap</b></div><div class="meta"><span>Leadership</span><span>CX data</span></div></div>
-      <div class="deck"><div class="slide"><b>On-device AI for frontline</b></div><div class="meta"><span>8 slides</span><span>Edge AI</span></div></div>
-      <div class="deck"><div class="slide"><b>The 20 km rule</b></div><div class="meta"><span>Interactive</span><span>Coverage</span></div></div>
-    </div>
-    <div class="awards-row" aria-label="Awards">
-      <div class="award"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h10v5a5 5 0 01-10 0z"/><path d="M7 6H4v1a3 3 0 003 3M17 6h3v1a3 3 0 01-3 3M12 14v4M8 21h8"/></svg><b>1st Place</b><span>Masters Union DataHustle</span><em>2023</em></div>
-      <div class="award"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/></svg><b>1st Runner Up</b><span>SCMRHD Fidlatica 7.0</span><em>2023</em></div>
-      <div class="award"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4M9 12h7M9 16h5"/></svg><b>Published</b><span>Cancer detection research, IRJMETS</span><em>2022</em></div>
-      <div class="award"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.6 6 .6-4.5 4 1.3 6-5.4-3.2-5.4 3.2 1.3-6-4.5-4 6-.6z"/></svg><b>National Finalist</b><span>ABFRL Show Stopper</span><em>2022</em></div>
-    </div>
-  </section>
+  
+  <button type="button" class="cross" data-go="pro"><span>Enterprise CX, data and transformation work at Bandhan Bank.</span><b>See my professional work →</b></button>
+  </div>
 
   <footer>
     <span>Sushant Bhat · bhatsushant03@gmail.com</span>
@@ -482,7 +625,7 @@ footer a{font-family:var(--mono)}
     </span>
   </footer>
 </main>
-
+</div>
 <script>
 const ICONS={
   agent:'<path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/>',
@@ -493,31 +636,61 @@ const ICONS={
   net:'<circle cx="5" cy="12" r="2"/><circle cx="12" cy="5" r="2"/><circle cx="19" cy="12" r="2"/><circle cx="12" cy="19" r="2"/><path d="M7 11l3.5-4.5M13.5 6.5L17 11M17 13l-3.5 4.5M10.5 17.5L7 13"/>',
   code:'<path d="M8 8l-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/>',
   plane:'<path d="M2 15l20-7-8 13-2-6z"/>',
-  film:'<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/>'
+  film:'<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/>',
+  pen:'<path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 6l3 3"/>',
+  scope:'<circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/>',
+  shield:'<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M12 9v4M12 16h.01"/>',
+  layers:'<path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/>',
+  globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/>'
 };
 const IDEAS=[
-  {p:1,d:"AI governance",i:"agent",t:"Know Your Agent (KYA)",x:"KYC, but for AI agents."},
-  {p:1,d:"AI governance",i:"voice",t:"Governance for voice AI agents",x:"Rules for bank voice bots."},
-  {p:1,d:"Banking analytics",i:"pin",t:"Branch Location Selection Engine",x:"Data, not gut, picks the next branch."},
-  {p:2,d:"CX strategy",i:"wave",t:"Voice AI is banking's next shift",x:"Customers still call. Bots will answer."},
-  {p:2,d:"CX strategy",i:"net",t:"Six degrees in banking CX",x:"Customers as a network."},
-  {p:2,d:"AI strategy",i:"code",t:"Why banks should run open-source models",x:"Own the model, keep the data."},
-  {p:3,d:"Operations",i:"plane",t:"What airlines can teach bank ops",x:"Turnaround discipline for bank ops."},
-  {p:3,d:"Civic data",i:"road",t:"Traffic pattern analysis",x:"Test it with data, pitch the city."},
-  {p:3,d:"Consumer product",i:"film",t:"Crosscut",x:"Film database plus 1v1 debates."}
+  {k:"Build",s:"Researching",i:"pin",t:"Branch Location Selection Engine",x:"Census, RBI and road-network data score where the next branch should open."},
+  {k:"Build",s:"Planned",i:"road",t:"Traffic pattern proposal",x:"A traffic-flow hypothesis, tested on data, sent to the government."},
+  {k:"Build",s:"Building",i:"film",t:"Crosscut",x:"A film database with structured two-person debates."},
+  {k:"Write",s:"Planned",i:"agent",t:"Know Your Agent (KYA)",x:"KYC, rebuilt for AI agents acting in banking."},
+  {k:"Write",s:"Planned",i:"voice",t:"Governing voice AI agents",x:"Architecture, compliance and trust for bank voice bots."},
+  {k:"Write",s:"Planned",i:"wave",t:"Voice AI: banking's next shift",x:"Why voice becomes the main channel."},
+  {k:"Write",s:"Planned",i:"code",t:"Banks should run open-source models",x:"Cost, control and risk versus vendors."},
+  {k:"Write",s:"Planned",i:"net",t:"Six degrees in banking CX",x:"Word of mouth as a network."},
+  {k:"Write",s:"Planned",i:"plane",t:"What airlines teach bank ops",x:"Efficiency without hurting the customer."},
+  {k:"Write",s:"Planned",i:"pen",t:"AI manifesto",x:"My principles on where AI should go."},
+  {k:"Learn",s:"Active",i:"scope",t:"OpenTelemetry",x:"Observability, correlation and AI root-cause analysis."},
+  {k:"Learn",s:"Active",i:"shield",t:"GenAI deception in BFSI",x:"Each defence mapped to its GenAI attack."},
+  {k:"Learn",s:"Active",i:"pin",t:"Branch location research",x:"How banks pick sites today. Feeds the engine."},
+  {k:"Learn",s:"Planned",i:"layers",t:"System design",x:"Scale, data stores, APIs, queues."},
+  {k:"Learn",s:"Planned",i:"globe",t:"Finternet",x:"India's UPI and DPI thinking, applied globally."}
 ];
 const ideasEl=document.getElementById('ideas'), fEl=document.getElementById('filters');
-function draw(domain){
-  ideasEl.innerHTML=IDEAS.filter(o=>!domain||o.d===domain).sort((a,b)=>a.p-b.p).map(o=>
-    `<article class="idea"><div class="row"><svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[o.i]}</svg><span class="prio p${o.p}">P${o.p}</span></div>
-     <h3>${o.t}</h3><p>${o.x}</p><span class="tag">${o.d}</span></article>`).join('');
+function draw(k){
+  ideasEl.innerHTML=IDEAS.filter(o=>!k||o.k===k).map((o,n)=>
+    `<article class="note-card ${o.k.toLowerCase()}" style="--r:${[-1.6,1.2,-.6,1.8,-1.2,.8][n%6]}deg"><span class="pin" aria-hidden="true"></span>
+     <div class="row"><span class="kind">${o.k}</span><span class="st ${o.s==='Planned'?'plan':'live'}">${o.s}</span></div>
+     <svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[o.i]}</svg><h3>${o.t}</h3><p>${o.x}</p></article>`).join('');
 }
-const domains=[...new Set(IDEAS.map(o=>o.d))];
-fEl.innerHTML=['All',...domains].map((d,k)=>`<button type="button" id="f-${k}" aria-pressed="${k===0}" data-d="${k===0?'':d}">${d}</button>`).join('');
-fEl.addEventListener('click',e=>{
-  const b=e.target.closest('button'); if(!b) return;
-  fEl.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));
-  draw(b.dataset.d);
-});
+const kinds=["Build","Write","Learn"];
+fEl.innerHTML=[['All',IDEAS.length],...kinds.map(k=>[k,IDEAS.filter(o=>o.k===k).length])].map(([k,c],n)=>`<button type="button" id="f-${n}" aria-pressed="${n===0}" data-k="${n?k:''}">${k} <small>${c}</small></button>`).join('');
+fEl.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+  fEl.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));draw(b.dataset.k);});
 draw('');
+
+const app=document.getElementById('app');
+const PERSONAL=['personal','builds','thesis'], SECTIONS=['work','papers','decks','path','builds','thesis'];
+function setView(v){
+  app.dataset.view=v;
+  document.getElementById('sw-pro').setAttribute('aria-pressed',v==='pro');
+  document.getElementById('sw-personal').setAttribute('aria-pressed',v==='personal');
+}
+function route(){
+  const h=location.hash.slice(1);
+  setView(PERSONAL.includes(h)?'personal':'pro');
+  if(SECTIONS.includes(h)){const el=document.getElementById(h);if(el)requestAnimationFrame(()=>el.scrollIntoView());}
+}
+document.addEventListener('click',e=>{
+  const go=e.target.closest('[data-go]'), to=e.target.closest('[data-to]'), top=e.target.closest('[data-top]');
+  if(go){const v=go.dataset.go;setView(v);try{history.replaceState(null,'','#'+(v==='pro'?'professional':'personal'))}catch(_){location.hash=v==='pro'?'professional':'personal'}window.scrollTo({top:0});}
+  if(to){document.getElementById(to.dataset.to).scrollIntoView({behavior:'smooth'});}
+  if(top){window.scrollTo({top:0,behavior:'smooth'});}
+});
+window.addEventListener('hashchange',route);
+route();
 </script>
