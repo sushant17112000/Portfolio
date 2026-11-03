@@ -137,7 +137,7 @@ details[open] summary::after{transform:rotate(45deg)}
 .idea .tag{align-self:flex-start;margin-top:auto}
 
 /* decks */
-.decks{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.decks{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:32px}
 .deck{border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden;min-width:0}
 .slide{aspect-ratio:16/9;max-width:100%;background:var(--cobalt-soft);display:flex;flex-direction:column;justify-content:flex-end;padding:16px;position:relative}
 .slide::before{content:"";position:absolute;top:16px;left:16px;width:40%;height:6px;border-radius:3px;background:var(--cobalt);opacity:.6}
@@ -158,6 +158,7 @@ details[open] summary::after{transform:rotate(45deg)}
 .doodle{width:150px;height:auto;flex:0 0 auto;margin-left:auto;align-self:center}
 .hero{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);align-items:center}
 .hero .full{grid-column:1/-1}
+.v-pro .hero{grid-template-columns:1fr;padding-block:64px 40px}
 .hero .scene{width:100%;max-width:380px;justify-self:end}
 .note{font-family:var(--hand);font-size:17px;color:var(--marigold);margin-top:6px}
 @media (prefers-reduced-motion:no-preference){
@@ -311,39 +312,9 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
   <div class="view v-pro">
   <header class="hero">
     <div><p class="eyebrow">Digital Transformation · Product · Banking</p>
-    <h1>Sushant <span>Bhat</span></h1>
-    <p class="lede">I take banking problems <em>from BRD to go-live</em>.</p>
-      <p class="note">↳ me, mid-BRD</p></div>
-    <svg class="sk scene" viewBox="0 0 340 230" role="img" aria-label="Stick figure drawing a BRD to build to go-live flow on a whiteboard">
-      <rect x="18" y="20" width="214" height="140" rx="4"/>
-      <path d="M48 160 L40 214 M202 160 L210 214"/>
-      <rect class="draw" pathLength="1" x="34" y="58" width="50" height="30" rx="3"/>
-      <path class="draw d2" pathLength="1" d="M86 73 L104 73 M98 68 L104 73 L98 78"/>
-      <rect class="draw d3" pathLength="1" x="106" y="58" width="50" height="30" rx="3"/>
-      <path class="draw d4" pathLength="1" d="M158 73 L176 73 M170 68 L176 73 L170 78"/>
-      <rect class="draw d5 fillm" pathLength="1" x="178" y="58" width="44" height="30" rx="3"/>
-      <text x="59" y="78" text-anchor="middle">BRD</text>
-      <text x="131" y="78" text-anchor="middle">build</text>
-      <text x="200" y="78" text-anchor="middle">live!</text>
-      <path class="acc draw d5" pathLength="1" d="M40 112 q18 -9 36 0 t36 0 t36 0 t36 0 t36 0"/>
-      <text x="125" y="140" text-anchor="middle">UAT · vendors · leadership</text>
-      <path d="M238 214 L330 214"/>
-      <g class="bob">
-        <circle cx="282" cy="96" r="12"/>
-        <path d="M278 94 h.01 M287 94 h.01 M278 101 q4.5 3.5 9 0"/>
-      </g>
-      <path d="M282 108 L283 160 M283 160 L270 212 M283 160 L297 212"/>
-      <g class="limb swing" style="transform-origin:282px 122px"><path d="M282 122 L258 110 L246 104"/><path class="blu" d="M246 104 L238 99"/></g>
-      <path d="M282 122 L298 142"/>
-      <rect x="295" y="140" width="10" height="12" rx="2"/>
-      <path class="acc" d="M298 136 q2 -4 0 -7 M302 136 q2 -4 0 -7"/>
-    </svg>
-    <div class="ledger full" aria-label="Impact at a glance">
-      <div><b>₹17.7L</b><span>yearly savings projected</span></div>
-      <div><b>61%</b><span>fewer IVR disconnects</span></div>
-      <div><b>50×</b><span>self-service containment</span></div>
-      <div><b>11+</b><span>sources, one CX platform</span></div>
-    </div>
+    <h1>Sushant <span>Bhat</span></h1></div>
+    
+    
   </header>
 
   <section id="work" aria-labelledby="work-h">
@@ -434,17 +405,6 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
         </details>
       </article>
     </div>
-  
-    <div class="also">
-      <h3 class="sub">Also at Bandhan</h3>
-      <ul class="also-list">
-        <li><span class="st done">Done</span><b>NEO coverage gap</b><span>Mapped how a 20 km branch rule blocks fully digital sign-ups.</span></li>
-        <li><span class="st live">Active</span><b>ARAMBH on-device AI</b><span>Offline language models for 2,000–5,000 frontline tablets.</span></li>
-        <li><span class="st live">Active</span><b>DPI strategy</b><span>India's DPI rails, DigiPin included, mapped to bank systems.</span></li>
-        <li><span class="st live">Active</span><b>Customer segmentation</b><span>Segment research on peer banks, sources verified row by row.</span></li>
-        <li><span class="st plan">Planned</span><b>Paper Club</b><span>A research-paper reading habit across teams.</span></li>
-      </ul>
-    </div>
   </section>
 
   <section id="papers" aria-labelledby="papers-h">
@@ -480,13 +440,13 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
       </article>
 
       <article class="paper">
-        <div><span class="tag">AI strategy · BFSI</span><h3>AI and the Overton Window</h3>
-          <p>Banks have the tools. They lack permission.</p></div>
+        <div><span class="tag">Digital onboarding · Access</span><h3>NEO coverage gap</h3>
+          <p>A digital account, limited by distance to a branch.</p></div>
         <div class="strip">
-          <div class="step"><svg viewBox="0 0 24 24"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg><span class="k">Problem</span><span class="v">AI seen as risky</span></div>
-          <div class="step"><svg viewBox="0 0 24 24"><rect x="2" y="9" width="20" height="6" rx="3"/><rect x="9" y="9" width="7" height="6" rx="2"/></svg><span class="k">Frame</span><span class="v">The Overton Window</span></div>
-          <div class="step"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg><span class="k">Enabler</span><span class="v">Governed CX data</span></div>
-          <div class="step"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span class="k">Path</span><span class="v">Phased adoption</span></div>
+          <div class="step"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6-7-11a7 7 0 0114 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span class="k">Problem</span><span class="v">20 km branch rule</span></div>
+          <div class="step"><svg viewBox="0 0 24 24"><circle cx="9" cy="12" r="6"/><circle cx="17" cy="12" r="4" stroke-dasharray="2 2"/></svg><span class="k">Insight</span><span class="v">Rule blocks digital sign-ups</span></div>
+          <div class="step"><svg viewBox="0 0 24 24"><path d="M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3z"/><path d="M9 3v15M15 6v15"/></svg><span class="k">Solution</span><span class="v">Map coverage, show the gap</span></div>
+          <div class="step"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><span class="k">Impact</span><span class="v">Case to drop the clause</span></div>
         </div>
       </article>
     </div>
@@ -507,7 +467,6 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
       <div class="award"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4M9 12h7M9 16h5"/></svg><b>Published</b><span>Cancer detection research, IRJMETS</span><em>2022</em></div>
       <div class="award"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.6 6 .6-4.5 4 1.3 6-5.4-3.2-5.4 3.2 1.3-6-4.5-4 6-.6z"/></svg><b>National Finalist</b><span>ABFRL Show Stopper</span><em>2022</em></div>
     </div>
-    <h3 class="sub">Leadership decks <small>shared on request</small></h3>
     <div class="decks">
       <div class="deck"><div class="slide"><b>SPECTRUM roadmap</b></div><div class="meta"><span>Leadership</span><span>CX data</span></div></div>
       <div class="deck"><div class="slide"><b>On-device AI for frontline</b></div><div class="meta"><span>8 slides</span><span>Edge AI</span></div></div>
