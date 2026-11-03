@@ -190,6 +190,16 @@ details[open] summary::after{transform:rotate(45deg)}
 .award em{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--cobalt)}
 @media (max-width:880px){.awards-row{grid-template-columns:1fr 1fr}}
 .contact{display:flex;flex-wrap:wrap;gap:8px 20px}
+.chead{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.cleft{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+.ent{font-family:var(--mono);font-size:11px;letter-spacing:.04em;padding:2px 8px;border:1px solid var(--ink);border-radius:4px;color:var(--ink)}
+.collab{display:flex;flex-direction:column;align-items:flex-end;gap:6px;max-width:60%}
+.collab .ck{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.collab ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:flex-end;gap:4px}
+.collab li{font-size:12px;padding:2px 8px;border-radius:999px;background:var(--marigold-soft);color:#7A5306;white-space:nowrap}
+.role{font-size:14px;color:var(--ink)}
+.role span{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--cobalt);margin-right:8px}
+@media (max-width:600px){.chead{flex-direction:column}.collab{align-items:flex-start;max-width:100%}.collab ul{justify-content:flex-start}}
 footer{border-top:2px solid var(--ink);padding-block:28px 48px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
 footer a{font-family:var(--mono)}
 
@@ -311,8 +321,7 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
 <main class="wrap" id="top">
   <div class="view v-pro">
   <header class="hero">
-    <div><p class="eyebrow">Digital Transformation · Product · Banking</p>
-    <h1>Sushant <span>Bhat</span></h1></div>
+    <div><h1>Sushant <span>Bhat</span></h1></div>
     
     
   </header>
@@ -333,9 +342,10 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
     <div class="work">
       <article class="wcard">
         <div class="top">
-          <span class="own"><span class="meter"><i class="on"></i><i class="on"></i><i class="on"></i></span>Originated</span>
+          <div class="chead"><div class="cleft"><span class="own"><span class="meter"><i class="on"></i><i class="on"></i><i class="on"></i></span>Originated</span><span class="ent">Enterprise-level</span></div><div class="collab"><span class="ck">Collaborated with</span><ul><li>Data Science</li><li>Data Lake team</li><li>CX team</li><li>Business</li><li>IT</li></ul></div></div>
           <h3>SPECTRUM</h3>
           <p class="sum">CX data lakehouse</p>
+          <p class="role"><span>My role</span>Strategy · Project coordination · System design &amp; architecture</p>
           <div class="impact"><b>₹17.7L</b><span>a year, projected savings</span></div>
           <div class="facts"><div><b>11+</b><span>sources</span></div><div><b>6,400</b><span>call-centre hrs saved</span></div><div><b>~6,000</b><span>complaints avoided</span></div></div>
           <div class="tags"><span class="tag">Data lakehouse</span><span class="tag">CX analytics</span><span class="tag">ML roadmap</span></div>
@@ -352,9 +362,10 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
       </article>
       <article class="wcard">
         <div class="top">
-          <span class="own"><span class="meter"><i class="on"></i><i class="on"></i><i></i></span>Led</span>
+          <div class="chead"><div class="cleft"><span class="own"><span class="meter"><i class="on"></i><i class="on"></i><i></i></span>Led</span><span class="ent">Enterprise-level</span></div><div class="collab"><span class="ck">Collaborated with</span><ul><li>Business</li><li>Marketing</li><li>IT</li><li>Contact Centre</li></ul></div></div>
           <h3>IVR Revamp</h3>
           <p class="sum">Contact centre transformation</p>
+          <p class="role"><span>My role</span>Strategy · BRD · UAT · Project management</p>
           <div class="impact"><b>61%</b><span>fewer disconnects</span></div>
           <div class="facts"><div><b>50×</b><span>self-service calls</span></div><div><b>40→5%</b><span>API error rate</span></div><div><b>RMN</b><span>auth at first contact</span></div></div>
           <div class="tags"><span class="tag">Contact centre</span><span class="tag">Voice CX</span></div>
@@ -370,9 +381,10 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
       </article>
       <article class="wcard">
         <div class="top">
-          <span class="own"><span class="meter"><i class="on"></i><i class="on"></i><i></i></span>Led</span>
+          <div class="chead"><div class="cleft"><span class="own"><span class="meter"><i class="on"></i><i class="on"></i><i></i></span>Led</span><span class="ent">Enterprise-level</span></div><div class="collab"><span class="ck">Collaborated with</span><ul><li>IT</li><li>Operations</li><li>CX</li><li>Marketing</li></ul></div></div>
           <h3>Grievance Redressal</h3>
           <p class="sum">Complaint automation, bank-wide</p>
+          <p class="role"><span>My role</span>Strategy · Project coordination</p>
           <div class="impact"><b>Manual→Auto</b><span>complaint handling</span></div>
           <div class="facts"><div><b>4</b><span>escalation levels</span></div><div><b>CRM</b><span>API integration</span></div><div><b>OTP</b><span>authentication</span></div></div>
           <div class="tags"><span class="tag">Complaints</span><span class="tag">CRM</span><span class="tag">Process design</span></div>
@@ -388,9 +400,10 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
       </article>
       <article class="wcard">
         <div class="top">
-          <span class="own"><span class="meter"><i class="on"></i><i></i><i></i></span>Contributed</span>
+          <div class="chead"><div class="cleft"><span class="own"><span class="meter"><i class="on"></i><i></i><i></i></span>Contributed</span><span class="ent">Enterprise-level</span></div><div class="collab"><span class="ck">Collaborated with</span><ul><li>RBI</li><li>Vendor</li><li>Audit</li><li>Leadership</li></ul></div></div>
           <h3>RBI Sandbox: V-KYC</h3>
           <p class="sum">AI-based unassisted video KYC</p>
+          <p class="role"><span>My role</span>Project coordination · UAT testing · Collaboration</p>
           <div class="impact"><b>24×7</b><span>onboarding, no live agent</span></div>
           <div class="facts"><div><b>RBI</b><span>sandbox testing</span></div><div><b>CUG</b><span>to production</span></div><div><b>E2E</b><span>journeys tested</span></div></div>
           <div class="tags"><span class="tag">Regulatory</span><span class="tag">AI onboarding</span><span class="tag">Digital savings</span></div>
