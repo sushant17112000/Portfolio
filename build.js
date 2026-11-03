@@ -1,11 +1,9 @@
-// Wraps portfolio.html (the same file published as the Claude artifact) into a full page for Vercel.
-// Everything up to the end of the first </style> goes into <head>; the rest becomes <body>.
+// Wraps each source page (the same files published as Claude artifacts) into full pages for Vercel.
+// portfolio.html -> / (version A), portfolio-b.html -> /b/ (version B)
 const fs = require('fs');
-const src = fs.readFileSync('portfolio.html', 'utf8');
-const cut = src.indexOf('</style>') + '</style>'.length;
-const head = src.slice(0, cut);
-const body = src.slice(cut);
-const page = `<!doctype html>
+function wrap(src){
+  const cut = src.indexOf('</style>') + '</style>'.length;
+  return `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -14,13 +12,18 @@ const page = `<!doctype html>
 <meta property="og:title" content="Sushant Bhat Portfolio">
 <meta property="og:description" content="Banking CX and data transformation: work projects, builds, white papers and thesis.">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
-${head}
+${src.slice(0, cut)}
 </head>
 <body>
-${body}
+${src.slice(cut)}
 </body>
 </html>
 `;
-fs.mkdirSync('dist', { recursive: true });
-fs.writeFileSync('dist/index.html', page);
-console.log('Built dist/index.html');
+}
+const out = { 'dist/index.html': 'portfolio.html', 'dist/a/index.html': 'portfolio.html', 'dist/b/index.html': 'portfolio-b.html' };
+for (const [dest, srcFile] of Object.entries(out)) {
+  if (!fs.existsSync(srcFile)) continue;
+  fs.mkdirSync(require('path').dirname(dest), { recursive: true });
+  fs.writeFileSync(dest, wrap(fs.readFileSync(srcFile, 'utf8')));
+  console.log('Built', dest);
+}

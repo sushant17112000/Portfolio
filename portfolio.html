@@ -201,7 +201,7 @@ details[open] summary::after{transform:rotate(45deg)}
 .role span{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--cobalt);margin-right:8px}
 @media (max-width:600px){.chead{flex-direction:column}.collab{align-items:flex-start;max-width:100%}.collab ul{justify-content:flex-start}}
 /* pro: constellation hero + section heads */
-.sky{position:relative;margin-top:28px;height:360px;border:1px solid #DCE3FA;border-radius:16px;overflow:hidden;
+.sky{position:relative;margin-top:28px;height:400px;border:1px solid #DCE3FA;border-radius:16px;overflow:hidden;
   background:radial-gradient(circle at 82% 18%,#ECF0FF 0,transparent 42%),radial-gradient(circle at 14% 86%,#FFF3DE 0,transparent 40%),radial-gradient(circle at 55% 60%,#FCEBF3 0,transparent 35%),#fff}
 .sky-svg{position:absolute;inset:0;width:100%;height:100%}
 .sky-svg .bg{fill:#9AA6C8}
@@ -218,10 +218,14 @@ details[open] summary::after{transform:rotate(45deg)}
 .sky-labels .lb.side{transform:translate(0,-50%);flex-direction:row;align-items:baseline;gap:8px;text-align:left}
 .sky-labels em{font-style:normal;font-family:var(--mono);font-size:11px;color:var(--muted)}
 .sky-labels b{font-family:var(--display);font-size:14px;font-weight:600;color:var(--ink)}
+.sky-svg .lead-br{fill:none;stroke:var(--marigold);stroke-width:2;stroke-dasharray:5 4;stroke-linecap:round}
+.sky-labels .lead{position:absolute;transform:translate(-50%,-50%);background:#fff;border:1px solid #F1D28F;border-radius:999px;padding:5px 14px;font-size:13px;font-weight:500;color:var(--ink);white-space:nowrap;display:flex;gap:10px;align-items:center}
+.sky-labels .lead span{font-family:var(--mono);font-size:11px;color:#9A6A07}
+.sky-labels .lead.n{transform:translate(0,-50%);white-space:normal;max-width:calc(100% - 32px);flex-wrap:wrap;gap:2px 10px;border-radius:12px}
 .sky-cap{position:absolute;left:20px;top:16px;font-family:var(--mono);font-size:12px;color:var(--cobalt);letter-spacing:.04em}
 @media (prefers-reduced-motion:no-preference){.sky-svg .bg{animation:tw 3s ease-in-out infinite}}
 @keyframes tw{0%,100%{opacity:.25}50%{opacity:.9}}
-@media (max-width:640px){.sky{height:520px}}
+@media (max-width:640px){.sky{height:600px}}
 .mini{width:150px;height:80px;flex:0 0 auto;margin-left:auto;align-self:center}
 .mini .cl{stroke:#B9C4EC;stroke-width:1.4;stroke-dasharray:1;stroke-dashoffset:0;fill:none}
 .mini .cs{fill:var(--c)}
@@ -421,11 +425,6 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
   <section id="work" aria-labelledby="work-h">
     <div class="sh"><h2 id="work-h">Work projects</h2>
       <svg class="mini" viewBox="0 0 150 80" aria-hidden="true"><line class="cl" pathLength="1" style="--d:0.0s" x1="136" y1="40" x2="102" y2="18"/><line class="cl" pathLength="1" style="--d:0.35s" x1="102" y1="18" x2="70" y2="50"/><line class="cl" pathLength="1" style="--d:0.7s" x1="70" y1="50" x2="40" y2="28"/><line class="cl" pathLength="1" style="--d:1.0499999999999998s" x1="40" y1="28" x2="12" y2="60"/><circle class="cs" style="--c:#2346D6;--d:0.0s" cx="12" cy="60" r="3"/><circle class="cs" style="--c:#E0A21B;--d:0.3s" cx="40" cy="28" r="3"/><circle class="cs" style="--c:#D6457A;--d:0.6s" cx="70" cy="50" r="3"/><circle class="cs" style="--c:#12968A;--d:0.8999999999999999s" cx="102" cy="18" r="3"/><circle class="cs" style="--c:#6C4FD8;--d:1.2s" cx="136" cy="40" r="4"/></svg></div>
-    <div class="legend">
-      <span><span class="meter"><i class="on"></i><i class="on"></i><i class="on"></i></span>Originated</span>
-      <span><span class="meter"><i class="on"></i><i class="on"></i><i></i></span>Led</span>
-      <span><span class="meter"><i class="on"></i><i></i><i></i></span>Contributed</span>
-    </div>
     <div class="work">
       <article class="wcard">
         <div class="top">
@@ -434,7 +433,6 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
           <p class="sum">CX data lakehouse</p>
           <p class="role"><span>My role</span>Strategy · Project coordination · System design &amp; architecture</p>
           <div class="impact"><b>₹17.7L</b><span>a year, projected savings</span></div>
-          <div class="facts"><div><b>11+</b><span>sources</span></div><div><b>6,400</b><span>call-centre hrs saved</span></div><div><b>~6,000</b><span>complaints avoided</span></div></div>
         </div>
         <button type="button" class="cta" data-case="spectrum">View project <span aria-hidden="true">→</span></button>
       </article>
@@ -445,7 +443,6 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
           <p class="sum">Contact centre transformation</p>
           <p class="role"><span>My role</span>Strategy · BRD · UAT · Project management</p>
           <div class="impact"><b>61%</b><span>fewer disconnects</span></div>
-          <div class="facts"><div><b>50×</b><span>self-service calls</span></div><div><b>40→5%</b><span>API error rate</span></div><div><b>RMN</b><span>auth at first contact</span></div></div>
         </div>
         <button type="button" class="cta" data-case="ivr">View project <span aria-hidden="true">→</span></button>
       </article>
@@ -456,7 +453,6 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
           <p class="sum">Complaint automation, bank-wide</p>
           <p class="role"><span>My role</span>Strategy · Project coordination</p>
           <div class="impact"><b>Manual→Auto</b><span>complaint handling</span></div>
-          <div class="facts"><div><b>4</b><span>escalation levels</span></div><div><b>CRM</b><span>API integration</span></div><div><b>OTP</b><span>authentication</span></div></div>
         </div>
         <button type="button" class="cta" data-case="grievance">View project <span aria-hidden="true">→</span></button>
       </article>
@@ -467,7 +463,6 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
           <p class="sum">AI-based unassisted video KYC</p>
           <p class="role"><span>My role</span>Project coordination · UAT testing · Collaboration</p>
           <div class="impact"><b>24×7</b><span>onboarding, no live agent</span></div>
-          <div class="facts"><div><b>RBI</b><span>sandbox testing</span></div><div><b>CUG</b><span>to production</span></div><div><b>E2E</b><span>journeys tested</span></div></div>
         </div>
         <button type="button" class="cta" data-case="vkyc">View project <span aria-hidden="true">→</span></button>
       </article>
@@ -735,8 +730,8 @@ route();
     ['RBI sandbox','Video KYC','#12968A'],
     ['Now','SPECTRUM','#2346D6']
   ];
-  const WIDE=[[7,74,0],[20,40,1],[32,76,0],[45,34,1],[56,72,0],[68,38,1],[79,74,0],[91,34,1]];
-  const NARROW=[[10,15,0],[24,26,0],[10,37,0],[24,48,0],[10,59,0],[24,70,0],[10,81,0],[24,92,0]];
+  const WIDE=[[7,58,0],[20,30,1],[32,58,0],[45,28,1],[56,56,0],[68,30,1],[79,58,0],[91,28,1]];
+  const NARROW=[[12,6,0],[26,17,0],[12,28,0],[26,39,0],[12,50,0],[26,61,0],[12,72,0],[26,83,0]];
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   let timer;
   function build(){
@@ -764,6 +759,16 @@ route();
       d.style.left=(w<640?(0.36*w):x)+'px';d.style.top=y+'px';
       d.innerHTML=`<em>${M[i][0]}</em><b>${M[i][1]}</b>`;lab.appendChild(d);
     });
+    const narrow=w<640, b1=pos[3], b2=pos[7];
+    const br=document.createElementNS(NS,'path'); br.setAttribute('class','lead-br');
+    if(!narrow){const y=h*.83; br.setAttribute('d',`M${b1[0]} ${y-10} L${b1[0]} ${y} L${b2[0]} ${y} L${b2[0]} ${y-10}`);}
+    else{const x=w*.04; br.setAttribute('d',`M${x+8} ${b1[1]} L${x} ${b1[1]} L${x} ${b2[1]} L${x+8} ${b2[1]}`);}
+    svg.appendChild(br);
+    const ld=document.createElement('div'); ld.className='lead';
+    ld.innerHTML='<span>Bandhan → now</span>Working closely with senior leadership, start to finish';
+    if(!narrow){ld.style.left=((b1[0]+b2[0])/2)+'px';ld.style.top=(h*.83)+'px';}
+    else{ld.classList.add('n');ld.style.left=(w*.04)+'px';ld.style.top=(h*.92)+'px';}
+    lab.appendChild(ld);
     if(reduce) return;
     let k=0;
     function step(){
