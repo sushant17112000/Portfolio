@@ -441,6 +441,24 @@ dialog.case{border-radius:0!important;border:1.5px solid #14181F!important;box-s
 .case-out>div:nth-child(4n+1){box-shadow:4px 4px 0 #B9C6F5}.case-out>div:nth-child(4n+2){box-shadow:4px 4px 0 #F1D28F}
 .case-out>div:nth-child(4n+3){box-shadow:4px 4px 0 #F2B8CF}.case-out>div:nth-child(4n+4){box-shadow:4px 4px 0 #9FD9C6}
 .flow{border-color:#14181F;box-shadow:5px 5px 0 #DCE3FA}
+/* phone layout for work cards: balanced, no dead space */
+@media (max-width:600px){
+  .v-pro .sh .mini{display:none}
+  .v-pro section .sh{margin-bottom:20px}
+  .wcard .top{padding:18px 18px 0;gap:10px}
+  .wcard .chead{display:contents}
+  .wcard .cleft{order:1;flex-direction:row;flex-wrap:wrap;align-items:center;gap:8px}
+  .wcard h3{order:2;font-size:24px}
+  .wcard .sum{order:3;margin-top:-4px}
+  .wcard .role{order:4}
+  .wcard .collab{order:5;max-width:100%;align-items:flex-start;flex-direction:row;flex-wrap:wrap;gap:6px;padding:10px 0 0;border-top:1px dashed var(--line)}
+  .wcard .collab .ck{flex-basis:100%}
+  .wcard .collab ul{justify-content:flex-start}
+  .wcard .impact{order:6;flex-direction:column;align-items:flex-start;gap:4px;padding:12px 0 2px}
+  .wcard .impact b{font-size:40px;white-space:normal}
+  .cta.neo{margin:16px 18px 18px;width:calc(100% - 36px - var(--d));text-align:center;align-self:stretch}
+  .paper .cta.neo{margin:14px 0 0}
+}
 footer{border-top:2px solid var(--ink);padding-block:28px 48px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
 footer a{font-family:var(--mono)}
 
