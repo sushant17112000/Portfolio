@@ -427,6 +427,42 @@ dialog.case{border-radius:0!important;border:1.5px solid #14181F!important;box-s
 .award:nth-child(2) svg{stroke:#6C4FD8}.award:nth-child(3) svg{stroke:#12968A}.award:nth-child(4) svg{stroke:#B57F0C}
 .strip .step-btn{animation:none!important}
 @media (min-width:601px){.wcard .chead{min-height:80px}}
+/* view hop: compact floating NeoPOP button instead of the big card */
+.hop{display:flex;justify-content:center;margin:64px 0 8px}
+.hop-btn{font:inherit;cursor:pointer;display:inline-flex;align-items:center;gap:12px;padding:12px 20px;--d:6px;--face:var(--cobalt);--edge-r:#5F7EE8;--edge-b:#0F1F6B;--line:#0B1440;color:#fff;
+  background-image:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.35) 50%,transparent 65%);background-size:260% 100%;background-position:130% 0;background-repeat:no-repeat}
+.hop-btn>span:first-child{text-align:left}
+.hop-btn small{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;opacity:.8}
+.hop-btn b{font-family:var(--display);font-size:18px;font-weight:600}
+.hop-btn .arw{display:inline-grid;place-items:center;width:28px;height:28px;background:#fff;color:var(--cobalt);font-size:16px;transition:transform .2s}
+.hop-btn:hover .arw{transform:translateX(3px)}
+.v-pro .hop-btn{--face:var(--green);--edge-r:#5DBA8C;--edge-b:#0D4A2E;--line:#0A3321}
+.v-pro .hop-btn .arw{color:var(--green)}
+.hop-wrap{display:inline-block}
+@media (prefers-reduced-motion:no-preference){
+  .hop-wrap{animation:bob 3s ease-in-out infinite}
+  .hop-btn{animation:shimmer 3.6s ease-in-out infinite}
+}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+/* personal page in NeoPOP */
+.filters button{border-radius:0!important;border:1.5px solid #14181F!important;box-shadow:3px 3px 0 #BFE3CF;transition:transform 60ms}
+.filters button:active{transform:translate(3px,3px);box-shadow:none}
+.v-personal .filters button[aria-pressed="true"]{box-shadow:3px 3px 0 #0D4A2E}
+.v-personal .repo{border-radius:0!important;border:1.5px solid #14181F!important;background:#fff;color:var(--green);box-shadow:4px 4px 0 var(--green);transition:transform 60ms}
+.v-personal .repo:hover{background:#E3F4EA;transform:translate(-1px,-1px)}
+.v-personal .repo:active{transform:translate(4px,4px);box-shadow:none}
+.v-personal .node{border-radius:0}
+.v-personal .tag{border-radius:0}
+.v-personal .ledger div{min-width:0}
+.note-card{border-radius:0}
+@media (max-width:600px){
+  .v-personal .sh .doodle{display:none}
+  .bcard{padding:18px}
+  .bcard .row{flex-direction:column;align-items:flex-start;gap:4px}
+  .bcard .facts{grid-template-columns:repeat(3,1fr)}
+  .v-personal .repo{align-self:stretch;text-align:center}
+  .hop-btn{padding:10px 14px;gap:10px}.hop-btn b{font-size:16px}
+}
 footer{border-top:2px solid var(--ink);padding-block:28px 48px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
 footer a{font-family:var(--mono)}
 
@@ -660,7 +696,7 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
     </ol>
   </section>
   
-  <button type="button" class="cross neo" data-go="personal"><span>Built after hours: AI agents, WhatsApp bots, and ideas in progress.</span><b>See my personal side →</b></button>
+  <div class="hop"><span class="hop-wrap"><button type="button" class="hop-btn neo" data-go="personal"><span><small>After hours</small><br><b>Switch to personal</b></span><span class="arw" aria-hidden="true">→</span></button></span></div>
   </div>
 
   <div class="view v-personal">
@@ -748,7 +784,7 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
     <div class="wall" id="ideas"></div>
   </section>
   
-  <button type="button" class="cross neo" data-go="pro"><span>Enterprise CX, data and transformation work at Bandhan Bank.</span><b>See my professional work →</b></button>
+  <div class="hop"><span class="hop-wrap"><button type="button" class="hop-btn neo" data-go="pro"><span><small>At Bandhan Bank</small><br><b>Switch to professional</b></span><span class="arw" aria-hidden="true">→</span></button></span></div>
   </div>
 
   <footer>
