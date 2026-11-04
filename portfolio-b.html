@@ -459,6 +459,13 @@ dialog.case{border-radius:0!important;border:1.5px solid #14181F!important;box-s
   .cta.neo{margin:16px 18px 18px;width:calc(100% - 36px - var(--d));text-align:center;align-self:stretch}
   .paper .cta.neo{margin:14px 0 0}
 }
+/* awards: flat NeoPOP tiles, not buttons */
+.award{margin:0!important;background:#F3F6FF!important;border:1px solid #DCE3FA!important;border-top:4px solid var(--cobalt)!important;cursor:default}
+.award::before,.award::after{display:none!important}
+.award:nth-child(2){border-top-color:#6C4FD8!important;background:#F5F1FF!important}
+.award:nth-child(3){border-top-color:#12968A!important;background:#EEF8F5!important}
+.award:nth-child(4){border-top-color:#E0A21B!important;background:#FDF7E8!important}
+.award:nth-child(2) svg{stroke:#6C4FD8}.award:nth-child(3) svg{stroke:#12968A}.award:nth-child(4) svg{stroke:#B57F0C}
 footer{border-top:2px solid var(--ink);padding-block:28px 48px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
 footer a{font-family:var(--mono)}
 
