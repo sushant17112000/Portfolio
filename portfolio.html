@@ -499,6 +499,23 @@ dialog.case{border-radius:0!important;border:1.5px solid #14181F!important;box-s
 .intern ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end;max-width:300px}
 .intern li{font-size:12px;padding:2px 8px;border:1px solid #9FD9C6;background:#fff;color:#0F7A6F}
 @media (max-width:880px){.intern{grid-template-columns:1fr}.intern ul{justify-content:flex-start;max-width:none}}
+/* personal hero: hand-drawn idea map */
+.mind{position:relative;margin-top:28px;height:440px;border:1.5px solid #14181F;box-shadow:8px 8px 0 #BFE3CF;margin-right:8px;background:rgba(255,255,255,.35)}
+.mind-svg{position:absolute;inset:0;width:100%;height:100%}
+.mind-svg .pencil{fill:none;stroke:#14181F;stroke-width:1.8;stroke-linecap:round}
+.mind-svg .pencil.ghost{stroke-width:1;opacity:.28}
+.mind-nodes{position:absolute;inset:0}
+.mm{position:absolute;transform:translate(-50%,-50%) rotate(var(--r)) scale(.6);opacity:0;transition:transform .45s cubic-bezier(.3,1.6,.5,1) var(--delay),opacity .3s ease var(--delay);font-family:var(--hand);color:var(--ink);white-space:nowrap;text-align:center}
+.mind-nodes.on .mm{opacity:1;transform:translate(-50%,-50%) rotate(var(--r)) scale(1)}
+.mm b{font-weight:700}
+.mm.me{background:#fff;border:2px solid #14181F;padding:14px 22px;box-shadow:5px 5px 0 var(--green);display:flex;flex-direction:column;gap:2px;z-index:2}
+.mm.me b{font-size:clamp(30px,4vw,44px);line-height:1}
+.mm.me span{font-family:var(--body);font-size:13px;color:var(--muted);white-space:normal;max-width:220px}
+.mm.cat{padding:6px 14px;border:1.5px solid #14181F;font-size:20px;box-shadow:3px 3px 0 #14181F}
+.mm.leaf{padding:4px 10px;font-size:15px;box-shadow:0 1px 0 rgba(20,24,31,.08),2px 4px 8px rgba(20,24,31,.08)}
+.mm.g{background:var(--sticky-g)}.mm.y{background:var(--sticky-y)}.mm.p{background:var(--sticky-p)}.mm.bl{background:#DCE6FF}
+@media (prefers-reduced-motion:no-preference){.mind-nodes.on .mm.leaf b{display:inline-block;animation:bob 3s ease-in-out infinite;animation-delay:var(--bob)}}
+@media (max-width:640px){.mind{height:620px}.mm.me{padding:10px 14px}.mm.me span{display:none}.mm.cat{font-size:17px}.mm.leaf{font-size:13.5px}}
 footer{border-top:2px solid var(--ink);padding-block:28px 48px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
 footer a{font-family:var(--mono)}
 
@@ -740,32 +757,9 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
   </div>
 
   <div class="view v-personal">
-  <header class="hero phero">
-    <div><p class="eyebrow">Personal · after hours</p>
-    <h1 class="hand">Side quests</h1>
-    <p class="lede">What I build, write and learn outside the bank.</p>
-      <p class="note green">↳ still me, different hours</p></div>
-    <svg class="sk scene" viewBox="0 0 340 230" role="img" aria-label="Stick figure at a laptop under a lamp, with a gear turning in a thought bubble">
-      <path d="M40 214 L330 214"/>
-      <path d="M150 150 L320 150 M168 150 L162 214 M302 150 L308 214"/>
-      <path d="M196 150 L204 112 L262 112 L256 150"/>
-      <path class="grn blink" d="M214 124 L238 124"/><path class="cor" d="M212 133 L246 133"/>
-      <path d="M296 150 L296 92 L276 80"/><path class="cor" d="M266 76 L288 86 L280 96 Z"/>
-      <path class="cor flash" d="M268 102 L262 112 M282 104 L284 114"/>
-      <g class="bob"><circle cx="110" cy="100" r="12"/><path d="M106 98 h.01 M115 98 h.01 M106 105 q4.5 3 9 0"/></g>
-      <path d="M110 112 L112 164 M112 164 L150 166 L150 214 M112 164 L96 214"/>
-      <g class="tapA"><path d="M110 126 L150 138 L196 140"/></g><g class="tapB"><path d="M110 128 L148 144"/></g>
-      <path d="M70 160 L130 160 M78 160 L78 214"/>
-      <circle cx="74" cy="64" r="3"/><circle cx="62" cy="48" r="5"/>
-      <path d="M30 30 q-4 -22 22 -22 q12 -16 34 -4 q24 -6 26 16 q16 10 0 24 q-6 14 -30 10 q-18 10 -34 0 q-22 4 -18 -24z" class="fillg"/>
-      <g class="spin" style="transform-origin:72px 22px"><circle cx="72" cy="22" r="8"/><path d="M72 9 L72 13 M72 31 L72 35 M59 22 L63 22 M81 22 L85 22 M63 13 L66 16 M78 28 L81 31 M63 31 L66 28 M78 16 L81 13"/></g>
-    </svg>
-    <div class="ledger full pledger" aria-label="Personal work at a glance">
-      <div><b>2</b><span>shipped builds</span></div>
-      <div><b>3</b><span>builds in the pipeline</span></div>
-      <div><b>7</b><span>essays queued</span></div>
-      <div><b>5</b><span>topics I'm learning</span></div>
-    </div>
+  <header class="mind" aria-label="Idea map: shipped, building, writing and learning, all branching from side quests">
+    <svg class="mind-svg" id="mind-svg" aria-hidden="true"></svg>
+    <div class="mind-nodes" id="mind-nodes"></div>
   </header>
 
   <section id="builds" aria-labelledby="builds-h">
@@ -1074,5 +1068,69 @@ route();
   $('case-x').addEventListener('click',close);
   dlg.addEventListener('click',e=>{if(e.target===dlg)close();});
   document.addEventListener('click',e=>{const b=e.target.closest('.cta[data-case],.cta[data-paper]');if(b){opener=b;open(b.dataset.case||b.dataset.paper);}});
+})();
+(function(){
+  const svg=document.getElementById('mind-svg'), box=document.getElementById('mind-nodes'); if(!svg) return;
+  const NS='http://www.w3.org/2000/svg';
+  // id, label, kind, parent, wide[x,y], narrow[x,y]
+  const N=[
+    ['me','Side quests','me',null,[50,50],[30,6]],
+    ['s','Shipped','cat g','me',[24,30],[30,20]],
+    ['s1','AI job agent','leaf g','s',[9,12],[72,16]],
+    ['s2','SAATHI bot','leaf g','s',[33,10],[72,25]],
+    ['b','Building','cat y','me',[76,30],[30,42]],
+    ['b1','Branch engine','leaf y','b',[64,10],[72,35]],
+    ['b2','Traffic study','leaf y','b',[90,12],[72,43]],
+    ['b3','Crosscut','leaf y','b',[93,48],[72,51]],
+    ['w','Writing','cat p','me',[24,74],[30,64]],
+    ['w1','7 essays queued','leaf p','w',[8,92],[72,62]],
+    ['w2','KYA · Voice AI · +5','leaf p','w',[37,92],[72,70]],
+    ['l','Learning','cat bl','me',[76,74],[30,86]],
+    ['l1','OpenTelemetry','leaf bl','l',[63,92],[72,81]],
+    ['l2','System design','leaf bl','l',[88,92],[72,89]],
+    ['l3','Finternet','leaf bl','l',[94,62],[72,97]]
+  ];
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function mk(tag,a){const e=document.createElementNS(NS,tag);for(const k in a)e.setAttribute(k,a[k]);return e;}
+  let built='';
+  function build(force){
+    const w=svg.clientWidth,h=svg.clientHeight; if(!w) return;
+    const narrow=w<640, key=w+'x'+h;
+    if(key===built&&!force) return; built=key;
+    svg.setAttribute('viewBox',`0 0 ${w} ${h}`); svg.innerHTML=''; box.innerHTML='';
+    let seed=11; const rnd=()=>(seed=(seed*9301+49297)%233280)/233280;
+    const P={}; N.forEach(n=>{const [x,y]=narrow?n[5]:n[4]; P[n[0]]=[x/100*w,y/100*h];});
+    const order={me:0,cat:1,leaf:2}; let t=0;
+    N.forEach((n,i)=>{
+      if(!n[3]) return;
+      const par=narrow&&({b:'s',w:'b',l:'w'})[n[0]]||n[3];
+      const [x1,y1]=P[par],[x2,y2]=P[n[0]];
+      const mx=(x1+x2)/2,my=(y1+y2)/2,dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy)||1;
+      const off=(rnd()-.5)*Math.min(40,L*.25);
+      const cx=mx-dy/L*off, cy=my+dx/L*off;
+      const d=`M${x1} ${y1} Q${cx} ${cy} ${x2} ${y2}`;
+      const lvl=n[2].startsWith('cat')?1:2;
+      [0,1].forEach(k=>{
+        const p=mk('path',{d,class:k?'pencil ghost':'pencil'}); if(k)p.setAttribute('transform','translate(1.4 1)');
+        svg.appendChild(p); const len=p.getTotalLength(); p.style.strokeDasharray=len; p.style.strokeDashoffset=reduce?0:len;
+        if(!reduce){const delay=(lvl===1?300+i*120:1300+i*70); p.animate([{strokeDashoffset:len},{strokeDashoffset:0}],{duration:520,delay,easing:'ease-out',fill:'forwards'});}
+      });
+    });
+    N.forEach((n,i)=>{
+      const [x,y]=P[n[0]]; const d=document.createElement('div');
+      const rot=n[2]==='me'?-2:((rnd()-.5)*6).toFixed(1);
+      d.className='mm '+n[2]; d.style.left=x+'px'; d.style.top=y+'px'; d.style.setProperty('--r',rot+'deg');
+      const lvl=n[2]==='me'?0:n[2].startsWith('cat')?1:2;
+      d.style.setProperty('--delay',(reduce?0:(lvl===0?0:lvl===1?500+i*120:1650+i*70))+'ms');
+      d.style.setProperty('--bob',(rnd()*2.5).toFixed(2)+'s');
+      d.innerHTML=n[2]==='me'?`<b>${n[1]}</b><span>what I build, write and learn after hours</span>`:`<b>${n[1]}</b>`;
+      box.appendChild(d);
+    });
+    requestAnimationFrame(()=>box.classList.add('on'));
+  }
+  let rt;window.addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{box.classList.remove('on');build()},150)});
+  const obs=new MutationObserver(()=>{if(document.getElementById('app').dataset.view==='personal'){box.classList.remove('on');built='';requestAnimationFrame(()=>build(true));}});
+  obs.observe(document.getElementById('app'),{attributes:true,attributeFilter:['data-view']});
+  build();
 })();
 </script>
