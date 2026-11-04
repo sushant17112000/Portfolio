@@ -515,7 +515,7 @@ dialog.case{border-radius:0!important;border:1.5px solid #14181F!important;box-s
 .mm.leaf{padding:4px 10px;font-size:15px;box-shadow:0 1px 0 rgba(20,24,31,.08),2px 4px 8px rgba(20,24,31,.08)}
 .mm.g{background:var(--sticky-g)}.mm.y{background:var(--sticky-y)}.mm.p{background:var(--sticky-p)}.mm.bl{background:#DCE6FF}
 @media (prefers-reduced-motion:no-preference){.mind-nodes.on .mm.leaf b{display:inline-block;animation:bob 3s ease-in-out infinite;animation-delay:var(--bob)}}
-@media (max-width:640px){.mind{height:620px}.mm.me{padding:10px 14px}.mm.me span{display:none}.mm.cat{font-size:17px}.mm.leaf{font-size:13.5px}}
+@media (max-width:640px){.mind{height:560px}.mm.me{padding:10px 14px}.mm.me span{display:none}.mm.cat{font-size:17px}.mm.leaf{font-size:13.5px}}
 .bcard .row{flex-wrap:nowrap}
 .bcard .row h3{margin-right:auto}
 .gh{flex:0 0 auto;display:grid;place-items:center;width:36px;height:36px;background:#fff;border:1.5px solid #14181F;box-shadow:3px 3px 0 var(--green);color:#14181F;transition:transform 60ms}
@@ -544,6 +544,54 @@ dialog.case.green .case-x.neo{--edge-r:#BFE3CF;--edge-b:var(--green)}
 .bcard > p{font-size:16px;color:var(--ink)}
 .bcard .facts b{font-size:28px;white-space:nowrap}
 @media (max-width:600px){.bcard .facts b{font-size:24px}}
+/* the wall: NeoPOP idea tiles */
+.wall{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px 18px}
+.idea-t{font:inherit;text-align:left;cursor:pointer;color:var(--ink);position:relative;isolation:isolate;display:flex;flex-direction:column;gap:8px;padding:18px 18px 16px;
+  border:1.5px solid #14181F;--d:6px;margin:0 var(--d) var(--d) 0;transition:transform 60ms;background-color:#fff;min-width:0}
+.idea-t::before,.idea-t::after{content:"";position:absolute;left:-1.5px;top:-1.5px;width:calc(100% + 3px + var(--d));height:calc(100% + 3px + var(--d));z-index:-1;pointer-events:none}
+.idea-t::before{background:var(--er);clip-path:polygon(calc(100% - var(--d)) 0,100% var(--d),100% 100%,calc(100% - var(--d)) calc(100% - var(--d)))}
+.idea-t::after{background:var(--eb);clip-path:polygon(0 calc(100% - var(--d)),calc(100% - var(--d)) calc(100% - var(--d)),100% 100%,var(--d) 100%)}
+.idea-t:hover{transform:translate(-1px,-1px)}
+.idea-t:active{transform:translate(var(--d),var(--d))}.idea-t:active::before,.idea-t:active::after{opacity:0}
+.idea-t:focus-visible{outline:2px solid var(--green);outline-offset:4px}
+.idea-t.y{--tint:#FFF6CC;--er:#F3D46B;--eb:#B57F0C;--ink2:#7A5306}
+.idea-t.p{--tint:#FFE9E3;--er:#F2B8A8;--eb:#C2563A;--ink2:#8E3A23}
+.idea-t.pat-dots{background-image:radial-gradient(var(--er) 1px,transparent 1.2px);background-size:14px 14px;background-color:var(--tint)}
+.idea-t.pat-grid{background-image:linear-gradient(var(--er) 1px,transparent 1px),linear-gradient(90deg,var(--er) 1px,transparent 1px);background-size:22px 22px;background-color:var(--tint);background-position:-1px -1px}
+.idea-t.pat-grid,.idea-t.pat-dots,.idea-t.pat-stripe,.idea-t.pat-wave,.idea-t.pat-film{background-blend-mode:normal}
+.idea-t.pat-stripe{background-image:repeating-linear-gradient(135deg,transparent 0 10px,rgba(255,255,255,.55) 10px 20px);background-color:var(--tint)}
+.idea-t.pat-wave{background-image:radial-gradient(circle at 50% 120%,transparent 10px,var(--er) 11px,transparent 12px);background-size:24px 14px;background-color:var(--tint)}
+.idea-t.pat-film{background-image:linear-gradient(90deg,var(--er) 0 6px,transparent 6px calc(100% - 6px),var(--er) calc(100% - 6px)),repeating-linear-gradient(180deg,transparent 0 6px,var(--tint) 6px 12px);background-color:var(--tint)}
+.idea-t>*{position:relative}
+.idea-t>b,.idea-t .it-x,.idea-t .it-tag{background:rgba(255,255,255,.82);align-self:flex-start;padding:1px 6px;margin-left:-6px}
+.it-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.it-ic{display:flex;gap:6px}
+.it-ic svg{width:40px;height:40px;padding:8px;background:#fff;border:1.5px solid #14181F;stroke:#14181F;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;box-shadow:2px 2px 0 var(--eb)}
+.it-st{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.05em;background:#14181F;color:#fff;padding:3px 8px;white-space:nowrap}
+.it-tag{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink2)}
+.idea-t>b{font-family:var(--display);font-size:21px;font-weight:600;line-height:1.2}
+.it-x{font-size:14px;line-height:1.45}
+.it-go{margin-top:auto;font-family:var(--mono);font-size:12px;color:var(--ink2);align-self:flex-end;background:#fff;border:1px solid var(--eb);padding:2px 8px}
+.idea-t.big{grid-column:span 2;grid-row:span 2;padding:24px}
+.idea-t.big>b{font-size:clamp(34px,4vw,48px);line-height:1}
+.idea-t.big .it-x{font-size:17px;max-width:46ch}
+.idea-t.big .it-ic svg{width:52px;height:52px;padding:10px}
+@media (max-width:880px){.wall{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.wall{grid-template-columns:minmax(0,1fr)}.idea-t.big{grid-column:auto;grid-row:auto}}
+.wall{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+.wall .idea-t:last-child:not(.big){grid-column:span 2}
+.idea-t.big.pat-film{background-image:radial-gradient(var(--er) 1.1px,transparent 1.3px);background-size:16px 16px;background-color:var(--tint)}
+.it-debate{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:10px;margin-top:10px}
+.bub{display:flex;flex-direction:column;gap:4px;background:#fff;border:1.5px solid #14181F;padding:10px 12px;font-family:var(--hand);font-size:17px;line-height:1.25;position:relative}
+.bub em{font-style:normal;font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink2)}
+.bub.a{box-shadow:3px 3px 0 var(--eb)}.bub.b{box-shadow:3px 3px 0 #14181F}
+.vs{font-family:var(--display);font-weight:800;font-size:18px;color:var(--eb)}
+.it-feat{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.it-feat i{font-style:normal;font-family:var(--mono);font-size:11.5px;background:#fff;border:1px solid var(--eb);padding:3px 8px;color:var(--ink2)}
+@media (max-width:880px){.wall{grid-template-columns:repeat(2,minmax(0,1fr))!important}.wall .idea-t:last-child:not(.big){grid-column:auto}}
+@media (max-width:600px){.wall{grid-template-columns:minmax(0,1fr)!important}.it-debate{grid-template-columns:1fr}.vs{justify-self:center}}
+.it-rule{display:flex;flex-direction:column;gap:2px;margin-top:10px;padding:10px 12px;background:#14181F;color:#fff;font-size:15px;align-self:stretch}
+.it-rule em{font-style:normal;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#F3D46B}
 footer{border-top:2px solid var(--ink);padding-block:28px 48px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
 footer a{font-family:var(--mono)}
 
@@ -785,7 +833,7 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
   </div>
 
   <div class="view v-personal">
-  <header class="mind" aria-label="Idea map: shipped, building, writing and learning, all branching from side quests">
+  <header class="mind" aria-label="Idea map: shipped builds, builds in progress and studies, branching from side quests">
     <svg class="mind-svg" id="mind-svg" aria-hidden="true"></svg>
     <div class="mind-nodes" id="mind-nodes"></div>
   </header>
@@ -835,7 +883,7 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
         <path d="M64 54 L64 76 M64 76 L55 96 M64 76 L73 96 M64 60 L52 72"/>
         <g class="limb swing" style="transform-origin:64px 60px"><path d="M64 60 L84 40"/></g>
       </svg>
-      <p>Ideas I'm chasing. Yellow = build, pink = write, green = learn.</p></div>
+      <p>What I'm building next and the studies I'm writing. Tap any tile to open it.</p></div>
     <div class="filters" role="group" aria-label="Filter the wall" id="filters"></div>
     <div class="wall" id="ideas"></div>
   </section>
@@ -871,47 +919,67 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
 </div>
 <script>
 const ICONS={
-  agent:'<path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/>',
-  voice:'<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v3"/>',
-  wave:'<path d="M3 12h2l2-6 3 12 3-9 2 5 2-2h4"/>',
-  pin:'<path d="M12 21s-7-6-7-11a7 7 0 0114 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/>',
   road:'<path d="M8 3L4 21M16 3l4 18M12 5v2M12 11v2M12 17v2"/>',
-  net:'<circle cx="5" cy="12" r="2"/><circle cx="12" cy="5" r="2"/><circle cx="19" cy="12" r="2"/><circle cx="12" cy="19" r="2"/><path d="M7 11l3.5-4.5M13.5 6.5L17 11M17 13l-3.5 4.5M10.5 17.5L7 13"/>',
+  signal:'<rect x="8" y="2" width="8" height="16" rx="2"/><circle cx="12" cy="6" r="1.6"/><circle cx="12" cy="10" r="1.6"/><circle cx="12" cy="14" r="1.6"/><path d="M12 18v4"/>',
+  film:'<rect x="3" y="4" width="18" height="16" rx="1"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/>',
+  debate:'<path d="M3 5h10v7H7l-4 3z"/><path d="M21 10h-6v6h4l2 2z"/>',
+  agent:'<rect x="5" y="7" width="14" height="11" rx="2"/><path d="M12 3v4M9 12h.01M15 12h.01M9.5 15h5"/><path d="M3 11v3M21 11v3"/>',
+  voice:'<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v3"/>',
   code:'<path d="M8 8l-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/>',
+  net:'<circle cx="5" cy="12" r="2"/><circle cx="12" cy="5" r="2"/><circle cx="19" cy="12" r="2"/><circle cx="12" cy="19" r="2"/><path d="M7 11l3.5-4.5M13.5 6.5L17 11M17 13l-3.5 4.5M10.5 17.5L7 13"/>',
   plane:'<path d="M2 15l20-7-8 13-2-6z"/>',
-  film:'<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/>',
-  pen:'<path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 6l3 3"/>',
-  scope:'<circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/>',
-  shield:'<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M12 9v4M12 16h.01"/>',
-  layers:'<path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/>',
-  globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/>'
+  pen:'<path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 6l3 3"/>'
 };
 const IDEAS=[
-  {k:"Build",s:"Researching",i:"pin",t:"Branch Location Selection Engine",x:"Census, RBI and road-network data score where the next branch should open."},
-  {k:"Build",s:"Planned",i:"road",t:"Traffic pattern proposal",x:"A traffic-flow hypothesis, tested on data, sent to the government."},
-  {k:"Build",s:"Building",i:"film",t:"Crosscut",x:"A film database with structured two-person debates."},
-  {k:"Write",s:"Planned",i:"agent",t:"Know Your Agent (KYA)",x:"KYC, rebuilt for AI agents acting in banking."},
-  {k:"Write",s:"Planned",i:"voice",t:"Governing voice AI agents",x:"Architecture, compliance and trust for bank voice bots."},
-  {k:"Write",s:"Planned",i:"wave",t:"Voice AI: banking's next shift",x:"Why voice becomes the main channel."},
-  {k:"Write",s:"Planned",i:"code",t:"Banks should run open-source models",x:"Cost, control and risk versus vendors."},
-  {k:"Write",s:"Planned",i:"net",t:"Six degrees in banking CX",x:"Word of mouth as a network."},
-  {k:"Write",s:"Planned",i:"plane",t:"What airlines teach bank ops",x:"Efficiency without hurting the customer."},
-  {k:"Write",s:"Planned",i:"pen",t:"AI manifesto",x:"My principles on where AI should go."},
-  {k:"Learn",s:"Active",i:"scope",t:"OpenTelemetry",x:"Observability, correlation and AI root-cause analysis."},
-  {k:"Learn",s:"Active",i:"shield",t:"GenAI deception in BFSI",x:"Each defence mapped to its GenAI attack."},
-  {k:"Learn",s:"Active",i:"pin",t:"Branch location research",x:"How banks pick sites today. Feeds the engine."},
-  {k:"Learn",s:"Planned",i:"layers",t:"System design",x:"Scale, data stores, APIs, queues."},
-  {k:"Learn",s:"Planned",i:"globe",t:"Finternet",x:"India's UPI and DPI thinking, applied globally."}
+  {id:"crosscut",k:"Build",big:1,s:"Building",i:"film",i2:"debate",pat:"film",c:"y",t:"Crosscut",tag:"Consumer product",
+   x:"A film database for cinephiles, with structured two-person debates on the films themselves.",
+   line:"Crosscut pairs a proper film database, like IMDb, with structured written debates between two people, like Pairagraph. Two viewers take sides on a film and argue it out in rounds, so every title page carries real criticism instead of star ratings.",
+   flow:[["in","Discover","Film database","Titles, cast, crews, lists"],["proc","Pick a side","Open a debate","Two people, one film"],["gate","Rounds","Structured arguments","Opening, rebuttal, close"],["out","Readers","Vote and follow","Best debates surface"],["out","Result","A home for film talk","Delta 4 over today's apps"]],
+   note:"Product rule: it has to be at least four times better than what exists, or nobody switches."},
+  {id:"traffic",k:"Build",s:"Proposed · with government",i:"signal",pat:"stripe",c:"y",t:"Traffic pattern study",tag:"Collaborative study",
+   x:"A proposed study with the government: read driver behaviour at signals, then nudge it to ease jams.",
+   line:"A collaborative study proposed with the government. Machine learning models read traffic signal and camera data to understand how drivers actually behave at jam-prone junctions, then design small nudges in road markings and signal timing that steer that behaviour and ease the jam.",
+   flow:[["in","Data","Signals and cameras","Timings, queues, flows"],["proc","Model","Machine learning","Patterns in driver behaviour"],["gate","Insight","Why jams form","Merges, lane hops, signal gaps"],["proc","Design","Behavioural nudges","Markings, cues, signal timing"],["out","Pilot","Test at hotspots","With the city traffic police"],["out","Result","Shorter jams","Measured before and after"]]},
+  {id:"kya",k:"Write",s:"Planned",i:"agent",pat:"grid",c:"p",t:"Know Your Agent (KYA)",tag:"AI governance",
+   x:"KYC verifies the customer. KYA is a protocol to identify, understand and trust the AI agents acting for them.",
+   line:"As AI agents start opening accounts, paying bills and negotiating for people, banks need to know who or what is on the other side. KYA is a framework and protocol, modelled on KYC, to identify an agent, understand what it is allowed to do, and hold someone accountable for it.",
+   flow:[["in","Identify","Who built and owns it","Verified agent identity"],["proc","Understand","What it can do","Scope, limits, permissions"],["gate","Trust","Risk tier","Low, medium, high stakes"],["proc","Monitor","Live behaviour","Logs, anomalies, revocation"],["out","Result","A KYC for agents","Usable across sectors"]]},
+  {id:"voice",k:"Write",s:"Planned",i:"voice",pat:"wave",c:"p",t:"Voice AI in banking",tag:"CX shift",
+   x:"The shift is already under way. Voice AI will move service the way mobile apps moved transactions.",
+   line:"Most bank customers still pick up the phone. Voice AI agents can now understand, act and resolve on that call, which makes voice the next big channel shift after mobile. The study looks at where it is already happening, what it disrupts in contact centres, and how banks should govern it.",
+   flow:[["in","Today","Calls still dominate","IVR menus, long waits"],["proc","Shift","Voice AI agents","Understand, act, resolve"],["gate","Disrupt","Contact centre model","Costs, roles, metrics"],["out","Result","Voice-first service","With guardrails built in"]]},
+  {id:"oss",k:"Write",s:"Planned",i:"code",pat:"grid",c:"p",t:"Open-source models in BFSI",tag:"Build vs buy",
+   x:"A detailed build-versus-buy study: when banks should run open models in-house, and when to rent.",
+   line:"A detailed build-versus-buy study for banks and insurers. It weighs open-source models run in-house against proprietary vendor models on cost, capability, control, data residency and regulatory risk, and ends with a decision guide by use case.",
+   flow:[["in","Question","Build or buy?","For each AI use case"],["proc","Cost","Total cost of ownership","Infra, talent, licences"],["proc","Control","Data and residency","Where data lives, who sees it"],["gate","Risk","Regulation and audit","Explainability, lock-in"],["out","Result","Decision guide","Open, vendor or hybrid"]]},
+  {id:"six",k:"Write",s:"Planned · radical",i:"net",pat:"dots",c:"p",t:"Six degrees in banking",tag:"Network CX",
+   x:"Every customer is a few links from another. Map those links, respectfully, and build better service on them.",
+   line:"Six degrees says anyone is a few links from anyone else. If a customer is connected to another customer, or to someone the bank wants to reach, those links can be mapped. Used with consent and without intrusion, they open up referrals, shared journeys and service that understands relationships.",
+   flow:[["in","Start","One customer","Existing relationship"],["proc","Map","Degrees of connection","Family, work, payments"],["gate","Guardrail","Consent first","Nothing intrusive"],["out","Use","Better experiences","Referrals, shared journeys"],["out","Result","Relationship banking","At network scale"]]},
+  {id:"air",k:"Write",s:"Planned",i:"plane",pat:"stripe",c:"p",t:"What airlines teach bank ops",tag:"Comparative study",
+   x:"Airlines run tight margins and heavy offline operations with precision. Banks run heavy operations too.",
+   line:"Airlines live on thin margins and run huge offline operations, from turnarounds to crew rosters, with extreme efficiency. Banks still run operations-heavy branches and back offices. The study compares the two and pulls out playbooks banks can borrow without hurting the customer.",
+   flow:[["in","Airlines","Thin margins","Turnarounds, rosters"],["in","Banks","Heavy operations","Branches, back office"],["proc","Compare","Process by process","Time, cost, failure points"],["out","Result","Playbooks to borrow","Efficient, customer-safe"]]},
+  {id:"manifesto",k:"Write",s:"Personal",i:"pen",pat:"dots",c:"p",t:"My AI manifesto",tag:"Personal",
+   x:"The state of AI, where GenAI is heading, and the deception it brings into finance.",
+   line:"A personal manifesto on the state of AI and where it is going. It covers what GenAI changes, the principles I think should guide it, and the new kinds of deception it brings into financial services, from synthetic identities to fake voices.",
+   flow:[["in","Now","State of AI","What actually works today"],["proc","Next","Where GenAI goes","Agents, voice, autonomy"],["gate","Risk","Deception in finance","Deepfakes, synthetic IDs"],["out","Result","My principles","How AI should be built and used"]]}
 ];
 const ideasEl=document.getElementById('ideas'), fEl=document.getElementById('filters');
 function draw(k){
-  ideasEl.innerHTML=IDEAS.filter(o=>!k||o.k===k).map((o,n)=>
-    `<article class="note-card ${o.k.toLowerCase()}" style="--r:${[-1.6,1.2,-.6,1.8,-1.2,.8][n%6]}deg"><span class="pin" aria-hidden="true"></span>
-     <div class="row"><span class="kind">${o.k}</span><span class="st ${o.s==='Planned'?'plan':'live'}">${o.s}</span></div>
-     <svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[o.i]}</svg><h3>${o.t}</h3><p>${o.x}</p></article>`).join('');
+  ideasEl.innerHTML=IDEAS.filter(o=>!k||o.k===k).map(o=>
+    `<button type="button" class="idea-t ${o.c} pat-${o.pat}${o.big?' big':''}" data-idea="${o.id}">
+      <span class="it-top"><span class="it-ic">${o.big?`<svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[o.i]}</svg><svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[o.i2]}</svg>`:`<svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[o.i]}</svg>`}</span><span class="it-st">${o.s}</span></span>
+      <span class="it-tag">${o.k==='Build'?'Build':'Study'} · ${o.tag}</span>
+      <b>${o.t}</b><span class="it-x">${o.x}</span>
+      ${o.big?`<span class="it-debate" aria-hidden="true"><span class="bub a"><em>Side A · Round 2</em>The ending earns its silence.</span><span class="vs">vs</span><span class="bub b"><em>Side B · Round 2</em>The ending leaves the story unfinished.</span></span>
+      <span class="it-feat"><i>Film database</i><i>Two-person debates</i><i>Timed rounds</i><i>Reader votes</i></span>
+      <span class="it-rule"><em>Product rule</em>At least four times better than what exists, or nobody switches.</span>`:''}
+      <span class="it-go">Open ↗</span>
+    </button>`).join('');
 }
-const kinds=["Build","Write","Learn"];
-fEl.innerHTML=[['All',IDEAS.length],...kinds.map(k=>[k,IDEAS.filter(o=>o.k===k).length])].map(([k,c],n)=>`<button type="button" id="f-${n}" aria-pressed="${n===0}" data-k="${n?k:''}">${k} <small>${c}</small></button>`).join('');
+const kinds=[["Build","Builds"],["Write","Studies"]];
+fEl.innerHTML=[['','All',IDEAS.length],...kinds.map(([k,l])=>[k,l,IDEAS.filter(o=>o.k===k).length])].map(([k,l,c],n)=>`<button type="button" id="f-${n}" aria-pressed="${n===0}" data-k="${k}">${l} <small>${c}</small></button>`).join('');
 fEl.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
   fEl.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));draw(b.dataset.k);});
 draw('');
@@ -1110,6 +1178,23 @@ route();
     dlg.showModal();
   }
   document.addEventListener('click',e=>{const b=e.target.closest('[data-build]');if(b){opener=b;openBuild(b.dataset.build);}});
+
+  function openIdea(id){
+    const c=IDEAS.find(o=>o.id===id); if(!c) return;
+    dlg.classList.remove('blue','stepmode'); dlg.classList.add('green');
+    $('case-art').innerHTML='';
+    $('case-kicker').textContent=(c.k==='Build'?'Build':'Study')+' · '+c.tag+' · '+c.s;
+    $('case-title').textContent=c.t;
+    $('case-line').hidden=false; $('case-line').textContent=c.line+(c.note?' '+c.note:'');
+    $('case-ba').hidden=true; $('case-out').hidden=true; $('case-out-h').hidden=true;
+    $('case-flow-h').textContent=c.k==='Build'?'How it works':'What the study covers';
+    $('case-flow').innerHTML=c.flow.map(([cls,e,b,sp],i)=>`<li class="${cls}" style="--i:${i}"><div class="fn"><em>${e}</em><b>${b}</b><span>${sp}</span></div><span class="ar" aria-hidden="true">→</span></li>`).join('');
+    $('case-x').setAttribute('aria-label','Close');
+    dlg.querySelector('.case-in').scrollTop=0;
+    document.documentElement.style.overflow='hidden';
+    dlg.showModal();
+  }
+  document.addEventListener('click',e=>{const b=e.target.closest('[data-idea]');if(b){opener=b;openIdea(b.dataset.idea);}});
   dlg.addEventListener('close',()=>{document.documentElement.style.overflow='';if(opener)opener.focus();});
   $('case-x').addEventListener('click',close);
   dlg.addEventListener('click',e=>{if(e.target===dlg)close();});
@@ -1120,21 +1205,18 @@ route();
   const NS='http://www.w3.org/2000/svg';
   // id, label, kind, parent, wide[x,y], narrow[x,y]
   const N=[
-    ['me','Side quests','me',null,[50,50],[30,6]],
-    ['s','Shipped','cat g','me',[24,30],[30,20]],
-    ['s1','AI job agent','leaf g','s',[9,12],[72,16]],
-    ['s2','SAATHI bot','leaf g','s',[33,10],[72,25]],
-    ['b','Building','cat y','me',[76,30],[30,42]],
-    ['b1','Branch engine','leaf y','b',[64,10],[72,35]],
-    ['b2','Traffic study','leaf y','b',[90,12],[72,43]],
-    ['b3','Crosscut','leaf y','b',[93,48],[72,51]],
-    ['w','Writing','cat p','me',[24,74],[30,64]],
-    ['w1','7 essays queued','leaf p','w',[8,92],[72,62]],
-    ['w2','KYA · Voice AI · +5','leaf p','w',[37,92],[72,70]],
-    ['l','Learning','cat bl','me',[76,74],[30,86]],
-    ['l1','OpenTelemetry','leaf bl','l',[63,92],[72,81]],
-    ['l2','System design','leaf bl','l',[88,92],[72,89]],
-    ['l3','Finternet','leaf bl','l',[94,62],[72,97]]
+    ['me','Side quests','me',null,[50,48],[30,6]],
+    ['s','Shipped','cat g','me',[20,28],[30,20]],
+    ['s1','AI job agent','leaf g','s',[8,10],[72,16]],
+    ['s2','SAATHI bot','leaf g','s',[30,8],[72,25]],
+    ['b','Building','cat y','me',[80,28],[30,42]],
+    ['b1','Crosscut','leaf y','b',[68,8],[72,37]],
+    ['b2','Traffic study','leaf y','b',[92,10],[72,46]],
+    ['w','Studies','cat p','me',[50,82],[30,66]],
+    ['w1','Know Your Agent','leaf p','w',[22,90],[72,58]],
+    ['w2','Voice AI','leaf p','w',[34,70],[72,65]],
+    ['w3','Open-source models','leaf p','w',[76,90],[72,72]],
+    ['w4','Six degrees · +2','leaf p','w',[68,68],[72,79]]
   ];
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   function mk(tag,a){const e=document.createElementNS(NS,tag);for(const k in a)e.setAttribute(k,a[k]);return e;}
@@ -1149,7 +1231,7 @@ route();
     const order={me:0,cat:1,leaf:2}; let t=0;
     N.forEach((n,i)=>{
       if(!n[3]) return;
-      const par=narrow&&({b:'s',w:'b',l:'w'})[n[0]]||n[3];
+      const par=narrow&&({b:'s',w:'b'})[n[0]]||n[3];
       const [x1,y1]=P[par],[x2,y2]=P[n[0]];
       const mx=(x1+x2)/2,my=(y1+y2)/2,dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy)||1;
       const off=(rnd()-.5)*Math.min(40,L*.25);
