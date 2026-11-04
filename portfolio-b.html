@@ -414,6 +414,33 @@ dialog.case.stepmode .flow li.cur .fn em,dialog.case.stepmode .flow li.cur .fn b
 .switch.neo:active::before,.switch.neo:active::after{opacity:1}
 .switch.neo button{border-radius:0}
 #app[data-view="personal"] .switch.neo{--edge-r:#BFE3CF;--edge-b:var(--green)}
+/* NeoPOP across the layout: square corners, crisp borders, hard raised edges */
+.wcard,.paper,.award,.bcard{position:relative;isolation:isolate;border-radius:0!important;border:1.5px solid #14181F!important;background-color:#fff;--d:6px;--edge-r:#DCE3FA;--edge-b:#8EA3F0;margin-right:var(--d);margin-bottom:var(--d);box-shadow:none!important}
+.wcard::before,.wcard::after,.paper::before,.paper::after,.award::before,.award::after,.bcard::before,.bcard::after{content:"";position:absolute;left:-1.5px;top:-1.5px;width:calc(100% + 3px + var(--d));height:calc(100% + 3px + var(--d));z-index:-1;pointer-events:none}
+.wcard::before,.paper::before,.award::before,.bcard::before{background:var(--edge-r);clip-path:polygon(calc(100% - var(--d)) 0,100% var(--d),100% 100%,calc(100% - var(--d)) calc(100% - var(--d)))}
+.wcard::after,.paper::after,.award::after,.bcard::after{background:var(--edge-b);clip-path:polygon(0 calc(100% - var(--d)),calc(100% - var(--d)) calc(100% - var(--d)),100% 100%,var(--d) 100%)}
+.work.bento .wcard:nth-child(1),.work.bento .wcard:nth-child(4){background-color:#fff}
+.award{padding:14px 14px 16px;border-top:1.5px solid #14181F!important}
+.v-personal .bcard{--edge-r:#BFE3CF;--edge-b:var(--green)}
+.sky{border-radius:0;border:1.5px solid #14181F;box-shadow:8px 8px 0 #C9D4FA;margin-right:8px}
+.tag,.case-kicker,.collab li,.wcard .own,.ent,.prow .pt{border-radius:0!important}
+.collab li{border:1px solid #F1D28F}
+.step,.step-btn{border-radius:0!important}
+.step-btn{box-shadow:4px 4px 0 #8EA3F0}
+.step-btn:hover,.step-btn:focus-visible{transform:translate(-1px,-1px);box-shadow:5px 5px 0 var(--cobalt)}
+.step-btn:active{transform:translate(4px,4px);box-shadow:none}
+.prow .picons button span{border-radius:0!important;box-shadow:3px 3px 0 #8EA3F0}
+.prow .picons button:active span{transform:translate(3px,3px);box-shadow:none}
+.arows,.papers{border-top-color:#14181F}
+dialog.case{border-radius:0!important;border:1.5px solid #14181F!important;box-shadow:10px 10px 0 var(--cobalt)!important;width:min(1200px,calc(100vw - 34px))}
+.case-x{border-radius:0!important}
+.case-art{border-radius:0;border:1.5px solid #DCE3FA}
+.case-ba>div,.case-out>div,.flow,.case-line{border-radius:0!important}
+.case-ba .was{box-shadow:4px 4px 0 #F6CFC4}.case-ba .now{box-shadow:4px 4px 0 #C9D4FA}
+.flow .fn{border-radius:0!important;box-shadow:3px 3px 0 rgba(20,24,31,.12)}
+.case-out>div:nth-child(4n+1){box-shadow:4px 4px 0 #B9C6F5}.case-out>div:nth-child(4n+2){box-shadow:4px 4px 0 #F1D28F}
+.case-out>div:nth-child(4n+3){box-shadow:4px 4px 0 #F2B8CF}.case-out>div:nth-child(4n+4){box-shadow:4px 4px 0 #9FD9C6}
+.flow{border-color:#14181F;box-shadow:5px 5px 0 #DCE3FA}
 footer{border-top:2px solid var(--ink);padding-block:28px 48px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
 footer a{font-family:var(--mono)}
 
@@ -741,7 +768,7 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
     <div class="case-top">
       <div><span class="case-kicker" id="case-kicker"></span><h2 id="case-title"></h2></div>
       <div class="case-art" id="case-art" aria-hidden="true"></div>
-      <button type="button" class="case-x" id="case-x" aria-label="Close project">✕ <span>Close</span></button>
+      <button type="button" class="case-x neo" id="case-x" aria-label="Close project">✕ <span>Close</span></button>
     </div>
     <p class="case-line" id="case-line"></p>
     <div class="case-ba" id="case-ba"></div>
@@ -866,7 +893,7 @@ route();
     const band=document.createElementNS(NS,'rect'); band.setAttribute('class','era');
     if(!narrow){const x=b1[0]-46; band.setAttribute('x',x);band.setAttribute('y',14);band.setAttribute('width',w-x-14);band.setAttribute('height',h-28);}
     else{const y=b1[1]-26; band.setAttribute('x',10);band.setAttribute('y',y);band.setAttribute('width',w-20);band.setAttribute('height',h-y-10);}
-    band.setAttribute('rx',14); svg.insertBefore(band,svg.firstChild);
+    band.setAttribute('rx',0); svg.insertBefore(band,svg.firstChild);
     const ld=document.createElement('div'); ld.className='era-label'+(narrow?' n':'');
     ld.innerHTML='<b>Worked with Bandhan Bank\'s senior leadership closely.</b>';
     if(!narrow){ld.style.left=(b1[0]-26)+'px';ld.style.bottom='30px';}else{ld.style.left='26px';ld.style.bottom='24px';}
