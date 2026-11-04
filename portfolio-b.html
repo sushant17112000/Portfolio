@@ -462,10 +462,10 @@ dialog.case{border-radius:0!important;border:1.5px solid #14181F!important;box-s
 /* awards: flat NeoPOP tiles, not buttons */
 .award{margin:0!important;background:#F3F6FF!important;border:1px solid #DCE3FA!important;border-top:4px solid var(--cobalt)!important;cursor:default}
 .award::before,.award::after{display:none!important}
-.award:nth-child(2){border-top-color:#6C4FD8!important;background:#F5F1FF!important}
-.award:nth-child(3){border-top-color:#12968A!important;background:#EEF8F5!important}
-.award:nth-child(4){border-top-color:#E0A21B!important;background:#FDF7E8!important}
-.award:nth-child(2) svg{stroke:#6C4FD8}.award:nth-child(3) svg{stroke:#12968A}.award:nth-child(4) svg{stroke:#B57F0C}
+.award:nth-child(4n+2){border-top-color:#6C4FD8!important;background:#F5F1FF!important}
+.award:nth-child(4n+3){border-top-color:#12968A!important;background:#EEF8F5!important}
+.award:nth-child(4n+4){border-top-color:#E0A21B!important;background:#FDF7E8!important}
+.award:nth-child(4n+2) svg{stroke:#6C4FD8}.award:nth-child(4n+3) svg{stroke:#12968A}.award:nth-child(4n+4) svg{stroke:#B57F0C}
 .strip .step-btn{animation:none!important}
 @media (min-width:601px){.wcard .chead{min-height:80px}}
 /* view hop: compact floating NeoPOP button instead of the big card */
@@ -711,7 +711,7 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
       <div class="arow"><em>2023</em><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h10v5a5 5 0 01-10 0z"/><path d="M7 6H4v1a3 3 0 003 3M17 6h3v1a3 3 0 01-3 3M12 14v4M8 21h8"/></svg><b>1st Place</b><span>Masters Union DataHustle</span></div>
       <div class="arow"><em>2023</em><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/></svg><b>1st Runner Up</b><span>SCMRHD Fidlatica 7.0</span></div>
       <div class="arow"><em>2022</em><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4M9 12h7M9 16h5"/></svg><b>Published</b><span>Cancer detection research, IRJMETS</span></div>
-      <div class="arow"><em>2022</em><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.6 6 .6-4.5 4 1.3 6-5.4-3.2-5.4 3.2 1.3-6-4.5-4 6-.6z"/></svg><b>National Finalist</b><span>ABFRL Show Stopper</span></div>
+      <div class="arow"><em>2022</em><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.6 6 .6-4.5 4 1.3 6-5.4-3.2-5.4 3.2 1.3-6-4.5-4 6-.6z"/></svg><b>National Finalist</b><span>ABFRL Show Stopper</span></div><div class="arow"><em>2023</em><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="14" r="6"/><path d="M8 3l4 5 4-5M12 11v6M10 14h4"/></svg><b>National Semi-Finalist</b><span>Wipro B-Pro 3.0 case study competition</span></div><div class="arow"><em>2023</em><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="14" r="6"/><path d="M8 3l4 5 4-5M12 11v6M10 14h4"/></svg><b>National Semi-Finalist</b><span>Tata Steel-a-thon Season 10 case study competition</span></div><div class="arow"><em>2023</em><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="14" r="6"/><path d="M8 3l4 5 4-5M12 11v6M10 14h4"/></svg><b>National Semi-Finalist</b><span>Avalon Consulting Sun Tzu case study competition</span></div>
     </div>
   </section>
   
