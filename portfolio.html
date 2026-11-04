@@ -345,6 +345,34 @@ dialog.case.stepmode .flow li:last-child .fn em{color:#2346D6}
 dialog.case.stepmode .flow li.cur .fn{background:var(--cobalt)!important;border-color:var(--cobalt)!important}
 dialog.case.stepmode .flow li.cur .fn em,dialog.case.stepmode .flow li.cur .fn b{color:#fff!important}
 .wcard .own{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--cobalt);background:var(--cobalt-soft);border-radius:4px;padding:3px 8px}
+/* NeoPOP-style buttons (CRED): solid face, hard right and bottom edges, press flat */
+.neo{position:relative;isolation:isolate;--d:5px;--edge-r:#B9C6F5;--edge-b:#2346D6;--face:#fff;--line:#14181F;
+  background-color:var(--face);border:1.5px solid var(--line)!important;border-radius:0!important;margin-right:var(--d);margin-bottom:var(--d);
+  transition:transform 60ms ease-out}
+.neo::before,.neo::after{content:"";position:absolute;left:-1.5px;top:-1.5px;width:calc(100% + 3px + var(--d));height:calc(100% + 3px + var(--d));z-index:-1;pointer-events:none;transition:opacity 60ms}
+.neo::before{background:var(--edge-r);clip-path:polygon(calc(100% - var(--d)) 0,100% var(--d),100% 100%,calc(100% - var(--d)) calc(100% - var(--d)))}
+.neo::after{background:var(--edge-b);clip-path:polygon(0 calc(100% - var(--d)),calc(100% - var(--d)) calc(100% - var(--d)),100% 100%,var(--d) 100%)}
+.neo:hover{transform:translate(-1px,-1px)}
+.neo:active{transform:translate(var(--d),var(--d))}
+.neo:active::before,.neo:active::after{opacity:0}
+.neo:focus-visible{outline:2px solid var(--cobalt);outline-offset:4px}
+.links .neo{padding:6px 12px;color:var(--ink);font-weight:500}
+.links .neo:hover{color:var(--ink)}
+.links .v-pro,.links .v-personal{gap:10px}
+#app[data-view="personal"] .links .neo{--edge-r:#BFE3CF;--edge-b:var(--green)}
+.cta.neo{--d:5px;--face:var(--cobalt);--edge-r:#5F7EE8;--edge-b:#0F1F6B;--line:#0B1440;border-radius:0;box-shadow:none!important;
+  background-image:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.35) 50%,transparent 65%);background-size:260% 100%;background-position:130% 0;background-repeat:no-repeat}
+.cta.neo:hover{transform:translate(-1px,-1px);box-shadow:none}
+.cta.neo:active{transform:translate(var(--d),var(--d))}
+@media (prefers-reduced-motion:no-preference){.cta.neo{animation:shimmer 3.6s ease-in-out infinite}}
+@keyframes shimmer{0%,62%{background-position:130% 0}100%{background-position:-30% 0}}
+.cross.neo{--d:6px;--edge-r:#C9D4FA;--edge-b:var(--cobalt);border-style:solid!important}
+.v-personal .cross.neo{--edge-r:#BFE3CF;--edge-b:var(--green)}
+.switch.neo{border-radius:0!important;padding:3px;--d:4px}
+.switch.neo:hover,.switch.neo:active{transform:none}
+.switch.neo:active::before,.switch.neo:active::after{opacity:1}
+.switch.neo button{border-radius:0}
+#app[data-view="personal"] .switch.neo{--edge-r:#BFE3CF;--edge-b:var(--green)}
 footer{border-top:2px solid var(--ink);padding-block:28px 48px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
 footer a{font-family:var(--mono)}
 
@@ -452,13 +480,13 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
 <nav aria-label="Main">
   <div class="wrap navrow">
     <button type="button" class="mark" data-top>Sushant Bhat</button>
-    <div class="switch" role="group" aria-label="Choose a view">
+    <div class="switch neo" role="group" aria-label="Choose a view">
       <button type="button" id="sw-pro" data-go="pro" aria-pressed="true">Professional</button>
       <button type="button" id="sw-personal" data-go="personal" aria-pressed="false">Personal</button>
     </div>
     <div class="links">
-      <span class="v-pro"><button type="button" data-to="work">Work</button><button type="button" data-to="papers">Papers</button><button type="button" data-to="decks">Awards</button><button type="button" data-to="path">Path</button></span>
-      <span class="v-personal"><button type="button" data-to="builds">Shipped</button><button type="button" data-to="thesis">The wall</button></span>
+      <span class="v-pro"><button type="button" class="neo" data-to="work">Work</button><button type="button" class="neo" data-to="papers">Papers</button><button type="button" class="neo" data-to="decks">Awards</button><button type="button" class="neo" data-to="path">Path</button></span>
+      <span class="v-personal"><button type="button" class="neo" data-to="builds">Shipped</button><button type="button" class="neo" data-to="thesis">The wall</button></span>
     </div>
   </div>
 </nav>
@@ -482,7 +510,7 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
           <p class="role"><span>My role</span>Strategy · Project coordination · System design &amp; architecture</p>
           <div class="impact"><b>₹17.7L</b><span>a year, projected savings</span></div>
         </div>
-        <button type="button" class="cta" data-case="spectrum">View project <span aria-hidden="true">→</span></button>
+        <button type="button" class="cta neo" data-case="spectrum">View project <span aria-hidden="true">→</span></button>
       </article>
       <article class="wcard">
         <div class="top">
@@ -492,7 +520,7 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
           <p class="role"><span>My role</span>Strategy · BRD · UAT · Project management</p>
           <div class="impact"><b>61%</b><span>fewer disconnects</span></div>
         </div>
-        <button type="button" class="cta" data-case="ivr">View project <span aria-hidden="true">→</span></button>
+        <button type="button" class="cta neo" data-case="ivr">View project <span aria-hidden="true">→</span></button>
       </article>
       <article class="wcard">
         <div class="top">
@@ -502,7 +530,7 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
           <p class="role"><span>My role</span>Strategy · Project coordination</p>
           <div class="impact"><b>Manual→Auto</b><span>complaint handling</span></div>
         </div>
-        <button type="button" class="cta" data-case="grievance">View project <span aria-hidden="true">→</span></button>
+        <button type="button" class="cta neo" data-case="grievance">View project <span aria-hidden="true">→</span></button>
       </article>
       <article class="wcard">
         <div class="top">
@@ -512,7 +540,7 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
           <p class="role"><span>My role</span>Project coordination · UAT testing · Collaboration</p>
           <div class="impact"><b>24×7</b><span>onboarding, no live agent</span></div>
         </div>
-        <button type="button" class="cta" data-case="vkyc">View project <span aria-hidden="true">→</span></button>
+        <button type="button" class="cta neo" data-case="vkyc">View project <span aria-hidden="true">→</span></button>
       </article>
     </div>
   </section>
@@ -578,7 +606,7 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
     </ol>
   </section>
   
-  <button type="button" class="cross" data-go="personal"><span>Built after hours: AI agents, WhatsApp bots, and ideas in progress.</span><b>See my personal side →</b></button>
+  <button type="button" class="cross neo" data-go="personal"><span>Built after hours: AI agents, WhatsApp bots, and ideas in progress.</span><b>See my personal side →</b></button>
   </div>
 
   <div class="view v-personal">
@@ -666,7 +694,7 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
     <div class="wall" id="ideas"></div>
   </section>
   
-  <button type="button" class="cross" data-go="pro"><span>Enterprise CX, data and transformation work at Bandhan Bank.</span><b>See my professional work →</b></button>
+  <button type="button" class="cross neo" data-go="pro"><span>Enterprise CX, data and transformation work at Bandhan Bank.</span><b>See my professional work →</b></button>
   </div>
 
   <footer>
