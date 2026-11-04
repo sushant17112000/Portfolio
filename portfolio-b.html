@@ -367,6 +367,24 @@ dialog.case.blue .flow li:last-child .fn em{color:#fff}
 .case-art svg{width:100%;height:100%;display:block}
 @media (max-width:640px){.case-art{width:110px;height:62px}.case-top{gap:10px}}
 @media (max-width:380px){.case-art{display:none}}
+.step-btn{font:inherit;color:inherit;text-align:left;cursor:pointer;border:1.5px solid #B9C6F5!important;background:#F3F6FF!important;position:relative;transition:transform .15s,box-shadow .15s,border-color .15s}
+.step-btn:hover,.step-btn:focus-visible{border-color:var(--cobalt)!important;transform:translateY(-2px);box-shadow:0 4px 0 #C9D4FA}
+.step-btn::after{content:"↗";position:absolute;top:8px;right:9px;font-size:12px;color:var(--cobalt)}
+.step-btn .k{color:var(--cobalt)}
+dialog.case.stepmode .flow li:last-child .fn{background:#F3F6FF;border-color:#B9C6F5}
+dialog.case.stepmode .flow li:last-child .fn em,dialog.case.stepmode .flow li:last-child .fn b{color:inherit}
+dialog.case.stepmode .flow li:last-child .fn em{color:#2346D6}
+dialog.case.stepmode .flow li.cur .fn{background:var(--cobalt)!important;border-color:var(--cobalt)!important}
+dialog.case.stepmode .flow li.cur .fn em,dialog.case.stepmode .flow li.cur .fn b{color:#fff!important}
+
+.prow .picons button{font:inherit;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;background:none;border:0;padding:0;color:var(--cobalt)}
+.prow .picons button span{width:38px;height:38px;border-radius:50%;background:var(--cobalt-soft);border:1.5px solid #B9C6F5;display:grid;place-items:center;transition:transform .15s,background .15s}
+.prow .picons button:hover span,.prow .picons button:focus-visible span{background:var(--cobalt);transform:translateY(-2px)}
+.prow .picons button:hover svg,.prow .picons button:focus-visible svg{stroke:#fff}
+.prow .picons button small{font-family:var(--mono);font-size:10.5px}
+.prow{grid-template-columns:minmax(0,1.2fr) minmax(0,1.6fr) auto}
+.prow{grid-template-areas:"pt pt pt" "h p i"}
+@media (max-width:880px){.prow{grid-template-columns:minmax(0,1fr);grid-template-areas:"pt" "h" "p" "i"}}
 footer{border-top:2px solid var(--ink);padding-block:28px 48px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
 footer a{font-family:var(--mono)}
 
@@ -487,7 +505,7 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
 
 <main class="wrap" id="top">
   <div class="view v-pro">
-  <header class="sky" aria-label="Career milestones drawn as a constellation, connected from now back to 2018">
+  <header class="sky" aria-label="Career milestones drawn as a constellation, connected from 2018 to now">
     <svg class="sky-svg" id="sky-svg" aria-hidden="true"></svg>
     <div class="sky-labels" id="sky-labels"></div>
   </header>
@@ -547,24 +565,21 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
         <span class="pt">Digital banking · UX</span>
         <h3>ADAPT</h3>
         <p>200+ features. Most users need five.</p>
-        <div class="picons" aria-hidden="true"><span title="Problem"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M9 7h6M9 11h6M9 15h6M9 19h2"/></svg></span><span title="Insight"><svg viewBox="0 0 24 24"><path d="M3 20h18M6 16v-4M11 16V8M16 16v-6M20 16V4"/></svg></span><span title="Solution"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><path d="M17 14v6M14 17h6"/></svg></span><span title="Impact"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span></div>
-        <button type="button" class="cta" data-paper="adapt">View paper <span aria-hidden="true">→</span></button>
+        <div class="picons"><button type="button" data-pk="adapt" data-step="0" aria-label="Problem: open explanation"><span><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M9 7h6M9 11h6M9 15h6M9 19h2"/></svg></span><small>Problem</small></button><button type="button" data-pk="adapt" data-step="1" aria-label="Insight: open explanation"><span><svg viewBox="0 0 24 24"><path d="M3 20h18M6 16v-4M11 16V8M16 16v-6M20 16V4"/></svg></span><small>Insight</small></button><button type="button" data-pk="adapt" data-step="2" aria-label="Solution: open explanation"><span><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><path d="M17 14v6M14 17h6"/></svg></span><small>Solution</small></button><button type="button" data-pk="adapt" data-step="3" aria-label="Impact: open explanation"><span><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><small>Impact</small></button></div>
       </article>
 
       <article class="prow">
         <span class="pt">GenAI · Operations</span>
         <h3>Copilot tiers for banking</h3>
         <p>The right AI tier for each task.</p>
-        <div class="picons" aria-hidden="true"><span title="Problem"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg></span><span title="Model"><svg viewBox="0 0 24 24"><path d="M4 18h16M6 14h12M8 10h8M10 6h4"/></svg></span><span title="Mapping"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 10v10"/></svg></span><span title="Proof"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></span></div>
-        <button type="button" class="cta" data-paper="copilot">View paper <span aria-hidden="true">→</span></button>
+        <div class="picons"><button type="button" data-pk="copilot" data-step="0" aria-label="Problem: open explanation"><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg></span><small>Problem</small></button><button type="button" data-pk="copilot" data-step="1" aria-label="Model: open explanation"><span><svg viewBox="0 0 24 24"><path d="M4 18h16M6 14h12M8 10h8M10 6h4"/></svg></span><small>Model</small></button><button type="button" data-pk="copilot" data-step="2" aria-label="Mapping: open explanation"><span><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 10v10"/></svg></span><small>Mapping</small></button><button type="button" data-pk="copilot" data-step="3" aria-label="Proof: open explanation"><span><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></span><small>Proof</small></button></div>
       </article>
 
       <article class="prow">
         <span class="pt">Digital onboarding · Access</span>
         <h3>NEO coverage gap</h3>
         <p>A digital account, limited by distance to a branch.</p>
-        <div class="picons" aria-hidden="true"><span title="Problem"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6-7-11a7 7 0 0114 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span title="Insight"><svg viewBox="0 0 24 24"><circle cx="9" cy="12" r="6"/><circle cx="17" cy="12" r="4" stroke-dasharray="2 2"/></svg></span><span title="Solution"><svg viewBox="0 0 24 24"><path d="M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3z"/><path d="M9 3v15M15 6v15"/></svg></span><span title="Impact"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span></div>
-        <button type="button" class="cta" data-paper="neo">View paper <span aria-hidden="true">→</span></button>
+        <div class="picons"><button type="button" data-pk="neo" data-step="0" aria-label="Problem: open explanation"><span><svg viewBox="0 0 24 24"><path d="M12 21s-7-6-7-11a7 7 0 0114 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><small>Problem</small></button><button type="button" data-pk="neo" data-step="1" aria-label="Insight: open explanation"><span><svg viewBox="0 0 24 24"><circle cx="9" cy="12" r="6"/><circle cx="17" cy="12" r="4" stroke-dasharray="2 2"/></svg></span><small>Insight</small></button><button type="button" data-pk="neo" data-step="2" aria-label="Solution: open explanation"><span><svg viewBox="0 0 24 24"><path d="M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3z"/><path d="M9 3v15M15 6v15"/></svg></span><small>Solution</small></button><button type="button" data-pk="neo" data-step="3" aria-label="Impact: open explanation"><span><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><small>Impact</small></button></div>
       </article>
     </div>
   </section>
@@ -801,10 +816,10 @@ route();
     let seed=7; const rnd=()=>(seed=(seed*9301+49297)%233280)/233280;
     for(let i=0;i<70;i++){const c=document.createElementNS(NS,'circle');c.setAttribute('class','bg');c.setAttribute('cx',rnd()*w);c.setAttribute('cy',rnd()*h);c.setAttribute('r',rnd()*1.3+.4);c.style.animationDelay=(rnd()*3)+'s';svg.appendChild(c);}
     const links=[];
-    for(let i=pos.length-1;i>0;i--){
-      const l=document.createElementNS(NS,'line');const [x1,y1]=pos[i],[x2,y2]=pos[i-1];
+    for(let i=0;i<pos.length-1;i++){
+      const l=document.createElementNS(NS,'line');const [x1,y1]=pos[i],[x2,y2]=pos[i+1];
       l.setAttribute('x1',x1);l.setAttribute('y1',y1);l.setAttribute('x2',x2);l.setAttribute('y2',y2);
-      l.setAttribute('class','link');l.setAttribute('stroke',M[i][2]);
+      l.setAttribute('class','link');l.setAttribute('stroke',M[i+1][2]);
       const len=Math.hypot(x2-x1,y2-y1);l.style.strokeDasharray=len;l.style.strokeDashoffset=reduce?0:len;l.dataset.len=len;
       svg.appendChild(l);links.push(l);
     }
@@ -824,7 +839,7 @@ route();
     else{const y=b1[1]-26; band.setAttribute('x',10);band.setAttribute('y',y);band.setAttribute('width',w-20);band.setAttribute('height',h-y-10);}
     band.setAttribute('rx',14); svg.insertBefore(band,svg.firstChild);
     const ld=document.createElement('div'); ld.className='era-label'+(narrow?' n':'');
-    ld.innerHTML='<em>2024 → now · Bandhan Bank</em><b>In the room with senior leadership, from first pitch to go-live.</b>';
+    ld.innerHTML='<b>Worked with Bandhan Bank\'s senior leadership closely.</b>';
     if(!narrow){ld.style.left=(b1[0]-26)+'px';ld.style.bottom='30px';}else{ld.style.left='26px';ld.style.bottom='24px';}
     lab.appendChild(ld);
     if(reduce) return;
@@ -872,11 +887,29 @@ route();
       flow:[["","Product","NEO, fully digital","No branch visit needed"],["","Rule","Pincode within 20 km","Of a Bandhan branch"],["","Map","~2,000 branches","20 km circle around each"],["","Find","Uncovered areas","Where sign-ups are blocked"],["","Result","Case to drop the clause","Presented to leadership"]]}
   };
   const ART={"spectrum": "<svg viewBox=\"0 0 160 90\" aria-hidden=\"true\"><path d=\"M20 18 C56 18 64 40 96 40\" fill=\"none\" stroke=\"#C9D4FA\" stroke-width=\"1.5\" stroke-dasharray=\"3 3\"/><circle cx=\"16\" cy=\"18\" r=\"5\" fill=\"#6C4FD8\"/><circle r=\"2.6\" fill=\"#6C4FD8\"><animateMotion dur=\"1.8s\" begin=\"-0.0s\" repeatCount=\"indefinite\" path=\"M20 18 C56 18 64 40 96 40\"/></circle><circle r=\"2.6\" fill=\"#6C4FD8\"><animateMotion dur=\"1.8s\" begin=\"-0.9s\" repeatCount=\"indefinite\" path=\"M20 18 C56 18 64 40 96 40\"/></circle><path d=\"M20 45 C56 45 64 45 96 45\" fill=\"none\" stroke=\"#C9D4FA\" stroke-width=\"1.5\" stroke-dasharray=\"3 3\"/><circle cx=\"16\" cy=\"45\" r=\"5\" fill=\"#D6457A\"/><circle r=\"2.6\" fill=\"#D6457A\"><animateMotion dur=\"1.8s\" begin=\"-0.3s\" repeatCount=\"indefinite\" path=\"M20 45 C56 45 64 45 96 45\"/></circle><circle r=\"2.6\" fill=\"#D6457A\"><animateMotion dur=\"1.8s\" begin=\"-1.2s\" repeatCount=\"indefinite\" path=\"M20 45 C56 45 64 45 96 45\"/></circle><path d=\"M20 72 C56 72 64 50 96 50\" fill=\"none\" stroke=\"#C9D4FA\" stroke-width=\"1.5\" stroke-dasharray=\"3 3\"/><circle cx=\"16\" cy=\"72\" r=\"5\" fill=\"#12968A\"/><circle r=\"2.6\" fill=\"#12968A\"><animateMotion dur=\"1.8s\" begin=\"-0.6s\" repeatCount=\"indefinite\" path=\"M20 72 C56 72 64 50 96 50\"/></circle><circle r=\"2.6\" fill=\"#12968A\"><animateMotion dur=\"1.8s\" begin=\"-1.5s\" repeatCount=\"indefinite\" path=\"M20 72 C56 72 64 50 96 50\"/></circle><rect x=\"98\" y=\"22\" width=\"46\" height=\"52\" fill=\"#fff\" stroke=\"#2346D6\" stroke-width=\"1.6\"/><ellipse cx=\"121\" cy=\"22\" rx=\"23\" ry=\"7\" fill=\"#E9EEFF\" stroke=\"#2346D6\" stroke-width=\"1.6\"/><path d=\"M98 74 a23 7 0 0 0 46 0\" fill=\"none\" stroke=\"#2346D6\" stroke-width=\"1.6\"/><rect x=\"103\" y=\"62\" width=\"36\" height=\"9\" rx=\"2\" fill=\"#C98A4B\" opacity=\".85\"><animate attributeName=\"opacity\" values=\".35;.95;.35\" dur=\"2.4s\" begin=\"0.0s\" repeatCount=\"indefinite\"/></rect><rect x=\"103\" y=\"50\" width=\"36\" height=\"9\" rx=\"2\" fill=\"#A9B4C8\" opacity=\".85\"><animate attributeName=\"opacity\" values=\".35;.95;.35\" dur=\"2.4s\" begin=\"0.4s\" repeatCount=\"indefinite\"/></rect><rect x=\"103\" y=\"38\" width=\"36\" height=\"9\" rx=\"2\" fill=\"#E0A21B\" opacity=\".85\"><animate attributeName=\"opacity\" values=\".35;.95;.35\" dur=\"2.4s\" begin=\"0.8s\" repeatCount=\"indefinite\"/></rect></svg>", "ivr": "<svg viewBox=\"0 0 160 90\" aria-hidden=\"true\"><rect x=\"14\" y=\"14\" width=\"30\" height=\"62\" rx=\"6\" fill=\"#fff\" stroke=\"#14181F\" stroke-width=\"1.6\"/><circle cx=\"29\" cy=\"68\" r=\"2.5\" fill=\"#14181F\"/><rect x=\"20\" y=\"22\" width=\"18\" height=\"36\" rx=\"2\" fill=\"#E9EEFF\"/><path d=\"M50 35 a10 10 0 0 1 0 20\" fill=\"none\" stroke=\"#2346D6\" stroke-width=\"2\" stroke-linecap=\"round\" transform=\"translate(0 0)\" opacity=\"0\"><animate attributeName=\"opacity\" values=\"0;1;0\" dur=\"1.5s\" begin=\"0.0s\" repeatCount=\"indefinite\"/></path><path d=\"M50 28 a17 17 0 0 1 0 34\" fill=\"none\" stroke=\"#2346D6\" stroke-width=\"2\" stroke-linecap=\"round\" transform=\"translate(0 0)\" opacity=\"0\"><animate attributeName=\"opacity\" values=\"0;1;0\" dur=\"1.5s\" begin=\"0.25s\" repeatCount=\"indefinite\"/></path><path d=\"M50 21 a24 24 0 0 1 0 48\" fill=\"none\" stroke=\"#2346D6\" stroke-width=\"2\" stroke-linecap=\"round\" transform=\"translate(0 0)\" opacity=\"0\"><animate attributeName=\"opacity\" values=\"0;1;0\" dur=\"1.5s\" begin=\"0.5s\" repeatCount=\"indefinite\"/></path><rect x=\"88\" y=\"24\" width=\"40\" height=\"10\" rx=\"5\" fill=\"#F1F3F8\"/><rect x=\"88\" y=\"40\" width=\"40\" height=\"10\" rx=\"5\" fill=\"#F1F3F8\"/><rect x=\"88\" y=\"56\" width=\"40\" height=\"10\" rx=\"5\" fill=\"#F1F3F8\"/><rect x=\"88\" y=\"24\" width=\"40\" height=\"10\" rx=\"5\" fill=\"#E0A21B\" opacity=\".9\"><animate attributeName=\"y\" values=\"24;40;56;56\" dur=\"2.4s\" begin=\"0s\" repeatCount=\"indefinite\"/></rect><circle cx=\"144\" cy=\"61\" r=\"9\" fill=\"#12968A\"><animate attributeName=\"r\" values=\"7;9.5;7\" dur=\"1.6s\" begin=\"0s\" repeatCount=\"indefinite\"/></circle><path d=\"M139.5 61 l3 3 l6 -6\" fill=\"none\" stroke=\"#fff\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>", "grievance": "<svg viewBox=\"0 0 160 90\" aria-hidden=\"true\"><path d=\"M10 30 h26 v8 a4 4 0 0 0 0 8 v8 h-26 v-8 a4 4 0 0 0 0 -8z\" fill=\"#FFEDE8\" stroke=\"#D6457A\" stroke-width=\"1.6\"/><path d=\"M16 38 h12 M16 46 h8\" stroke=\"#D6457A\" stroke-width=\"1.6\" stroke-linecap=\"round\"/><path d=\"M40 42 H62\" stroke=\"#C9D4FA\" stroke-width=\"1.6\" stroke-dasharray=\"3 3\"/><circle r=\"3\" fill=\"#D6457A\"><animateMotion dur=\"2.4s\" repeatCount=\"indefinite\" path=\"M40 42 H74 L94 22\"/></circle><g transform=\"translate(74 42)\"><rect x=\"-10\" y=\"-10\" width=\"20\" height=\"20\" rx=\"3\" transform=\"rotate(45)\" fill=\"#E9EEFF\" stroke=\"#2346D6\" stroke-width=\"1.6\"><animateTransform attributeName=\"transform\" type=\"rotate\" values=\"45;135;45\" dur=\"3s\" repeatCount=\"indefinite\"/></rect></g><rect x=\"96\" y=\"70\" width=\"8\" height=\"8\" rx=\"2\" fill=\"#E0A21B\" opacity=\".25\"><animate attributeName=\"opacity\" values=\".25;.25;1;.25\" dur=\"2.4s\" begin=\"0.0s\" repeatCount=\"indefinite\"/></rect><rect x=\"106\" y=\"58\" width=\"8\" height=\"20\" rx=\"2\" fill=\"#E0A21B\" opacity=\".25\"><animate attributeName=\"opacity\" values=\".25;.25;1;.25\" dur=\"2.4s\" begin=\"0.3s\" repeatCount=\"indefinite\"/></rect><rect x=\"116\" y=\"46\" width=\"8\" height=\"32\" rx=\"2\" fill=\"#E0A21B\" opacity=\".25\"><animate attributeName=\"opacity\" values=\".25;.25;1;.25\" dur=\"2.4s\" begin=\"0.6s\" repeatCount=\"indefinite\"/></rect><rect x=\"126\" y=\"34\" width=\"8\" height=\"44\" rx=\"2\" fill=\"#E0A21B\" opacity=\".25\"><animate attributeName=\"opacity\" values=\".25;.25;1;.25\" dur=\"2.4s\" begin=\"0.8999999999999999s\" repeatCount=\"indefinite\"/></rect><circle cx=\"146\" cy=\"22\" r=\"9\" fill=\"#12968A\"><animate attributeName=\"r\" values=\"7;9.5;7\" dur=\"1.6s\" begin=\"0s\" repeatCount=\"indefinite\"/></circle><path d=\"M141.5 22 l3 3 l6 -6\" fill=\"none\" stroke=\"#fff\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>", "vkyc": "<svg viewBox=\"0 0 160 90\" aria-hidden=\"true\"><rect x=\"12\" y=\"14\" width=\"74\" height=\"60\" rx=\"8\" fill=\"#F3F6FF\" stroke=\"#2346D6\" stroke-width=\"1.6\"/><circle cx=\"49\" cy=\"38\" r=\"10\" fill=\"none\" stroke=\"#14181F\" stroke-width=\"1.6\"/><path d=\"M33 66 q16 -18 32 0\" fill=\"none\" stroke=\"#14181F\" stroke-width=\"1.6\"/><path d=\"M20 22 v-4 h4 M78 22 v-4 h-4 M20 66 v4 h4 M78 66 v4 h-4\" fill=\"none\" stroke=\"#12968A\" stroke-width=\"1.6\"/><rect x=\"18\" y=\"20\" width=\"62\" height=\"2\" fill=\"#12968A\" opacity=\".8\"><animate attributeName=\"y\" values=\"20;66;20\" dur=\"2.2s\" begin=\"0s\" repeatCount=\"indefinite\"/></rect><path d=\"M118 16 l18 6 v14 c0 12 -8 19 -18 22 c-10 -3 -18 -10 -18 -22 v-14z\" fill=\"#E3F4EF\" stroke=\"#12968A\" stroke-width=\"1.6\"/><path d=\"M110 38 l5 5 l9 -10\" fill=\"none\" stroke=\"#12968A\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"24\" stroke-dashoffset=\"24\"><animate attributeName=\"stroke-dashoffset\" values=\"24;0;0;24\" dur=\"2.4s\" begin=\"0s\" repeatCount=\"indefinite\"/></path><circle cx=\"140\" cy=\"70\" r=\"10\" fill=\"#fff\" stroke=\"#E0A21B\" stroke-width=\"1.6\"/><path d=\"M140 70 V63\" stroke=\"#E0A21B\" stroke-width=\"1.8\" stroke-linecap=\"round\"><animateTransform attributeName=\"transform\" type=\"rotate\" from=\"0 140 70\" to=\"360 140 70\" dur=\"3s\" repeatCount=\"indefinite\"/></path></svg>", "adapt": "<svg viewBox=\"0 0 160 90\" aria-hidden=\"true\"><rect x=\"56\" y=\"6\" width=\"48\" height=\"80\" rx=\"9\" fill=\"#fff\" stroke=\"#14181F\" stroke-width=\"1.6\"/><rect x=\"74\" y=\"10\" width=\"12\" height=\"3\" rx=\"1.5\" fill=\"#14181F\"/><rect x=\"62\" y=\"20\" width=\"16\" height=\"14\" rx=\"3\" fill=\"#E9EEFF\"/><rect x=\"82\" y=\"20\" width=\"16\" height=\"14\" rx=\"3\" fill=\"#E9EEFF\"/><rect x=\"62\" y=\"38\" width=\"16\" height=\"14\" rx=\"3\" fill=\"#E9EEFF\"/><rect x=\"82\" y=\"38\" width=\"16\" height=\"14\" rx=\"3\" fill=\"#E9EEFF\"/><rect x=\"62\" y=\"56\" width=\"16\" height=\"14\" rx=\"3\" fill=\"#E9EEFF\"/><rect x=\"82\" y=\"56\" width=\"16\" height=\"14\" rx=\"3\" fill=\"#E9EEFF\"/><rect x=\"82\" y=\"56\" width=\"16\" height=\"14\" rx=\"3\" fill=\"#2346D6\"><animate attributeName=\"x\" values=\"82;82;62;62;82\" keyTimes=\"0;.3;.55;.85;1\" dur=\"3s\" repeatCount=\"indefinite\"/><animate attributeName=\"y\" values=\"56;56;20;20;56\" keyTimes=\"0;.3;.55;.85;1\" dur=\"3s\" repeatCount=\"indefinite\"/></rect><circle cx=\"30\" cy=\"30\" r=\"3\" fill=\"#D6457A\"><animate attributeName=\"r\" values=\"2;4;2\" dur=\"1.8s\" begin=\"0.0s\" repeatCount=\"indefinite\"/></circle><circle cx=\"126\" cy=\"26\" r=\"3\" fill=\"#E0A21B\"><animate attributeName=\"r\" values=\"2;4;2\" dur=\"1.8s\" begin=\"0.4s\" repeatCount=\"indefinite\"/></circle><circle cx=\"130\" cy=\"62\" r=\"3\" fill=\"#12968A\"><animate attributeName=\"r\" values=\"2;4;2\" dur=\"1.8s\" begin=\"0.8s\" repeatCount=\"indefinite\"/></circle><circle cx=\"26\" cy=\"64\" r=\"3\" fill=\"#6C4FD8\"><animate attributeName=\"r\" values=\"2;4;2\" dur=\"1.8s\" begin=\"1.2000000000000002s\" repeatCount=\"indefinite\"/></circle></svg>", "copilot": "<svg viewBox=\"0 0 160 90\" aria-hidden=\"true\"><rect x=\"30\" y=\"72\" width=\"100\" height=\"12\" rx=\"4\" fill=\"#B9C6F5\" opacity=\".3\"><animate attributeName=\"opacity\" values=\".3;.3;1;1;.3\" dur=\"3.2s\" begin=\"0.0s\" repeatCount=\"indefinite\"/></rect><rect x=\"40\" y=\"56\" width=\"80\" height=\"12\" rx=\"4\" fill=\"#8EA3F0\" opacity=\".3\"><animate attributeName=\"opacity\" values=\".3;.3;1;1;.3\" dur=\"3.2s\" begin=\"0.35s\" repeatCount=\"indefinite\"/></rect><rect x=\"50\" y=\"40\" width=\"60\" height=\"12\" rx=\"4\" fill=\"#5F7EE8\" opacity=\".3\"><animate attributeName=\"opacity\" values=\".3;.3;1;1;.3\" dur=\"3.2s\" begin=\"0.7s\" repeatCount=\"indefinite\"/></rect><rect x=\"60\" y=\"24\" width=\"40\" height=\"12\" rx=\"4\" fill=\"#2346D6\" opacity=\".3\"><animate attributeName=\"opacity\" values=\".3;.3;1;1;.3\" dur=\"3.2s\" begin=\"1.0499999999999998s\" repeatCount=\"indefinite\"/></rect><g transform=\"translate(80 12)\"><path d=\"M0 -8 L2 -2 L8 0 L2 2 L0 8 L-2 2 L-8 0 L-2 -2z\" fill=\"#E0A21B\"><animateTransform attributeName=\"transform\" type=\"scale\" values=\"0.6;1.15;0.6\" dur=\"1.6s\" repeatCount=\"indefinite\"/></path></g></svg>", "neo": "<svg viewBox=\"0 0 160 90\" aria-hidden=\"true\"><circle cx=\"80\" cy=\"46\" r=\"10\" fill=\"#2346D6\" opacity=\".12\"><animate attributeName=\"r\" values=\"8;34;34;8\" dur=\"3.2s\" begin=\"0s\" repeatCount=\"indefinite\"/></circle><circle cx=\"80\" cy=\"46\" r=\"34\" fill=\"none\" stroke=\"#2346D6\" stroke-width=\"1.4\" stroke-dasharray=\"4 3\"/><circle cx=\"66\" cy=\"36\" r=\"3\" fill=\"#12968A\"/><circle cx=\"94\" cy=\"54\" r=\"3\" fill=\"#12968A\"/><circle cx=\"88\" cy=\"30\" r=\"3\" fill=\"#12968A\"/><circle cx=\"70\" cy=\"58\" r=\"3\" fill=\"#12968A\"/><circle cx=\"24\" cy=\"22\" r=\"3.2\" fill=\"#D6457A\"><animate attributeName=\"opacity\" values=\".25;1;.25\" dur=\"1.6s\" begin=\"0.0s\" repeatCount=\"indefinite\"/></circle><circle cx=\"140\" cy=\"20\" r=\"3.2\" fill=\"#D6457A\"><animate attributeName=\"opacity\" values=\".25;1;.25\" dur=\"1.6s\" begin=\"0.25s\" repeatCount=\"indefinite\"/></circle><circle cx=\"136\" cy=\"74\" r=\"3.2\" fill=\"#D6457A\"><animate attributeName=\"opacity\" values=\".25;1;.25\" dur=\"1.6s\" begin=\"0.5s\" repeatCount=\"indefinite\"/></circle><circle cx=\"22\" cy=\"72\" r=\"3.2\" fill=\"#D6457A\"><animate attributeName=\"opacity\" values=\".25;1;.25\" dur=\"1.6s\" begin=\"0.75s\" repeatCount=\"indefinite\"/></circle><circle cx=\"150\" cy=\"48\" r=\"3.2\" fill=\"#D6457A\"><animate attributeName=\"opacity\" values=\".25;1;.25\" dur=\"1.6s\" begin=\"1.0s\" repeatCount=\"indefinite\"/></circle><path d=\"M80 52 c-7 -8 -10 -12 -10 -17 a10 10 0 0 1 20 0 c0 5 -3 9 -10 17z\" fill=\"#E0A21B\" stroke=\"#fff\" stroke-width=\"1.4\"/><circle cx=\"80\" cy=\"35\" r=\"3.4\" fill=\"#fff\"/></svg>"};
+
+  const STEPS={
+    adapt:{t:"ADAPT",s:[
+      ["Problem","Long steps, crowded menus","The app packs 200+ features into deep menus. Simple tasks take too many taps, so customers give up or call the bank instead."],
+      ["Insight","Most use a handful of features","Usage patterns and app reviews show most customers rely on about five features. For them, everything else is clutter."],
+      ["Solution","Personalised home screen","The home screen learns each customer's habits and puts their top features first, using on-device AI so the data stays on the phone."],
+      ["Impact","Higher usage and retention","Fewer taps and fewer drop-offs mean more digital use, less load on branches and the call centre, and customers who stay."]]},
+    copilot:{t:"Copilot tiers for banking",s:[
+      ["Problem","One-size AI rollouts stall","Banks push one AI tool for every task. It is overkill for simple work and too risky for sensitive work, so pilots stall."],
+      ["Model","Four copilot tiers","Four levels of copilot, from a simple assistant that answers questions to deeper copilots that draft, analyse and act within guardrails."],
+      ["Mapping","Use cases by department","Each department's tasks are matched to the tier that fits their complexity and risk, across Ops, CX, Risk, Sales and more."],
+      ["Proof","KPI-led pilots","Every pilot starts with a baseline and a target KPI and is reviewed monthly. What hits its number scales; what doesn't stops."]]},
+    neo:{t:"NEO coverage gap",s:[
+      ["Problem","20 km branch rule","NEO is a fully digital savings account, yet only customers whose pincode is within 20 km of a Bandhan branch can open it."],
+      ["Insight","Rule blocks digital sign-ups","The rule shuts out exactly the people a digital account should reach: customers who live far from any branch."],
+      ["Solution","Map coverage, show the gap","Plot about 2,000 branches, draw a 20 km circle around each, and show leadership which areas fall outside."],
+      ["Impact","Case to drop the clause","A visual, data-backed case to remove or relax the clause so NEO can be opened from anywhere."]]}
+  };
   const dlg=document.getElementById('case'); if(!dlg) return;
   const $=id=>document.getElementById(id); let opener=null;
   function open(k){
     const paper=PAPERS[k], c=CASES[k]||paper; if(!c) return;
-    dlg.classList.toggle('blue',!!paper);
+    dlg.classList.toggle('blue',!!paper); dlg.classList.remove('stepmode');
     const artEl=$('case-art'); artEl.innerHTML=ART[k]||'';
     if(matchMedia('(prefers-reduced-motion: reduce)').matches) artEl.querySelectorAll('animate,animateMotion,animateTransform').forEach(a=>a.remove());
     $('case-kicker').textContent=c.k; $('case-title').textContent=c.t;
@@ -891,6 +924,23 @@ route();
     dlg.showModal();
   }
   function close(){dlg.close();}
+
+  function openStep(pk,i){
+    const P=STEPS[pk]; if(!P) return; const st=P.s[i];
+    dlg.classList.add('blue'); dlg.classList.add('stepmode');
+    const artEl=$('case-art'); artEl.innerHTML=ART[pk]||'';
+    if(matchMedia('(prefers-reduced-motion: reduce)').matches) artEl.querySelectorAll('animate,animateMotion,animateTransform').forEach(a=>a.remove());
+    $('case-kicker').textContent=P.t+' · '+st[0]; $('case-title').textContent=st[1];
+    $('case-line').hidden=false; $('case-line').textContent=st[2];
+    $('case-ba').hidden=true; $('case-out').hidden=true; $('case-out-h').hidden=true;
+    $('case-flow-h').textContent='Where this fits in the paper';
+    $('case-flow').innerHTML=P.s.map(([k,v],j)=>`<li class="${j===i?'cur':''}" style="--i:${j}"><div class="fn"><em>${k}</em><b>${v}</b></div><span class="ar" aria-hidden="true">→</span></li>`).join('');
+    $('case-x').setAttribute('aria-label','Close');
+    dlg.querySelector('.case-in').scrollTop=0;
+    document.documentElement.style.overflow='hidden';
+    dlg.showModal();
+  }
+  document.addEventListener('click',e=>{const b=e.target.closest('[data-step]');if(b){opener=b;openStep(b.dataset.pk,+b.dataset.step);}});
   dlg.addEventListener('close',()=>{document.documentElement.style.overflow='';if(opener)opener.focus();});
   $('case-x').addEventListener('click',close);
   dlg.addEventListener('click',e=>{if(e.target===dlg)close();});
