@@ -562,6 +562,23 @@ dialog.case{border-radius:0!important;border:1.5px solid #14181F!important;box-s
 .mm.g{background:var(--sticky-g)}.mm.y{background:var(--sticky-y)}.mm.p{background:var(--sticky-p)}.mm.bl{background:#DCE6FF}
 @media (prefers-reduced-motion:no-preference){.mind-nodes.on .mm.leaf b{display:inline-block;animation:bob 3s ease-in-out infinite;animation-delay:var(--bob)}}
 @media (max-width:640px){.mind{height:620px}.mm.me{padding:10px 14px}.mm.me span{display:none}.mm.cat{font-size:17px}.mm.leaf{font-size:13.5px}}
+.bcard .row{flex-wrap:nowrap}
+.bcard .row h3{margin-right:auto}
+.gh{flex:0 0 auto;display:grid;place-items:center;width:36px;height:36px;background:#fff;border:1.5px solid #14181F;box-shadow:3px 3px 0 var(--green);color:#14181F;transition:transform 60ms}
+.gh svg{width:20px;height:20px;fill:currentColor}
+.gh:hover{transform:translate(-1px,-1px)}
+.gh:active{transform:translate(3px,3px);box-shadow:none}
+.bnext{display:flex;gap:10px;align-items:baseline;font-size:14px;padding:10px 12px;background:#F2FAF5;border-left:3px solid var(--green)}
+.bnext span{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--green);white-space:nowrap}
+.v-personal .cta.neo{--face:var(--green);--edge-r:#5DBA8C;--edge-b:#0D4A2E;--line:#0A3321;margin:4px 0 0}
+.status.soon::before{background:#E0A21B}
+dialog.case.green .case-h::before{background:var(--green);box-shadow:0 0 0 4px #E3F4EA}
+dialog.case.green .case-line{border-left-color:var(--green)}
+dialog.case.green .case-kicker{color:var(--green)}
+.case-art:empty{display:none}
+@media (max-width:600px){.bcard .row{flex-direction:row;align-items:center}.v-personal .cta.neo{width:calc(100% - var(--d));text-align:center}}
+dialog.case.green{box-shadow:10px 10px 0 var(--green)!important}
+dialog.case.green .case-x.neo{--edge-r:#BFE3CF;--edge-b:var(--green)}
 footer{border-top:2px solid var(--ink);padding-block:28px 48px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
 footer a{font-family:var(--mono)}
 
@@ -804,7 +821,7 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
       </svg></div>
     <div class="builds">
       <article class="bcard">
-        <div class="row"><h3>AI Job Search Agent</h3><span class="status">Runs daily · 7 PM IST</span></div>
+        <div class="row"><h3>AI Job Search Agent</h3><span class="status">Runs daily · 7 PM IST</span><a class="gh" href="https://github.com/sushant17112000/ai-job-agent" target="_blank" rel="noopener" aria-label="Open the GitHub repo" title="GitHub repo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.39-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg></a></div>
         <p>My job hunt, on autopilot.</p>
         <div class="pipe" aria-label="Pipeline: CV, scrape, score, rank, report">
           <span class="node">CV</span><span class="wire"></span><span class="node">8 scrapers</span><span class="wire"></span><span class="node hot">LLM score</span><span class="wire"></span><span class="node">Top 100</span><span class="wire"></span><span class="node">Excel report</span>
@@ -815,11 +832,12 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
           <div><b>≥60</b><span>cut-off</span></div>
         </div>
         <div class="tags"><span class="tag">Python</span><span class="tag">Playwright</span><span class="tag">LLM</span><span class="tag">GitHub Actions</span></div>
-        <a class="repo" href="https://github.com/sushant17112000/ai-job-agent" target="_blank" rel="noopener">View repo ↗</a>
+        <div class="bnext"><span>Next up</span>Adding telemetry to trace every run, step by step.</div>
+        <button type="button" class="cta neo" data-build="agent">View details <span aria-hidden="true">→</span></button>
       </article>
 
       <article class="bcard">
-        <div class="row"><h3>SAATHI</h3><span class="status">Live · pilot</span></div>
+        <div class="row"><h3>SAATHI</h3><span class="status soon">Pilot · launching by 30 Nov</span></div>
         <p>"What do I bring to the branch?" Answered on WhatsApp.</p>
         <div class="pipe" aria-label="Conversation: choose bank, choose service, documents, online or branch">
           <span class="node">Hi</span><span class="wire"></span><span class="node">Pick bank</span><span class="wire"></span><span class="node">Pick service</span><span class="wire"></span><span class="node hot">Documents</span><span class="wire"></span><span class="node">Online or branch</span>
@@ -830,7 +848,8 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
           <div><b>4</b><span>chat states</span></div>
         </div>
         <div class="tags"><span class="tag">FastAPI</span><span class="tag">SQLite</span><span class="tag">WhatsApp Cloud API</span></div>
-        <a class="repo" href="https://github.com/sushant17112000" target="_blank" rel="noopener">View on GitHub ↗</a>
+        <div class="bnext"><span>Next up</span>Public launch before 30 November.</div>
+        <button type="button" class="cta neo" data-build="saathi">View details <span aria-hidden="true">→</span></button>
       </article>
     </div>
   </section>
@@ -1063,7 +1082,7 @@ route();
   const $=id=>document.getElementById(id); let opener=null;
   function open(k){
     const paper=PAPERS[k], c=CASES[k]||paper; if(!c) return;
-    dlg.classList.toggle('blue',!!paper); dlg.classList.remove('stepmode');
+    dlg.classList.toggle('blue',!!paper); dlg.classList.remove('stepmode','green');
     const artEl=$('case-art'); artEl.innerHTML=ART[k]||'';
     if(matchMedia('(prefers-reduced-motion: reduce)').matches) artEl.querySelectorAll('animate,animateMotion,animateTransform').forEach(a=>a.remove());
     $('case-kicker').textContent=c.k; $('case-title').textContent=c.t;
@@ -1081,7 +1100,7 @@ route();
 
   function openStep(pk,i){
     const P=STEPS[pk]; if(!P) return; const st=P.s[i];
-    dlg.classList.add('blue'); dlg.classList.add('stepmode');
+    dlg.classList.remove('green'); dlg.classList.add('blue'); dlg.classList.add('stepmode');
     const artEl=$('case-art'); artEl.innerHTML=ART[pk]||'';
     if(matchMedia('(prefers-reduced-motion: reduce)').matches) artEl.querySelectorAll('animate,animateMotion,animateTransform').forEach(a=>a.remove());
     $('case-kicker').textContent=P.t+' · '+st[0]; $('case-title').textContent=st[1];
@@ -1095,6 +1114,30 @@ route();
     dlg.showModal();
   }
   document.addEventListener('click',e=>{const b=e.target.closest('[data-step]');if(b){opener=b;openStep(b.dataset.pk,+b.dataset.step);}});
+
+  const BUILDS={
+    agent:{k:"Personal build · Runs daily at 7 PM IST",t:"AI Job Search Agent",
+      line:"A daily pipeline that reads my CV, scans eight job portals at once and has an LLM score every listing against my profile. The best matches land in a colour-coded Excel report in the repo, with zero manual effort.",
+      flow:[["in","Trigger","GitHub Actions cron","Every day, 7 PM IST"],["proc","Step 1","CV parser","pdfplumber + Llama 3.3 → JSON profile"],["proc","Step 2","8 scrapers in parallel","Playwright browsers + job APIs"],["gate","Step 3","Merge and de-duplicate","Normalised job URLs"],["gate","Step 4","LLM fit score 0–100","Batches of 10, drop below 60"],["out","Step 5","Top 100 report","Colour-coded Excel, apply links"],["out","Step 6","Committed to the repo","Ready each evening"],["proc alt","Next up","Telemetry","Trace every run, step by step"]]},
+    saathi:{k:"Personal build · Pilot, public launch before 30 Nov",t:"SAATHI",
+      line:"A WhatsApp bot for the question every branch visitor has: what do I need to bring? Pick a bank and a service, and it replies with the documents, whether it can be done online, and what to sort out first.",
+      flow:[["in","Start","Customer says hi","On WhatsApp"],["proc","Channel","Meta WhatsApp Cloud API","Webhook to the backend"],["proc","Backend","FastAPI service","4-state conversation"],["gate","State 1","Pick a bank","10 banks"],["gate","State 2","Pick a service","15 request types"],["proc","Lookup","SQLite rules","Documents, channel, prerequisites"],["out","Reply","Documents + online or branch","Sent back on WhatsApp"],["proc alt","Next up","Public launch","Before 30 November"]]}
+  };
+  function openBuild(k){
+    const c=BUILDS[k]; if(!c) return;
+    dlg.classList.remove('blue','stepmode'); dlg.classList.add('green');
+    $('case-art').innerHTML='';
+    $('case-kicker').textContent=c.k; $('case-title').textContent=c.t;
+    $('case-line').hidden=false; $('case-line').textContent=c.line;
+    $('case-ba').hidden=true; $('case-out').hidden=true; $('case-out-h').hidden=true;
+    $('case-flow-h').textContent='System design';
+    $('case-flow').innerHTML=c.flow.map(([cls,e,b,sp],i)=>`<li class="${cls}" style="--i:${i}"><div class="fn"><em>${e}</em><b>${b}</b><span>${sp}</span></div><span class="ar" aria-hidden="true">→</span></li>`).join('');
+    $('case-x').setAttribute('aria-label','Close');
+    dlg.querySelector('.case-in').scrollTop=0;
+    document.documentElement.style.overflow='hidden';
+    dlg.showModal();
+  }
+  document.addEventListener('click',e=>{const b=e.target.closest('[data-build]');if(b){opener=b;openBuild(b.dataset.build);}});
   dlg.addEventListener('close',()=>{document.documentElement.style.overflow='';if(opener)opener.focus();});
   $('case-x').addEventListener('click',close);
   dlg.addEventListener('click',e=>{if(e.target===dlg)close();});
