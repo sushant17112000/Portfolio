@@ -480,6 +480,25 @@ dialog.case{border-radius:0!important;border:1.5px solid #14181F!important;box-s
 .work.bento .wcard:nth-child(2) .cfoot,.work.bento .wcard:nth-child(3) .cfoot{flex-direction:column;align-items:stretch;gap:12px}
 .work.bento .wcard:nth-child(2) .cfoot .cta.neo,.work.bento .wcard:nth-child(3) .cfoot .cta.neo{text-align:center}
 @media (max-width:600px){.wcard .cfoot .impact{order:0}.wcard .cfoot .cta.neo{order:1}}
+.sky-svg .branch{fill:none;stroke-width:1.4;stroke-linecap:round;stroke-dasharray:none;opacity:.9}
+.sky-svg .hub-ring{stroke-width:1.5;stroke-dasharray:3 3;opacity:.7}
+.sky-labels .lb.hub b{font-size:17px;color:var(--cobalt)}
+.sky-labels .lb.proj b{font-size:13.5px}
+.sky-labels .lb.proj em{color:var(--muted)}
+.sky-labels .lb.side{flex-direction:column;gap:0;align-items:flex-start}
+/* internship tile */
+.intern{grid-column:1/-1;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:8px 24px;padding:16px 20px;background:#F2FAF7;border:1.5px solid #14181F;position:relative;isolation:isolate;--d:6px;margin-right:var(--d);margin-bottom:var(--d)}
+.intern::before,.intern::after{content:"";position:absolute;left:-1.5px;top:-1.5px;width:calc(100% + 3px + var(--d));height:calc(100% + 3px + var(--d));z-index:-1;pointer-events:none}
+.intern::before{background:#9FD9C6;clip-path:polygon(calc(100% - var(--d)) 0,100% var(--d),100% 100%,calc(100% - var(--d)) calc(100% - var(--d)))}
+.intern::after{background:#12968A;clip-path:polygon(0 calc(100% - var(--d)),calc(100% - var(--d)) calc(100% - var(--d)),100% 100%,var(--d) 100%)}
+.intern .ih{display:flex;flex-direction:column;gap:4px}
+.intern .ik{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:#12968A;padding:3px 8px;align-self:flex-start}
+.intern h3{font-size:19px;font-weight:600}
+.intern .id{font-family:var(--mono);font-size:12px;color:#0F7A6F}
+.intern p{font-size:14.5px;color:var(--ink)}
+.intern ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end;max-width:300px}
+.intern li{font-size:12px;padding:2px 8px;border:1px solid #9FD9C6;background:#fff;color:#0F7A6F}
+@media (max-width:880px){.intern{grid-template-columns:1fr}.intern ul{justify-content:flex-start;max-width:none}}
 footer{border-top:2px solid var(--ink);padding-block:28px 48px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
 footer a{font-family:var(--mono)}
 
@@ -600,7 +619,7 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
 
 <main class="wrap" id="top">
   <div class="view v-pro">
-  <header class="sky" aria-label="Career milestones drawn as a constellation, connected from 2018 to now">
+  <header class="sky" aria-label="Career path from 2018 to Bandhan Bank, with Bandhan projects branching out">
     <svg class="sky-svg" id="sky-svg" aria-hidden="true"></svg>
     <div class="sky-labels" id="sky-labels"></div>
   </header>
@@ -644,6 +663,11 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
           <p class="role"><span>My role</span>Project coordination · UAT testing · Collaboration</p>
           <div class="cfoot"><div class="impact"><b>24×7</b><span>onboarding, no live agent</span></div><button type="button" class="cta neo" data-case="vkyc">View project <span aria-hidden="true">→</span></button></div>
         </div>
+      </article>
+      <article class="intern" aria-label="Internship at Attryb Tech">
+        <div class="ih"><span class="ik">Internship</span><h3>Attryb Tech</h3><span class="id">Product Marketing Intern · Apr–Jun 2023</span></div>
+        <p>Led go-to-market strategy and pre-product work for a live shopping platform.</p>
+        <ul><li>Market research</li><li>Competitor analysis</li><li>Feature definition</li><li>UI/UX wireframes</li></ul>
       </article>
     </div>
   </section>
@@ -900,59 +924,58 @@ route();
 (function(){
   const svg=document.getElementById('sky-svg'), lab=document.getElementById('sky-labels'); if(!svg) return;
   const NS='http://www.w3.org/2000/svg';
+  // path: education and internship lead to Bandhan Bank; projects branch out of Bandhan
   const M=[
-    ['2018','BMS College of Engineering','#6C4FD8'],
-    ['2022','IMT Ghaziabad','#12968A'],
-    ['2023','Attryb Tech','#D6457A'],
-    ['2024','Bandhan Bank','#E0A21B'],
-    ['Grievance','Complaint automation','#2346D6'],
-    ['IVR','61% fewer disconnects','#D6457A'],
-    ['RBI sandbox','Video KYC','#12968A'],
-    ['Now','SPECTRUM','#2346D6']
+    ['2018','BMS College of Engineering','#6C4FD8','edu'],
+    ['2022','IMT Ghaziabad','#12968A','edu'],
+    ['2023 · Internship','Attryb Tech','#D6457A','edu'],
+    ['2024 → now','Bandhan Bank','#2346D6','hub'],
+    ['Project','Grievance Redressal','#6C4FD8','proj'],
+    ['Project','IVR Revamp','#D6457A','proj'],
+    ['Project','RBI V-KYC Sandbox','#12968A','proj'],
+    ['Project · now','SPECTRUM','#E0A21B','proj']
   ];
-  const WIDE=[[7,54,0],[20,28,1],[32,54,0],[45,26,1],[56,52,0],[68,28,1],[79,54,0],[91,26,1]];
-  const NARROW=[[12,6,0],[26,15,0],[12,24,0],[26,35,0],[12,45,0],[26,55,0],[12,65,0],[26,75,0]];
+  // [x%, y%, labelUp]
+  const WIDE=[[5,64,0],[17,28,1],[33,66,0],[48,48,1],[66,20,1],[86,24,1],[66,80,0],[86,74,0]];
+  const NARROW=[[12,6,0],[26,16,0],[12,26,0],[26,38,0],[44,52,0],[44,63,0],[44,74,0],[44,85,0]];
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   let timer;
+  function mk(tag,attrs){const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);return e;}
   function build(){
     clearTimeout(timer);
     const w=svg.clientWidth,h=svg.clientHeight; if(!w) return;
+    const narrow=w<640;
     svg.setAttribute('viewBox',`0 0 ${w} ${h}`); svg.innerHTML=''; lab.innerHTML='';
-    const pos=(w<640?NARROW:WIDE).map(([x,y,up])=>[x/100*w,y/100*h,up]);
+    const pos=(narrow?NARROW:WIDE).map(([x,y,up])=>[x/100*w,y/100*h,up]);
     let seed=7; const rnd=()=>(seed=(seed*9301+49297)%233280)/233280;
-    for(let i=0;i<70;i++){const c=document.createElementNS(NS,'circle');c.setAttribute('class','bg');c.setAttribute('cx',rnd()*w);c.setAttribute('cy',rnd()*h);c.setAttribute('r',rnd()*1.3+.4);c.style.animationDelay=(rnd()*3)+'s';svg.appendChild(c);}
-    const links=[];
-    for(let i=0;i<pos.length-1;i++){
-      const l=document.createElementNS(NS,'line');const [x1,y1]=pos[i],[x2,y2]=pos[i+1];
-      l.setAttribute('x1',x1);l.setAttribute('y1',y1);l.setAttribute('x2',x2);l.setAttribute('y2',y2);
-      l.setAttribute('class','link');l.setAttribute('stroke',M[i+1][2]);
-      const len=Math.hypot(x2-x1,y2-y1);l.style.strokeDasharray=len;l.style.strokeDashoffset=reduce?0:len;l.dataset.len=len;
-      svg.appendChild(l);links.push(l);
-    }
+    for(let i=0;i<70;i++){const c=mk('circle',{class:'bg',cx:rnd()*w,cy:rnd()*h,r:rnd()*1.3+.4});c.style.animationDelay=(rnd()*3)+'s';svg.appendChild(c);}
+    const chain=[],branches=[];
+    function line(d,color,cls){const p=mk('path',{d,class:cls,stroke:color});svg.appendChild(p);const len=p.getTotalLength();p.style.strokeDasharray=len;p.style.strokeDashoffset=reduce?0:len;p.dataset.len=len;return p;}
+    for(let i=0;i<3;i++){const [x1,y1]=pos[i],[x2,y2]=pos[i+1];chain.push(line(`M${x1} ${y1} L${x2} ${y2}`,M[i+1][2],'link'));}
+    const [hx,hy]=pos[3];
+    for(let i=4;i<8;i++){const [x,y]=pos[i];let d;
+      if(narrow){d=`M${hx} ${hy} L${hx} ${y} L${x} ${y}`;}
+      else{const cx=hx+(x-hx)*.45;d=`M${hx} ${hy} C${cx} ${hy} ${cx} ${y} ${x} ${y}`;}
+      branches.push(line(d,M[i][2],'branch'));}
     pos.forEach(([x,y,up],i)=>{
-      const g=document.createElementNS(NS,'g');
-      const halo=document.createElementNS(NS,'circle');halo.setAttribute('class','halo');halo.setAttribute('cx',x);halo.setAttribute('cy',y);halo.setAttribute('r',i===pos.length-1?16:12);halo.setAttribute('fill',M[i][2]);
-      const st=document.createElementNS(NS,'circle');st.setAttribute('class','star');st.setAttribute('cx',x);st.setAttribute('cy',y);st.setAttribute('r',i===pos.length-1?7:5.5);st.setAttribute('fill',M[i][2]);
-      g.append(halo,st);svg.appendChild(g);
+      const kind=M[i][3], r=kind==='hub'?9:kind==='proj'?4.5:5.5;
+      const g=mk('g',{});
+      if(kind==='hub'){g.appendChild(mk('circle',{class:'hub-ring',cx:x,cy:y,r:17,fill:'none',stroke:M[i][2]}));}
+      g.appendChild(mk('circle',{class:'halo',cx:x,cy:y,r:r+7,fill:M[i][2]}));
+      g.appendChild(mk('circle',{class:'star',cx:x,cy:y,r,fill:M[i][2]}));
+      svg.appendChild(g);
       const d=document.createElement('div');const xp=x/w;
-      d.className='lb'+(w<640?' side':(xp<.15?' l':xp>.85?' r':'')+(up?' up':''));
-      d.style.left=(w<640?(0.36*w):x)+'px';d.style.top=y+'px';
+      d.className='lb '+kind+(narrow?' side':(xp<.15?' l':xp>.85?' r':'')+(up?' up':''));
+      d.style.left=(narrow?(kind==='proj'?x+16:0.36*w):x)+'px';d.style.top=y+'px';
       d.innerHTML=`<em>${M[i][0]}</em><b>${M[i][1]}</b>`;lab.appendChild(d);
     });
-    const narrow=w<640, b1=pos[3];
-    const band=document.createElementNS(NS,'rect'); band.setAttribute('class','era');
-    if(!narrow){const x=b1[0]-46; band.setAttribute('x',x);band.setAttribute('y',14);band.setAttribute('width',w-x-14);band.setAttribute('height',h-28);}
-    else{const y=b1[1]-26; band.setAttribute('x',10);band.setAttribute('y',y);band.setAttribute('width',w-20);band.setAttribute('height',h-y-10);}
-    band.setAttribute('rx',0); svg.insertBefore(band,svg.firstChild);
-    const ld=document.createElement('div'); ld.className='era-label'+(narrow?' n':'');
-    ld.innerHTML='<b>Worked with Bandhan Bank\'s senior leadership closely.</b>';
-    if(!narrow){ld.style.left=(b1[0]-26)+'px';ld.style.bottom='30px';}else{ld.style.left='26px';ld.style.bottom='24px';}
-    lab.appendChild(ld);
     if(reduce) return;
     let k=0;
+    function draw(p,ms){p.animate([{strokeDashoffset:p.dataset.len},{strokeDashoffset:0}],{duration:ms,easing:'ease-out',fill:'forwards'});}
     function step(){
-      if(k<links.length){const l=links[k++];l.animate([{strokeDashoffset:l.dataset.len},{strokeDashoffset:0}],{duration:650,easing:'ease-out',fill:'forwards'});timer=setTimeout(step,650);}
-      else timer=setTimeout(()=>{links.forEach(l=>l.animate([{strokeDashoffset:0},{strokeDashoffset:l.dataset.len}],{duration:700,easing:'ease-in',fill:'forwards'}));k=0;timer=setTimeout(step,1100);},3200);
+      if(k<chain.length){draw(chain[k++],600);timer=setTimeout(step,600);}
+      else if(k===chain.length){k++;branches.forEach((b,j)=>setTimeout(()=>draw(b,700),j*140));timer=setTimeout(step,1400);}
+      else timer=setTimeout(()=>{[...chain,...branches].forEach(l=>l.animate([{strokeDashoffset:0},{strokeDashoffset:l.dataset.len}],{duration:700,easing:'ease-in',fill:'forwards'}));k=0;timer=setTimeout(step,1100);},3000);
     }
     timer=setTimeout(step,400);
   }
