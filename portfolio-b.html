@@ -504,6 +504,28 @@ dialog.case{border-radius:0!important;border:1.5px solid #14181F!important;box-s
   .v-personal .repo{align-self:stretch;text-align:center}
   .hop-btn{padding:10px 14px;gap:10px}.hop-btn b{font-size:16px}
 }
+/* work card: footer band holds the number and the button, no dead space */
+.wcard .top{padding-bottom:0}
+.wcard .cfoot{margin:auto -20px 0;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;background:linear-gradient(90deg,#F6F8FF,#FFF8EA);border-top:1px solid #DCE3FA}
+.wcard .cfoot .impact{border-top:0;padding:0;margin:0;flex-wrap:wrap;row-gap:2px;min-width:0}
+.wcard .cfoot .cta.neo{margin:0 var(--d) var(--d) 0;flex:0 0 auto}
+.wcard .role{padding-bottom:4px}
+@media (max-width:600px){
+  .wcard .cfoot{order:7;margin:6px -18px 0;padding:14px 18px 16px;flex-direction:column;align-items:stretch;gap:12px}
+  .wcard .cfoot .cta.neo{width:calc(100% - var(--d));margin:0 var(--d) var(--d) 0}
+}
+.wcard .cfoot .impact{flex-direction:column;align-items:flex-start;gap:4px}
+.wcard .cfoot .impact b{font-size:40px;line-height:1}
+.work.bento .wcard:nth-child(1) .cfoot .impact b{font-size:56px}
+.work.bento .wcard:nth-child(2) .cfoot,.work.bento .wcard:nth-child(3) .cfoot{flex-direction:column;align-items:stretch;gap:12px}
+.work.bento .wcard:nth-child(2) .cfoot .cta.neo,.work.bento .wcard:nth-child(3) .cfoot .cta.neo{text-align:center}
+@media (max-width:600px){.wcard .cfoot .impact{order:0}.wcard .cfoot .cta.neo{order:1}}
+@media (min-width:881px){
+  .work.bento .wcard:nth-child(1) .top,.work.bento .wcard:nth-child(4) .top{display:grid;grid-template-columns:minmax(0,1fr) 260px;grid-template-rows:auto auto auto 1fr;column-gap:24px;padding-right:0;padding-bottom:20px}
+  .work.bento .wcard:nth-child(1) .top>*:not(.cfoot),.work.bento .wcard:nth-child(4) .top>*:not(.cfoot){grid-column:1}
+  .work.bento .wcard:nth-child(1) .cfoot,.work.bento .wcard:nth-child(4) .cfoot{grid-column:2;grid-row:1 / -1;margin:-20px 0 -20px;padding:20px;flex-direction:column;align-items:stretch;justify-content:center;gap:16px;border-top:0;border-left:1px solid #DCE3FA;align-self:stretch}
+  .work.bento .wcard:nth-child(1) .cfoot .cta.neo,.work.bento .wcard:nth-child(4) .cfoot .cta.neo{text-align:center}
+}
 footer{border-top:2px solid var(--ink);padding-block:28px 48px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
 footer a{font-family:var(--mono)}
 
@@ -639,9 +661,8 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
           <h3>SPECTRUM</h3>
           <p class="sum">CX data lakehouse</p>
           <p class="role"><span>My role</span>Strategy · Project coordination · System design &amp; architecture</p>
-          <div class="impact"><b>₹17.7L</b><span>a year, projected savings</span></div>
+          <div class="cfoot"><div class="impact"><b>₹17.7L</b><span>a year, projected savings</span></div><button type="button" class="cta neo" data-case="spectrum">View project <span aria-hidden="true">→</span></button></div>
         </div>
-        <button type="button" class="cta neo" data-case="spectrum">View project <span aria-hidden="true">→</span></button>
       </article>
       <article class="wcard">
         <div class="top">
@@ -649,9 +670,8 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
           <h3>IVR Revamp</h3>
           <p class="sum">Contact centre transformation</p>
           <p class="role"><span>My role</span>Strategy · BRD · UAT · Project management</p>
-          <div class="impact"><b>61%</b><span>fewer disconnects</span></div>
+          <div class="cfoot"><div class="impact"><b>61%</b><span>fewer disconnects</span></div><button type="button" class="cta neo" data-case="ivr">View project <span aria-hidden="true">→</span></button></div>
         </div>
-        <button type="button" class="cta neo" data-case="ivr">View project <span aria-hidden="true">→</span></button>
       </article>
       <article class="wcard">
         <div class="top">
@@ -659,9 +679,8 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
           <h3>Grievance Redressal</h3>
           <p class="sum">Complaint automation, bank-wide</p>
           <p class="role"><span>My role</span>Strategy · Project coordination</p>
-          <div class="impact"><b>Manual→Auto</b><span>complaint handling</span></div>
+          <div class="cfoot"><div class="impact"><b>Manual→Auto</b><span>complaint handling</span></div><button type="button" class="cta neo" data-case="grievance">View project <span aria-hidden="true">→</span></button></div>
         </div>
-        <button type="button" class="cta neo" data-case="grievance">View project <span aria-hidden="true">→</span></button>
       </article>
       <article class="wcard">
         <div class="top">
@@ -669,9 +688,8 @@ body:has(#app[data-view="personal"]){background-color:var(--paper);background-im
           <h3>RBI Sandbox: V-KYC</h3>
           <p class="sum">AI-based unassisted video KYC</p>
           <p class="role"><span>My role</span>Project coordination · UAT testing · Collaboration</p>
-          <div class="impact"><b>24×7</b><span>onboarding, no live agent</span></div>
+          <div class="cfoot"><div class="impact"><b>24×7</b><span>onboarding, no live agent</span></div><button type="button" class="cta neo" data-case="vkyc">View project <span aria-hidden="true">→</span></button></div>
         </div>
-        <button type="button" class="cta neo" data-case="vkyc">View project <span aria-hidden="true">→</span></button>
       </article>
     </div>
   </section>
