@@ -965,12 +965,7 @@ const IDEAS=[
   {id:"crosscut",k:"Build",big:1,s:"Building",i:"film",i2:"debate",pat:"film",c:"y",t:"Crosscut",tag:"Consumer product",
    x:"A film database for cinephiles, with structured two-person debates on the films themselves.",
    line:"Crosscut pairs a proper film database, like IMDb, with structured written debates between two people, like Pairagraph. Two viewers take sides on a film and argue it out in rounds, so every title page carries real criticism instead of star ratings.",
-   flow:[["in","Discover","Film database","Titles, cast, crews, lists"],["proc","Pick a side","Open a debate","Two people, one film"],["gate","Rounds","Structured arguments","Opening, rebuttal, close"],["out","Readers","Vote and follow","Best debates surface"],["out","Result","A home for film talk","Delta 4 over today's apps"]],
-   note:"Product rule: it has to be at least four times better than what exists, or nobody switches."},
-  {id:"traffic",k:"Build",s:"Proposed · with government",i:"signal",pat:"stripe",c:"y",t:"Traffic pattern study",tag:"Collaborative study",
-   x:"A proposed study with the government: read driver behaviour at signals, then nudge it to ease jams.",
-   line:"A collaborative study proposed with the government. Machine learning models read traffic signal and camera data to understand how drivers actually behave at jam-prone junctions, then design small nudges in road markings and signal timing that steer that behaviour and ease the jam.",
-   flow:[["in","Data","Signals and cameras","Timings, queues, flows"],["proc","Model","Machine learning","Patterns in driver behaviour"],["gate","Insight","Why jams form","Merges, lane hops, signal gaps"],["proc","Design","Behavioural nudges","Markings, cues, signal timing"],["out","Pilot","Test at hotspots","With the city traffic police"],["out","Result","Shorter jams","Measured before and after"]]},
+   flow:[["in","Discover","Film database","Titles, cast, crews, lists"],["proc","Pick a side","Open a debate","Two people, one film"],["gate","Rounds","Structured arguments","Opening, rebuttal, close"],["out","Readers","Vote and follow","Best debates surface"],["out","Result","A home for film talk","Real criticism on every title"]]},
   {id:"kya",k:"Write",s:"Planned",i:"agent",pat:"grid",c:"p",t:"Know Your Agent (KYA)",tag:"AI governance",
    x:"KYC verifies the customer. KYA is a protocol to identify, understand and trust the AI agents acting for them.",
    line:"As AI agents start opening accounts, paying bills and negotiating for people, banks need to know who or what is on the other side. KYA is a framework and protocol, modelled on KYC, to identify an agent, understand what it is allowed to do, and hold someone accountable for it.",
@@ -1004,8 +999,7 @@ function draw(k){
       <span class="it-tag">${o.k==='Build'?'Build':'Study'} · ${o.tag}</span>
       <b>${o.t}</b><span class="it-x">${o.x}</span>
       ${o.big?`<span class="it-debate" aria-hidden="true"><span class="bub a"><em>Side A · Round 2</em>The ending earns its silence.</span><span class="vs">vs</span><span class="bub b"><em>Side B · Round 2</em>The ending leaves the story unfinished.</span></span>
-      <span class="it-feat"><i>Film database</i><i>Two-person debates</i><i>Timed rounds</i><i>Reader votes</i></span>
-      <span class="it-rule"><em>Product rule</em>At least four times better than what exists, or nobody switches.</span>`:''}
+      <span class="it-feat"><i>Film database</i><i>Two-person debates</i><i>Timed rounds</i><i>Reader votes</i></span>`:''}
       <span class="it-go">Open ↗</span>
     </button>`).join('');
 }
@@ -1241,8 +1235,7 @@ route();
     ['s1','AI job agent','leaf g','s',[8,10],[72,16]],
     ['s2','SAATHI bot','leaf g','s',[30,8],[72,25]],
     ['b','Building','cat y','me',[80,28],[30,42]],
-    ['b1','Crosscut','leaf y','b',[68,8],[72,37]],
-    ['b2','Traffic study','leaf y','b',[92,10],[72,46]],
+    ['b1','Crosscut','leaf y','b',[80,8],[72,42]],
     ['w','Studies','cat p','me',[50,82],[30,66]],
     ['w1','Know Your Agent','leaf p','w',[22,90],[72,58]],
     ['w2','Voice AI','leaf p','w',[34,70],[72,65]],
